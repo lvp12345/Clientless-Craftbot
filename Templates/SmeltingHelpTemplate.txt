@@ -1,0 +1,55 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT SMELTING PROCESSING         </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Precious Metal Reclaimer</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMPLETE ITEM LIST (21 TYPES) ===</font>
+
+<font color=#00BDBD>GOLD ITEMS:</font>
+<font color=#FFFFFF>- Golden Bracer</font> <font color=#888888>-></font> <font color=#FFD700>Reclaimed Gold</font>
+<font color=#FFFFFF>- Golden Nugget</font> <font color=#888888>-></font> <font color=#FFD700>Reclaimed Gold</font>
+<font color=#FFFFFF>- Golden Ring</font> <font color=#888888>-></font> <font color=#FFD700>Reclaimed Gold</font>
+<font color=#FFFFFF>- Golden Sphere</font> <font color=#888888>-></font> <font color=#FFD700>Reclaimed Gold</font>
+
+<font color=#00BDBD>SILVER ITEMS:</font>
+<font color=#FFFFFF>- Silver Nugget</font> <font color=#888888>-></font> <font color=#C0C0C0>Reclaimed Silver</font>
+
+<font color=#00BDBD>BRACERS & BRACELETS:</font>
+<font color=#FFFFFF>- Bracer of Reflection - Elements</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Bracer of Shielding - Elements</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Bracelet of Ka</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+
+<font color=#00BDBD>RINGS - GENERAL:</font>
+<font color=#FFFFFF>- Engagement Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Flower Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Marriage Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- OT Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Pink Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Snake Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Toe-Ring</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+
+<font color=#00BDBD>RINGS - SPECIAL TYPES:</font>
+<font color=#FFFFFF>- Ring of Luck - Defensive</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Ring of Luck - Offensive</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Ring of Power - Elements</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Ring of Suffering</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+<font color=#FFFFFF>- Ring of Zern</font> <font color=#888888>-></font> <font color=#00FF00>Reclaimed Metal</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#FFD700>- Reclaimed Gold</font> <font color=#888888>(from golden items)</font>
+<font color=#C0C0C0>- Reclaimed Silver</font> <font color=#888888>(from silver items)</font>
+<font color=#00FF00>- Reclaimed Metal</font> <font color=#888888>(from other jewelry)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+">Smelting Processing Guide</a>

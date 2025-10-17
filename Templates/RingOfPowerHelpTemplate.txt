@@ -1,0 +1,79 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>    CRAFTBOT RING OF POWER PROCESSING (4 STEPS)</font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- No special tools required</font>
+<font color=#888888>  (Ring of Power items combine directly)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== REQUIRED MATERIALS ===</font>
+<font color=#FF6600>- Ring of Power - Melee</font>
+<font color=#FF9900>- Ring of Power - Projectiles</font>
+<font color=#FFCC00>- Ring of Power - Elements</font>
+<font color=#FFFF00>- Ring of Power - Energy</font>
+<font color=#00FFFF>- Ring of Power - Physics</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RING OF POWER PROCESSING STEPS ===</font>
+
+<font color=#00BDBD>STEP 1: KINETIC CREATION</font>
+<font color=#FFFFFF>- Ring of Power - Melee + Ring of Power - Projectiles</font>
+<font color=#888888>  -></font> <font color=#FFD700>Ring of Power - Kinetic</font>
+
+<font color=#00BDBD>STEP 2: BURNING FORCE CREATION</font>
+<font color=#FFFFFF>- Ring of Power - Elements + Ring of Power - Kinetic</font>
+<font color=#888888>  -></font> <font color=#FF6600>Ring of Power - Burning Force</font>
+
+<font color=#00BDBD>STEP 3: ENERGIZED PHYSICS CREATION</font>
+<font color=#FFFFFF>- Ring of Power - Energy + Ring of Power - Physics</font>
+<font color=#888888>  -></font> <font color=#00FFFF>Ring of Power - Energized Physics</font>
+
+<font color=#00BDBD>STEP 4: ULTIMATE FORCE CREATION</font>
+<font color=#FFFFFF>- Ring of Power - Energized Physics + Ring of Power - Burning Force</font>
+<font color=#888888>  -></font> <font color=#00FF00>RING OF POWER - ULTIMATE FORCE</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING FEATURES ===</font>
+<font color=#00FF00>- Can start from ANY step in the process</font>
+<font color=#00FF00>- Automatically detects current stage</font>
+<font color=#00FF00>- Continues from where you left off</font>
+<font color=#00FF00>- No tools required - items combine directly</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== EXAMPLE SCENARIOS ===</font>
+
+<font color=#00BDBD>SCENARIO 1: FULL PROCESSING</font>
+<font color=#FFFFFF>Trade all 5 base rings:</font>
+<font color=#888888>- Melee, Projectiles, Elements, Energy, Physics</font>
+<font color=#888888>Result:</font> <font color=#00FF00>Ring of Power - Ultimate Force</font>
+
+<font color=#00BDBD>SCENARIO 2: PARTIAL PROCESSING</font>
+<font color=#FFFFFF>Trade intermediate rings:</font>
+<font color=#888888>- Ring of Power - Kinetic + Ring of Power - Elements</font>
+<font color=#888888>Result:</font> <font color=#FF6600>Ring of Power - Burning Force</font>
+
+<font color=#00BDBD>SCENARIO 3: FINAL STEP</font>
+<font color=#FFFFFF>Trade final components:</font>
+<font color=#888888>- Ring of Power - Energized Physics + Ring of Power - Burning Force</font>
+<font color=#888888>Result:</font> <font color=#00FF00>Ring of Power - Ultimate Force</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT NOTES ===</font>
+<font color=#FF0000>- Make sure you have the correct ring names</font>
+<font color=#FF0000>- Bot will tell you if components are missing</font>
+<font color=#00FF00>- Processing is automatic once trade is accepted</font>
+<font color=#00FF00>- Items are returned in bags as usual</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+">Ring of Power Processing Guide</a>

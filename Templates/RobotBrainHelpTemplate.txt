@@ -1,0 +1,52 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT ROBOT BRAIN PROCESSING       </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- Screwdriver</font>
+<font color=#00FF00>- Bio Analyzing Computer</font>
+<font color=#00FF00>- MasterComm - Personalization Device</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 1 ===</font>
+<font color=#FFFFFF>Screwdriver</font> <font color=#888888>+</font> <font color=#FFFFFF>Robot Junk</font> <font color=#888888>=</font> <font color=#00FF00>Nano Sensor</font>
+<font color=#888888>No tradeskills required</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 2 ===</font>
+<font color=#FFFFFF>Bio Analyzing Computer</font> <font color=#888888>+</font> <font color=#FFFFFF>Nano Sensor</font> <font color=#888888>=</font> <font color=#00FF00>Basic Robot Brain</font>
+<font color=#888888>Requires 4.5x the QL of the Nano Sensor in Electrical Engineering</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 3 ===</font>
+<font color=#FFFFFF>MasterComm - Personalization Device</font> <font color=#888888>+</font> <font color=#FFFFFF>Basic Robot Brain</font> <font color=#888888>=</font> <font color=#00FF00>Personalized Basic Robot Brain</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Robot Junk determines final QL of the brain</font>
+<font color=#00FF00>- Bio Analyzing Computer needs to be at least 0.6x the QL of Robot Junk</font>
+<font color=#00FF00>- MasterComm needs to be at least 0.6x the QL of Basic Robot Brain</font>
+<font color=#00FF00>- Bot automatically detects processing steps</font>
+<font color=#00FF00>- Can process mid-way through recipe steps</font>
+<font color=#00FF00>- Place all components in bags before trading</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Robot Junk: Drops from Robot type mobs</font>
+<font color=#FFFFFF>- Screwdriver: General shops</font>
+<font color=#FFFFFF>- Bio Analyzing Computer: General shops</font>
+<font color=#FFFFFF>- MasterComm - Personalization Device: General shops</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Robot Brain Processing Guide</a>

@@ -1,0 +1,84 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>      CRAFTBOT TREATMENT LIBRARY PROCESSING   </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== AVAILABLE COMMANDS ===</font>
+
+<font color=#00FF00>Regular Treatment Library:</font>
+<a href='chatcmd:///tell {{ botname }} trade treatlib 100'>trade treatlib 100</a><font color=#00BDBD> - Create Treatment Library at QL100</font>
+
+<font color=#00FF00>Doctor Variation:</font>
+<a href='chatcmd:///tell {{ botname }} trade treatlib doc 100'>trade treatlib doc 100</a><font color=#00BDBD> - Create Treatment and Pharmacy Library at QL100</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== REQUIRED ITEMS (Player Provides) ===</font>
+<font color=#00FF00>- Portable Surgery Clinic</font> <font color=#888888>(or Advanced version)</font>
+<font color=#00FF00>- Pharma Tech Tutoring Device</font>
+
+<font color=#FFFF00>=== BOT PROVIDES ===</font>
+<font color=#00FF00>- Advanced Hacker Tool</font> <font color=#888888>(for quality setting)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== HOW IT WORKS ===</font>
+
+<font color=#00BDBD>1. Send Command:</font>
+   Send 'trade treatlib [quality]' or 'trade treatlib doc [quality]'
+   Example: 'trade treatlib 150' for QL150 result
+
+<font color=#00BDBD>2. Auto-Trade Opens:</font>
+   Bot automatically opens trade window
+
+<font color=#00BDBD>3. Provide Items:</font>
+   Place your Portable Surgery Clinic and Pharma Tech Tutoring Device in trade
+
+<font color=#00BDBD>4. Processing:</font>
+   - Bot hacks both items to your requested quality level
+   - Bot combines them using the appropriate recipe
+
+<font color=#00BDBD>5. Results:</font>
+   - Regular: Treatment Library at requested quality
+   - Doctor: Treatment and Pharmacy Library at requested quality
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE DIFFERENCES ===</font>
+
+<font color=#00FF00>Regular (treatlib):</font>
+Pharma Device + Surgery Clinic = <font color=#FFFF00>Treatment Library</font>
+
+<font color=#00FF00>Doctor (treatlib doc):</font>
+Surgery Clinic + Pharma Device = <font color=#FFFF00>Treatment and Pharmacy Library</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== QUALITY LEVELS ===</font>
+<font color=#00BDBD>- Accepts quality levels 1-300</font>
+<font color=#00BDBD>- Bot will set items and result to your requested quality</font>
+<font color=#00BDBD>- Final quality may be limited by tradeskill caps</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== EXAMPLES ===</font>
+<a href='chatcmd:///tell {{ botname }} trade treatlib 50'>trade treatlib 50</a><font color=#888888> - QL50 Treatment Library</font>
+<a href='chatcmd:///tell {{ botname }} trade treatlib 200'>trade treatlib 200</a><font color=#888888> - QL200 Treatment Library</font>
+<a href='chatcmd:///tell {{ botname }} trade treatlib doc 100'>trade treatlib doc 100</a><font color=#888888> - QL100 Treatment and Pharmacy Library</font>
+<a href='chatcmd:///tell {{ botname }} trade treatlib doc 250'>trade treatlib doc 250</a><font color=#888888> - QL250 Treatment and Pharmacy Library</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#00FF00>=== IMPORTANT NOTES ===</font>
+<font color=#FF0000>⚠️ Both regular and Advanced versions of items work</font>
+<font color=#FF0000>⚠️ Bot provides the hacker tool - you don't need one</font>
+<font color=#FF0000>⚠️ Quality is set by the bot to your specification</font>
+<font color=#FF0000>⚠️ Choose 'doc' variation for Treatment and Pharmacy Library</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Treatment Library Processing Guide</a>

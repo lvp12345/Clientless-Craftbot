@@ -1,0 +1,31 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT HACK GRAFTS PROCESSING       </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FF0000>- Hacker Tool (Any type - PLAYER PROVIDED)</font>
+<font color=#FF6600>⚠️ You must provide your own Hacker Tool</font>
+<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE ===</font>
+<font color=#FFFFFF>Any Hacker Tool</font> <font color=#888888>+</font> <font color=#FFFFFF>Any Boosted Graft</font> <font color=#888888>=</font> <font color=#00FF00>Hacked Boosted-Graft</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#FF0000>- You MUST provide your own Hacker Tool (any type)</font>
+<font color=#FF0000>- Bot will return your tool after processing</font>
+<font color=#00FF00>- Place both tool and graft in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects any boosted graft items</font>
+<font color=#00FF00>- Results in valuable Hacked Boosted-Graft items</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Hack Grafts Processing Guide</a>

@@ -1,0 +1,55 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT PLASMA PROCESSING           </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Bio-Comminutor</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMPLETE ITEM LIST (4 TYPES) ===</font>
+
+<font color=#00BDBD>BASIC MONSTER PARTS:</font>
+<font color=#FFFFFF>- Monster Parts</font> <font color=#888888>-></font> <font color=#FF6600>Basic Plasma Components</font>
+
+<font color=#00BDBD>PELTED VARIANTS:</font>
+<font color=#FFFFFF>- Pelted Monster Parts</font> <font color=#888888>-></font> <font color=#FF9900>Enhanced Plasma Components</font>
+
+<font color=#00BDBD>IVORY VARIANTS:</font>
+<font color=#FFFFFF>- Monster Parts with Ivory</font> <font color=#888888>-></font> <font color=#FFCC00>Ivory-Enhanced Plasma Components</font>
+
+<font color=#00BDBD>PREMIUM VARIANTS:</font>
+<font color=#FFFFFF>- Pelted Monster Parts with Ivory</font> <font color=#888888>-></font> <font color=#FFFF00>Premium Plasma Components</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#FF6600>- Basic Plasma Components</font> <font color=#888888>(standard quality)</font>
+<font color=#FF9900>- Enhanced Plasma Components</font> <font color=#888888>(improved quality)</font>
+<font color=#FFCC00>- Ivory-Enhanced Components</font> <font color=#888888>(high quality)</font>
+<font color=#FFFF00>- Premium Plasma Components</font> <font color=#888888>(highest quality)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== QUALITY HIERARCHY ===</font>
+<font color=#FF6600>1. Monster Parts</font> <font color=#888888>(lowest quality)</font>
+<font color=#FF9900>2. Pelted Monster Parts</font> <font color=#888888>(better quality)</font>
+<font color=#FFCC00>3. Monster Parts with Ivory</font> <font color=#888888>(high quality)</font>
+<font color=#FFFF00>4. Pelted Monster Parts with Ivory</font> <font color=#888888>(best quality)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- All monster parts use the Bio-Comminutor</font>
+<font color=#00FF00>- Place items in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects all monster part types</font>
+<font color=#00FF00>- Higher quality inputs = better plasma results</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Plasma Processing Guide</a>

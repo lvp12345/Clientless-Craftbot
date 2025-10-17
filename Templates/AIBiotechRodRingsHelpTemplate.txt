@@ -1,0 +1,68 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>      CRAFTBOT AI BIOTECH ROD RINGS PROCESSING</font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- Personal Furnace</font>
+<font color=#00FF00>- Wire Drawing Machine</font>
+<font color=#00FF00>- Generic Ring Template</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== MATERIALS REQUIRED ===</font>
+<font color=#FFFFFF>- Small Gold Ingot (must be at least 80% of Biotech Rod's QL)</font>
+<font color=#FFFFFF>- One of the three Biotech Rods:</font>
+<font color=#00FF00>  • Dark Biotech Rod</font>
+<font color=#00FF00>  • Glowing Biotech Rod</font>
+<font color=#00FF00>  • Pulsing Biotech Rod</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 1 ===</font>
+<font color=#FFFFFF>Personal Furnace</font> <font color=#888888>+</font> <font color=#FFFFFF>Small Gold Ingot</font> <font color=#888888>=</font> <font color=#00FF00>Liquid Gold</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 2 ===</font>
+<font color=#FFFFFF>Wire Drawing Machine</font> <font color=#888888>+</font> <font color=#FFFFFF>Liquid Gold</font> <font color=#888888>=</font> <font color=#00FF00>Gold Filigree Wire</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 3 ===</font>
+<font color=#FFFFFF>Generic Ring Template</font> <font color=#888888>+</font> <font color=#FFFFFF>Gold Filigree Wire</font> <font color=#888888>=</font> <font color=#00FF00>Gold Filigree Ring</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 4 ===</font>
+<font color=#FFFFFF>Gold Filigree Ring</font> <font color=#888888>+</font> <font color=#FFFFFF>Dark Biotech Rod</font> <font color=#888888>=</font> <font color=#00FF00>Dark Biotech Rod Ring</font>
+<font color=#FFFFFF>Gold Filigree Ring</font> <font color=#888888>+</font> <font color=#FFFFFF>Glowing Biotech Rod</font> <font color=#888888>=</font> <font color=#00FF00>Glowing Biotech Rod Ring</font>
+<font color=#FFFFFF>Gold Filigree Ring</font> <font color=#888888>+</font> <font color=#FFFFFF>Pulsing Biotech Rod</font> <font color=#888888>=</font> <font color=#00FF00>Pulsing Biotech Rod Ring</font>
+<font color=#888888>Requires 6x Rod QL in Mechanical Engineering and Electrical Engineering</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Small Gold Ingot must be at least 80% of Biotech Rod's QL</font>
+<font color=#00FF00>- Bot automatically detects processing steps</font>
+<font color=#00FF00>- Can process mid-way through recipe steps</font>
+<font color=#00FF00>- Place all components in bags before trading</font>
+<font color=#00FF00>- Recipe will not conflict with VTE processing</font>
+<font color=#00FF00>- Final step requires high tradeskills (6x Rod QL)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Personal Furnace: General stores (tradeskill department)</font>
+<font color=#FFFFFF>- Wire Drawing Machine: General stores (tradeskill department)</font>
+<font color=#FFFFFF>- Generic Ring Template: General stores (tradeskill department)</font>
+<font color=#FFFFFF>- Small Gold Ingot: See Small Ingot Processing guide</font>
+<font color=#FFFFFF>- Biotech Rods: Various sources (check specific rod guides)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">AI Biotech Rod Rings Processing Guide</a>

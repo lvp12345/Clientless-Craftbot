@@ -1,0 +1,39 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>    CRAFTBOT FREDERICKSON SLEEVES DE-HACKING   </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FF0000>- Hacker Tool (Any type - PLAYER PROVIDED)</font>
+<font color=#FF6600>⚠️ You must provide your own Hacker Tool</font>
+<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE ===</font>
+<font color=#FFFFFF>Hacker Tool (Any type)</font> <font color=#888888>+</font> <font color=#FFFFFF>Frederickson Micro-kinetic Sleeves</font> <font color=#888888>=</font> <font color=#00FF00>De-Hacked Frederickson Micro-kinetic Sleeves</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#FF0000>- You MUST provide your own Hacker Tool (any type)</font>
+<font color=#FF0000>- Bot will return your tool after processing</font>
+<font color=#00FF00>- Place both tool and sleeves in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects Frederickson sleeves</font>
+<font color=#00FF00>- Results in de-hacked sleeves</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT WARNINGS ===</font>
+<font color=#FF0000>⚠️ SPECIAL RECIPE: Player-provided tools only</font>
+<font color=#FF0000>⚠️ Bot will NOT process without YOUR Hacker Tool</font>
+<font color=#FF0000>⚠️ Do not expect bot to provide the tool</font>
+<font color=#FF0000>⚠️ Tool will be consumed in the process</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Frederickson Sleeves De-hacking Guide</a>

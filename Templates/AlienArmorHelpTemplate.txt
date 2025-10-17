@@ -1,0 +1,127 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT ALIEN ARMOR PROCESSING       </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== BOT PROVIDED TOOLS (NOT CONSUMED) ===</font>
+<font color=#00FF00>✓ Kyr'Ozch Structural Analyzer (QL 100)</font>
+<font color=#00FF00>✓ Kyr'Ozch Atomic Re-Structuralizing Tool (QL 100)</font>
+<font color=#00FF00>✓ Nano Programming Interface (QL 1)</font>
+<font color=#888888>These tools are provided by the bot and returned after use</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PLAYER MUST PROVIDE ===</font>
+<font color=#FF6600>• Solid Clump of Kyr'Ozch Bio-Material (QL 1-300)</font>
+<font color=#888888>  OR Mutated/Pristine Kyr'Ozch Bio-Material (if pre-identified)</font>
+<font color=#FF6600>• Kyr'Ozch Viralbots (QL must be 80%+ of Bio-Material QL)</font>
+<font color=#FF6600>• Lead Viralbots (QL must be 80%+ of Bio-Material QL)</font>
+<font color=#888888>  Types: Arithmetic, Strong, Enduring, Spiritual, Observant, Supple</font>
+<font color=#FF6600>• Basic Clothing (QL 1 from Social Clothing Quests)</font>
+<font color=#888888>  Types: Fashion Vest, Footwear, Gloves, Headwear, Legwear, Sleeves</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== 8-STEP RECIPE PROCESS ===</font>
+<font color=#FFFFFF>Step 1:</font> <font color=#888888>Structural Analyzer + Solid Clump → Bio-Material</font>
+<font color=#FFFFFF>Step 2:</font> <font color=#888888>Nano-Solvent + Bio-Material → DNA-Soup</font>
+<font color=#FFFFFF>Step 3:</font> <font color=#888888>Human DNA + DNA-Soup → DNA Cocktail</font>
+<font color=#FFFFFF>Step 4:</font> <font color=#888888>Atomic Tool + Viralbots → Memory-Wiped Viralbots</font>
+<font color=#FFFFFF>Step 5:</font> <font color=#888888>Nano Interface + Memory-Wiped → Formatted Viralbots</font>
+<font color=#FFFFFF>Step 6:</font> <font color=#888888>Formatted Viralbots + DNA Cocktail → Viralbot Solution</font>
+<font color=#FFFFFF>Step 7:</font> <font color=#888888>Basic Clothing + Viralbot Solution → Formatted Armor</font>
+<font color=#FFFFFF>Step 8:</font> <font color=#888888>Lead Viralbots + Formatted Armor → Final Armor</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== FLEXIBLE PROCESSING ===</font>
+<font color=#00FF00>✓ Start from ANY step - bot detects your progress!</font>
+<font color=#00FF00>✓ Already identified your clump? Skip Step 1!</font>
+<font color=#00FF00>✓ Have DNA Cocktail? Bot starts from Step 4!</font>
+<font color=#00FF00>✓ Intelligent QL matching for multiple items</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== INTELLIGENT QL MATCHING ===</font>
+<font color=#FFFFFF>Example: You give bot:</font>
+<font color=#888888>  • QL 80 Bio-Material</font>
+<font color=#888888>  • QL 50 Bio-Material</font>
+<font color=#888888>  • QL 70 Viralbots</font>
+<font color=#888888>  • QL 40 Viralbots</font>
+<font color=#888888>  • QL 65 Supple Lead Viralbots</font>
+
+<font color=#00FF00>Bot automatically matches:</font>
+<font color=#888888>  ✓ QL 70 Viralbots → QL 80 Material (70 ≥ 64 required)</font>
+<font color=#888888>  ✓ QL 40 Viralbots → QL 50 Material (40 ≥ 40 required)</font>
+<font color=#888888>  ✓ QL 65 Lead → QL 80 Armor (65 ≥ 64 required)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ARMOR TYPES ===</font>
+<font color=#FFFFFF>Arithmetic Armor:</font> <font color=#888888>Tradeskills + Nano skills</font>
+<font color=#FFFFFF>Strong Armor:</font> <font color=#888888>Melee combat + Damage</font>
+<font color=#FFFFFF>Enduring Armor:</font> <font color=#888888>Health + Body Development</font>
+<font color=#FFFFFF>Spiritual Armor:</font> <font color=#888888>Nano pool + Nano cost reduction</font>
+<font color=#FFFFFF>Observant Armor:</font> <font color=#888888>Perception + Initiative</font>
+<font color=#FFFFFF>Supple Armor:</font> <font color=#888888>Ranged combat + Offense</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMBINING ARMOR ===</font>
+<font color=#00FF00>Bot can combine two basic armor pieces into combined armor!</font>
+
+<font color=#FFFFFF>Combination Recipes:</font>
+<font color=#888888>• Strong + Supple = Combined Commando's</font>
+<font color=#888888>• Strong + Enduring = Combined Mercenary's</font>
+<font color=#888888>• Spiritual + Arithmetic = Combined Officer's</font>
+<font color=#888888>• Spiritual + Enduring = Combined Paramedic's</font>
+<font color=#888888>• Observant + Arithmetic = Combined Scout's</font>
+<font color=#888888>• Observant + Supple = Combined Sharpshooter's</font>
+
+<font color=#FF6600>Requirements:</font>
+<font color=#888888>• Both pieces must be SAME slot (both boots, both gloves, etc.)</font>
+<font color=#888888>• Source armor must be at least 80% QL of target armor</font>
+<font color=#888888>• Higher QL piece determines final QL</font>
+
+<font color=#FFFFFF>Example:</font>
+<font color=#888888>  QL 300 Strong Vest + QL 240 Supple Vest</font>
+<font color=#00FF00>  → QL 300 Combined Commando's Vest</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== USAGE EXAMPLES ===</font>
+<font color=#FFFFFF>Simple Processing:</font>
+<font color=#888888>  Trade: QL 100 Clump + QL 80 Viralbots + QL 80 Supple Lead + Basic Vest</font>
+<font color=#00FF00>  Result: QL 100 Supple Body Armor</font>
+
+<font color=#FFFFFF>Multiple Sets:</font>
+<font color=#888888>  Trade: 3x Clumps + 3x Viralbots + 3x Lead Viralbots + 3x Basic items</font>
+<font color=#00FF00>  Result: 3 complete armor pieces (bot matches QLs optimally)</font>
+
+<font color=#FFFFFF>Partial Processing:</font>
+<font color=#888888>  Trade: QL 200 DNA Cocktail (no viralbots)</font>
+<font color=#00FF00>  Result: Processes to Step 6, returns partial result</font>
+
+<font color=#FFFFFF>Combining Armor:</font>
+<font color=#888888>  Trade: QL 300 Strong Boots + QL 250 Supple Boots</font>
+<font color=#00FF00>  Result: QL 300 Combined Commando's Boots</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT NOTES ===</font>
+<font color=#FF0000>⚠️ 80% QL RULE: Viralbots must be 80%+ of Bio-Material QL</font>
+<font color=#FF0000>⚠️ BASIC CLOTHING: Must be QL 1 from Social Clothing Quests</font>
+<font color=#FF0000>⚠️ LEAD VIRALBOTS: Determine final armor type (Supple, Strong, etc.)</font>
+<font color=#00FF00>✓ Bot provides Uncle Bazzit's Solvent and Essential Human DNA</font>
+<font color=#00FF00>✓ Bot handles all intermediate steps automatically</font>
+<font color=#00FF00>✓ Can process multiple sets in one trade</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Alien Armor Processing Guide</a>
+
+

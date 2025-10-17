@@ -1,0 +1,41 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT ROBOT JUNK PROCESSING V5.0   </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Screwdriver</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSABLE ITEMS ===</font>
+<font color=#FFFFFF>- Robot Junk</font> <font color=#888888>-></font> <font color=#C0C0C0>Nano Sensor</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING DETAILS ===</font>
+<font color=#00BDBD>INPUT:</font>
+<font color=#FFFFFF>- Robot Junk</font> <font color=#888888>(salvaged robot components)</font>
+
+<font color=#00BDBD>TOOL:</font>
+<font color=#00FF00>- Screwdriver</font> <font color=#888888>(basic tool for disassembly)</font>
+
+<font color=#00BDBD>OUTPUT:</font>
+<font color=#C0C0C0>- Nano Sensor</font> <font color=#888888>(useful crafting component)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Robot junk uses a simple Screwdriver</font>
+<font color=#00FF00>- Place items in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects robot junk items</font>
+<font color=#00FF00>- Results in nano sensors for advanced crafting</font>
+<font color=#00FF00>- Used in VTE processing and other recipes</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Robot Junk Processing Guide</a>

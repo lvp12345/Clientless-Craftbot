@@ -1,0 +1,29 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>     CRAFTBOT NIZNO'S BOMB BLASTER PROCESSING </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE ===</font>
+<font color=#FFFFFF>Explosif Device</font> <font color=#888888>+</font> <font color=#FFFFFF>Biomaterial Tubing</font> <font color=#888888>=</font> <font color=#00FF00>Premium Nizno's Bomb Blaster</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Place both components in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects both items</font>
+<font color=#00FF00>- Simple single-step recipe</font>
+<font color=#00FF00>- Results in Premium Nizno's Bomb Blaster</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Explosif Device: Various sources</font>
+<font color=#FFFFFF>- Biomaterial Tubing: Various sources</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Nizno's Bomb Blaster Processing Guide</a>

@@ -1,0 +1,33 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT TRIMMER PROCESSING           </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Trimmer Casing</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSABLE ITEMS ===</font>
+<font color=#FFFFFF>- Smelly Liquid</font> <font color=#888888>-></font> <font color=#00FF00>Trimmer - Improve Actuators</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#00FF00>- Trimmer - Improve Actuators</font> <font color=#888888>(enhanced actuator device)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Requires Trimmer Casing as processing tool</font>
+<font color=#00FF00>- Place items in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects both components</font>
+<font color=#00FF00>- Single-step processing recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Trimmer Processing Guide</a>

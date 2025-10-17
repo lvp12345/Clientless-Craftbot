@@ -1,0 +1,59 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT SEALED WEAPONS PROCESSING     </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FF0000>- Hacker Tool (Any type - PLAYER PROVIDED)</font>
+<font color=#FF6600>⚠️ You must provide your own Hacker Tool</font>
+<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 1 ===</font>
+<font color=#FFFFFF>Any Hacker Tool</font> <font color=#888888>+</font> <font color=#FFFFFF>Sealed Weapon Receptacle</font> <font color=#888888>=</font> <font color=#00FF00>Unfinished Weapon</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 2 (WEAPON UPGRADES) ===</font>
+<font color=#FFFFFF>Self-Repairing Ultra-X</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Alsaqri Chemical Rifle</font> <font color=#888888>=</font> <font color=#00FF00>Advanced Alsaqri Chemical Rifle</font>
+<font color=#FFFFFF>Generic Magnetic Propulsion System</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished HSR Explorer 661</font> <font color=#888888>=</font> <font color=#00FF00>Excellent HSR Explorer 661</font>
+<font color=#FFFFFF>Flake Tubing Super-Coolant System</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished IMI Tellus TT</font> <font color=#888888>=</font> <font color=#00FF00>Superior IMI Tellus TT</font>
+<font color=#FFFFFF>Nano-Interfaced Cooling System</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Ithaca Ki12 Vulture</font> <font color=#888888>=</font> <font color=#00FF00>Ithaca Ki12 Vulture Custom Super A</font>
+<font color=#FFFFFF>Ultra Short Composite Barrel</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished River Seasons XP</font> <font color=#888888>=</font> <font color=#00FF00>River Seasons XP Special</font>
+<font color=#FFFFFF>Nano Pylon</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Soft Pepper Pistol</font> <font color=#888888>=</font> <font color=#00FF00>Majestic Soft Pepper Pistol</font>
+<font color=#FFFFFF>Energy Pack Interface</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Sol Chironis Systems</font> <font color=#888888>=</font> <font color=#00FF00>Sol Chironis Systems Professional</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== SUMMER SMP VARIANTS ===</font>
+<font color=#FFFFFF>Triple Pulse Enabler</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Summer SMP</font> <font color=#888888>=</font> <font color=#00FF00>Perfect Summer Burst SMP</font>
+<font color=#FFFFFF>Gyro Stabilizing Unit</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Summer SMP</font> <font color=#888888>=</font> <font color=#00FF00>Perfect Summer FA SMP</font>
+<font color=#FFFFFF>Rapid-Reload-And-Fire Gyro</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Summer SMP</font> <font color=#888888>=</font> <font color=#00FF00>Perfect Summer Fling SMP</font>
+<font color=#FFFFFF>Shells Magazine</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Summer SMP</font> <font color=#888888>=</font> <font color=#00FF00>Perfect Summer Shells SMP</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#FF0000>- You MUST provide your own Hacker Tool (any type)</font>
+<font color=#FF0000>- Bot will return your tool after processing</font>
+<font color=#00FF00>- Place all components in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects weapon components</font>
+<font color=#00FF00>- Can process mid-way through recipe steps</font>
+<font color=#00FF00>- Results in powerful finished weapons</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT WARNINGS ===</font>
+<font color=#FF0000>⚠️ SPECIAL RECIPE: Player-provided tools only</font>
+<font color=#FF0000>⚠️ Bot will NOT process without YOUR Hacker Tool</font>
+<font color=#FF0000>⚠️ Do not expect bot to provide the tool</font>
+<font color=#FF0000>⚠️ Tool will be consumed in the process</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Sealed Weapons Processing Guide</a>

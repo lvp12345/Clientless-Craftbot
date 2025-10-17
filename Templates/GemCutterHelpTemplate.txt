@@ -1,0 +1,58 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT GEM CUTTER PROCESSING        </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Jensen Gem Cutter</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMPLETE ITEM LIST (35 TYPES) ===</font>
+
+<font color=#00BDBD>GEMS - PRECIOUS STONES:</font>
+<font color=#FFFFFF>- Almandine</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Almandine</font>
+<font color=#FFFFFF>- Amber</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Amber</font>
+<font color=#FFFFFF>- Aquamarine</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Aquamarine</font>
+<font color=#FFFFFF>- Balas ruby</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Balas ruby</font>
+<font color=#FFFFFF>- Chrysoberyl</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Chrysoberyl</font>
+<font color=#FFFFFF>- Demantoid</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Demantoid</font>
+<font color=#FFFFFF>- Diamond</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Diamond</font>
+<font color=#FFFFFF>- Emerald</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Emerald</font>
+<font color=#FFFFFF>- Gem</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Gem</font>
+<font color=#FFFFFF>- Jet</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Jet</font>
+<font color=#FFFFFF>- Red beryl</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Red beryl</font>
+<font color=#FFFFFF>- Ruby</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Ruby</font>
+<font color=#FFFFFF>- Rubi-Ka Ruby</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Rubi-Ka Ruby</font>
+<font color=#FFFFFF>- Sapphire</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Sapphire</font>
+<font color=#FFFFFF>- Star Ruby</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Star Ruby</font>
+<font color=#FFFFFF>- Topaz</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Topaz</font>
+
+<font color=#00BDBD>OPALS:</font>
+<font color=#FFFFFF>- Black opal</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Black opal</font>
+<font color=#FFFFFF>- Fire opal</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Fire opal</font>
+<font color=#FFFFFF>- Water opal</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Water opal</font>
+<font color=#FFFFFF>- White opal</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut White opal</font>
+
+<font color=#00BDBD>PEARLS:</font>
+<font color=#FFFFFF>- Blue Pearl by Conner</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Blue Pearl by Conner</font>
+<font color=#FFFFFF>- Gold 2 Sphere Pearl</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Gold 2 Sphere Pearl</font>
+<font color=#FFFFFF>- Pearl</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Pearl</font>
+<font color=#FFFFFF>- Pearl of Rubi-Ka</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Pearl of Rubi-Ka</font>
+<font color=#FFFFFF>- Ruby Pearl</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Ruby Pearl</font>
+<font color=#FFFFFF>- Silver Pearl</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Silver Pearl</font>
+
+<font color=#00BDBD>SPECIAL ITEMS:</font>
+<font color=#FFFFFF>- Coral</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Coral</font>
+<font color=#FFFFFF>- Crystal Sphere</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Crystal Sphere</font>
+<font color=#FFFFFF>- Ember</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Ember</font>
+<font color=#FFFFFF>- Ember Sphere</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Ember Sphere</font>
+<font color=#FFFFFF>- Flawless Spring Crystal</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Flawless Spring Crystal</font>
+<font color=#FFFFFF>- High Quality Silver Onyx</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut High Quality Silver Onyx</font>
+<font color=#FFFFFF>- Hot Stone</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Hot Stone</font>
+<font color=#FFFFFF>- Soul Fragment</font> <font color=#888888>-></font> <font color=#00FF00>Perfectly Cut Soul Fragment</font>
+
+">Gem Cutter Processing Guide</a>

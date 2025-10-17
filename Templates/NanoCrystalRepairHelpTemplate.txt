@@ -1,0 +1,56 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT NANO CRYSTAL REPAIR          </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FF0000>- Nano Programming Interface (PLAYER PROVIDED)</font>
+<font color=#FF6600>⚠️ You must provide 1 tool per crystal</font>
+<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE ===</font>
+<font color=#FFFFFF>Nano Programming Interface</font> <font color=#888888>+</font> <font color=#FFFFFF>Damaged Crystal</font> <font color=#888888>=</font> <font color=#00FF00>Repaired Crystal</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== SUPPORTED CRYSTAL TYPES ===</font>
+<font color=#FFFFFF>- Badly Corroded Crystal (XXX)</font>
+<font color=#FFFFFF>- Failed Repaired Crystal (XXX)</font>
+<font color=#FFFFFF>- Badly Eroded Crystal (XXX)</font>
+<font color=#FFFFFF>- Hacked Corroded Crystal (XXX)</font>
+<font color=#FFFFFF>- Blood Stained and Corroded Crystal (XXX)</font>
+<font color=#FFFFFF>- Overcharged Corroded Nano Crystal (XXX)</font>
+<font color=#FFFFFF>- Severly Corroded Shadow Crystal (XXX)</font>
+<font color=#FFFFFF>- Cracked and Miskept Shadow Crystal (XXX)</font>
+<font color=#FFFFFF>- Snow Crashed Shadow Crystal (XXX)</font>
+<font color=#FFFFFF>- Cracked Crystal (XXX)</font>
+<font color=#FFFFFF>- Tainted Shadow Crystal (XXX)</font>
+<font color=#FFFFFF>- Dirty Money Shadow Crystal (XXX)</font>
+<font color=#FFFFFF>- Weird looking XXX</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#FF0000>- You MUST provide your own Nano Programming Interface</font>
+<font color=#FF0000>- 1 tool required per crystal (tools are consumed)</font>
+<font color=#00FF00>- Place tools and crystals in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects damaged crystals</font>
+<font color=#00FF00>- Results in fully repaired crystals</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT WARNINGS ===</font>
+<font color=#FF0000>⚠️ SPECIAL RECIPE: Player-provided tools only</font>
+<font color=#FF0000>⚠️ Bot will NOT process without YOUR tools</font>
+<font color=#FF0000>⚠️ Do not expect bot to provide the tools</font>
+<font color=#FF0000>⚠️ Tools will be consumed in the process</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Nano Crystal Repair Guide</a>

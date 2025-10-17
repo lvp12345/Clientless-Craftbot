@@ -1,0 +1,41 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>         CRAFTBOT ICE PROCESSING V5.0        </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Nano Programming Interface</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSABLE ICE ITEMS ===</font>
+<font color=#FFFFFF>- Hacker ICE-Breaker Source</font> <font color=#888888>-></font> <font color=#00FFFF>Upgraded Controller Recompiler Unit</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING DETAILS ===</font>
+<font color=#00BDBD>INPUT:</font>
+<font color=#FFFFFF>- Hacker ICE-Breaker Source</font> <font color=#888888>(raw ICE component)</font>
+
+<font color=#00BDBD>TOOL:</font>
+<font color=#00FF00>- Nano Programming Interface</font> <font color=#888888>(required for processing)</font>
+
+<font color=#00BDBD>OUTPUT:</font>
+<font color=#00FFFF>- Upgraded Controller Recompiler Unit</font> <font color=#888888>(enhanced component)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- ICE items use the Nano Programming Interface</font>
+<font color=#00FF00>- Place items in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects ICE-Breaker Sources</font>
+<font color=#00FF00>- Results in upgraded controller components</font>
+<font color=#00FF00>- Used for advanced nano programming</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Ice Processing Guide</a>

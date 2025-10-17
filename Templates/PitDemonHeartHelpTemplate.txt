@@ -1,0 +1,38 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>      CRAFTBOT PIT DEMON HEART PROCESSING     </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FF0000>- Bio-Comminutor (Basic or Advanced - PLAYER PROVIDED)</font>
+<font color=#FF6600>⚠️ You must provide your own Bio-Comminutor</font>
+<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE ===</font>
+<font color=#FFFFFF>Bio-Comminutor (Basic/Advanced)</font> <font color=#888888>+</font> <font color=#FFFFFF>Pit Demon Heart</font> <font color=#888888>=</font> <font color=#00FF00>Indigo Carmine</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#FF0000>- You MUST provide your own Bio-Comminutor (At least quality 80)</font>
+<font color=#FF0000>- Bot will return your tool after processing</font>
+<font color=#00FF00>- Place both tool and heart in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects pit demon hearts</font>
+<font color=#00FF00>- Results in valuable Indigo Carmine</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT WARNINGS ===</font>
+<font color=#FF0000>⚠️ SPECIAL RECIPE: Player-provided tools only</font>
+<font color=#FF0000>⚠️ Bot will NOT process without YOUR Bio-Comminutor</font>
+<font color=#FF0000>⚠️ Do not expect bot to provide the tool</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Pit Demon Heart Processing Guide</a>

@@ -1,0 +1,29 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT STALKER HELMET PROCESSING     </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE ===</font>
+<font color=#FFFFFF>MasterComm - Personalization Device</font> <font color=#888888>+</font> <font color=#FFFFFF>Stalker Carapace</font> <font color=#888888>=</font> <font color=#00FF00>Stalker Helmet</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Place both components in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects both items</font>
+<font color=#00FF00>- Simple single-step recipe</font>
+<font color=#00FF00>- Results in Stalker Helmet</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- MasterComm - Personalization Device: General shops</font>
+<font color=#FFFFFF>- Stalker Carapace: Various sources</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Stalker Helmet Processing Guide</a>

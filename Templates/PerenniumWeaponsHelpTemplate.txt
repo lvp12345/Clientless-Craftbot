@@ -1,0 +1,50 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>    CRAFTBOT PERENNIUM WEAPONS (4 STEPS)     </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- Advanced Hacker Tool</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== STEP 1: CREATE WEAPON PARTS ===</font>
+<font color=#FFFFFF>- Sheet of Perennium + Spirit Tech Apparatus: Double Barrel</font> <font color=#888888>-></font> <font color=#00FF00>Double Perennium Barrel</font>
+<font color=#FFFFFF>- Sheet of Perennium + Spirit Tech Apparatus: Long Muzzle</font> <font color=#888888>-></font> <font color=#00FF00>Long Perennium Muzzle</font>
+<font color=#FFFFFF>- Sheet of Perennium + Spirit Tech Apparatus: Short Muzzle</font> <font color=#888888>-></font> <font color=#00FF00>Short Perennium Muzzle</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== STEP 2: HACK PREMIUM WEAPONS ===</font>
+<font color=#FFFFFF>- Advanced Hacker Tool + Premium Nano-Charged Assault Rifle</font> <font color=#888888>-></font> <font color=#00FFFF>Hacked Nano-Charged Assault Rifle</font>
+<font color=#FFFFFF>- Advanced Hacker Tool + Premium Nano-Charged Rifle</font> <font color=#888888>-></font> <font color=#00FFFF>Hacked Nano-Charged Rifle</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== STEP 3: CREATE HALF-FINISHED WEAPONS ===</font>
+<font color=#FFFFFF>- Double Perennium Barrel + Hacked Nano-Charged Assault Rifle</font> <font color=#888888>-></font> <font color=#FFCC00>Half-Finished Perennium Blaster</font>
+<font color=#FFFFFF>- Long Perennium Muzzle + Hacked Nano-Charged Rifle</font> <font color=#888888>-></font> <font color=#FFCC00>Half-Finished Perennium Sniper</font>
+<font color=#FFFFFF>- Short Perennium Muzzle + Hacked Nano-Charged Assault Rifle</font> <font color=#888888>-></font> <font color=#FFCC00>Half-Finished Perennium Beamer</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== STEP 4: CREATE SUPERIOR WEAPONS ===</font>
+<font color=#FFFFFF>- Perennium Bolts + Half-Finished Perennium Blaster</font> <font color=#888888>-></font> <font color=#FFFF00>Superior Perennium Blaster</font>
+<font color=#FFFFFF>- Perennium Bolts + Half-Finished Perennium Sniper</font> <font color=#888888>-></font> <font color=#FFFF00>Superior Perennium Sniper</font>
+<font color=#FFFFFF>- Perennium Bolts + Half-Finished Perennium Beamer</font> <font color=#888888>-></font> <font color=#FFFF00>Superior Perennium Beamer</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Multi-step recipe processes automatically</font>
+<font color=#00FF00>- Place all components in bags before trading</font>
+<font color=#00FF00>- Bot detects current progress and continues from there</font>
+<font color=#00FF00>- Three weapon variants: Blaster, Sniper, Beamer</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Perennium Weapons Processing Guide</a>

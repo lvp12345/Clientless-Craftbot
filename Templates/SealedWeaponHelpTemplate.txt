@@ -1,0 +1,47 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT SEALED WEAPON PROCESSING      </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TWO-STAGE PROCESS ===</font>
+
+<font color=#00FF00>STAGE 1: Unsealing Weapons</font>
+<font color=#FFFFFF>Advanced Hacker Tool</font> <font color=#888888>+</font> <font color=#FFFFFF>Sealed Weapon Receptacle</font> <font color=#888888>=</font> <font color=#00FF00>Unfinished Weapon</font>
+
+<font color=#00FF00>STAGE 2: Completing Weapons</font>
+<font color=#FFFFFF>Upgrade Component</font> <font color=#888888>+</font> <font color=#FFFFFF>Unfinished Weapon</font> <font color=#888888>=</font> <font color=#00FF00>Final Weapon</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== SUPPORTED WEAPONS ===</font>
+<font color=#FFFFFF>• Ithaca Ki12 Vulture</font>
+<font color=#FFFFFF>• Alsaqri Chemical Rifle</font>
+<font color=#FFFFFF>• HSR Explorer 661</font>
+<font color=#FFFFFF>• IMI Tellus TT</font>
+<font color=#FFFFFF>• River Seasons XP</font>
+<font color=#FFFFFF>• Soft Pepper Pistol</font>
+<font color=#FFFFFF>• Sol Chironis Systems</font>
+<font color=#FFFFFF>• Summer SMP (4 variants)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== UPGRADE COMPONENTS ===</font>
+<font color=#FFFFFF>• Self-Repairing Ultra-X → Advanced Alsaqri Chemical Rifle</font>
+<font color=#FFFFFF>• Generic Magnetic Propulsion System → Excellent HSR Explorer 661</font>
+<font color=#FFFFFF>• Flake Tubing Super-Coolant System → Superior IMI Tellus TT</font>
+<font color=#FFFFFF>• Nano-Interfaced Cooling System → Ithaca Ki12 Vulture Custom Super A</font>
+<font color=#FFFFFF>• Ultra Short Composite Barrel → River Seasons XP Special</font>
+<font color=#FFFFFF>• Nano Pylon → Majestic Soft Pepper Pistol</font>
+<font color=#FFFFFF>• Energy Pack Interface → Sol Chironis Systems Professional</font>
+<font color=#FFFFFF>• Triple Pulse Enabler → Perfect Summer Burst SMP</font>
+<font color=#FFFFFF>• Gyro Stabilizing Unit → Perfect Summer FA SMP</font>
+<font color=#FFFFFF>• Rapid-Reload-And-Fire Gyro → Perfect Summer Fling SMP</font>
+<font color=#FFFFFF>• Shells Magazine → Perfect Summer Shells SMP</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Sealed Weapon Processing Guide</a>

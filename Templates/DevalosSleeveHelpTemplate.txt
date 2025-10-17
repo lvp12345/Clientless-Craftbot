@@ -1,0 +1,33 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>      CRAFTBOT DE'VALOS SLEEVE PROCESSING     </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#00FF00>- Powdered Viral-Bots</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSABLE ITEMS ===</font>
+<font color=#FFFFFF>- Cyber Armor Sleeves (any quality)</font> <font color=#888888>-></font> <font color=#00FF00>De'Valos Sleeves</font>
+<font color=#888888>  (Worn, High-Quality, etc.)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#00FF00>- De'Valos Sleeves</font> <font color=#888888>(enhanced cyber armor sleeves)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Requires Powdered Viral-Bots as processing tool</font>
+<font color=#00FF00>- Bot automatically detects both components</font>
+<font color=#00FF00>- Single-step processing recipe</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">De'Valos Sleeve Processing Guide</a>

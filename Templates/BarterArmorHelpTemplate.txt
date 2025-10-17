@@ -1,0 +1,61 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT BARTER ARMOR PROCESSING      </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- Nano Programming Interface</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 1 ===</font>
+<font color=#FFFFFF>Inactive OT Metamorphing Liquid Nanobots</font> <font color=#888888>+</font> <font color=#FFFFFF>Nano Programming Interface</font> <font color=#888888>=</font> <font color=#00FF00>Activated OT Metamorphing Liquid Nanobots</font>
+<font color=#888888>Requires x2.5 Computer Literacy and x4 Nano Programming Skills based on Nanobots QL</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 2 ===</font>
+<font color=#FFFFFF>Activated OT Metamorphing Liquid Nanobots</font> <font color=#888888>+</font> <font color=#FFFFFF>Notum Chip</font> <font color=#888888>=</font> <font color=#00FF00>Stabilized OT Metamorphing Liquid Nanobots</font>
+<font color=#888888>Requires x1 Chemistry and x4 Nano Programming Skills based on Nanobots QL</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 3 ===</font>
+<font color=#FFFFFF>Stabilized OT Metamorphing Liquid Nanobots</font> <font color=#888888>+</font> <font color=#FFFFFF>Notum Chip</font> <font color=#888888>=</font> <font color=#00FF00>Super-Stabilized OT Metamorphing Liquid Nanobots</font>
+<font color=#888888>Requires x1 Chemistry and x4 Nano Programming Skills based on Nanobots QL</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE STEP 4 (ARMOR PIECES) ===</font>
+<font color=#FFFFFF>Augmented Nano Armor Boots</font> <font color=#888888>+</font> <font color=#FFFFFF>Super-Stabilized OT Nanobots</font> <font color=#888888>=</font> <font color=#00FF00>Barter Armor Boots</font>
+<font color=#FFFFFF>Augmented Nano Armor Gloves</font> <font color=#888888>+</font> <font color=#FFFFFF>Super-Stabilized OT Nanobots</font> <font color=#888888>=</font> <font color=#00FF00>Barter Armor Gloves</font>
+<font color=#FFFFFF>Augmented Nano Armor Helmet</font> <font color=#888888>+</font> <font color=#FFFFFF>Super-Stabilized OT Nanobots</font> <font color=#888888>=</font> <font color=#00FF00>Barter Armor Helmet</font>
+<font color=#FFFFFF>Augmented Nano Armor Pants</font> <font color=#888888>+</font> <font color=#FFFFFF>Super-Stabilized OT Nanobots</font> <font color=#888888>=</font> <font color=#00FF00>Barter Armor Pants</font>
+<font color=#FFFFFF>Augmented Nano Armor Sleeves</font> <font color=#888888>+</font> <font color=#FFFFFF>Super-Stabilized OT Nanobots</font> <font color=#888888>=</font> <font color=#00FF00>Barter Armor Sleeves</font>
+<font color=#FFFFFF>Augmented Nano Body Armor</font> <font color=#888888>+</font> <font color=#FFFFFF>Super-Stabilized OT Nanobots</font> <font color=#888888>=</font> <font color=#00FF00>Barter Body Armor</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Inactive OT Nanobots sets final QL and must be within 90% of armor</font>
+<font color=#00FF00>- Notum Chips/Fragments need to be at least 90% QL of OT Nanobots</font>
+<font color=#00FF00>- 2 Notum pieces needed per armor piece (steps 2 & 3)</font>
+<font color=#00FF00>- Bot automatically detects processing steps</font>
+<font color=#00FF00>- Can process mid-way through recipe steps</font>
+<font color=#00FF00>- Place all components in bags before trading</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Inactive OT Nanobots: Armor and clothing components terminals</font>
+<font color=#FFFFFF>- Nano Programming Interface: Tools terminals</font>
+<font color=#FFFFFF>- Augmented Nano Armor: Mission rewards QL 75+, mobs, chests, shops up to QL 125</font>
+<font color=#FFFFFF>- Notum Chip/Fragment: Drops from mobs, found in chests</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Barter Armor Processing Guide</a>

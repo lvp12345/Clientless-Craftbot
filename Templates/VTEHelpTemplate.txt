@@ -1,0 +1,71 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>         CRAFTBOT VTE PROCESSING (9 STEPS)   </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- Precious Metal Reclaimer</font>
+<font color=#00FF00>- Jensen Gem Cutter</font>
+<font color=#00FF00>- Screwdriver</font>
+<font color=#00FF00>- Nano Programming Interface</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== REQUIRED MATERIALS ===</font>
+<font color=#FFD700>- 3x Small Gold Ingot</font>
+<font color=#FF6600>- 1x Soul Fragment</font>
+<font color=#C0C0C0>- 1x Robot Junk</font>
+<font color=#FFFF00>- 1x Mantis Egg</font>
+<font color=#00FFFF>- 3x Gem (for final step)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== VTE PROCESSING STEPS ===</font>
+
+<font color=#00BDBD>STEP 1: GOLD PROCESSING</font>
+<font color=#FFFFFF>- Small Gold Ingot + Precious Metal Reclaimer</font>
+<font color=#888888>  -></font> <font color=#FFD700>Liquid Gold</font>
+
+<font color=#00BDBD>STEP 2: WIRE CREATION</font>
+<font color=#FFFFFF>- Liquid Gold + Precious Metal Reclaimer</font>
+<font color=#888888>  -></font> <font color=#FFD700>Gold Filigree Wire</font>
+<font color=#FF0000>- Repeat for 3 total Gold Filigree Wire</font>
+
+<font color=#00BDBD>STEP 3: SOUL FRAGMENT PROCESSING</font>
+<font color=#FFFFFF>- Soul Fragment + Jensen Gem Cutter</font>
+<font color=#888888>  -></font> <font color=#FF6600>Perfectly Cut Soul Fragment</font>
+
+<font color=#00BDBD>STEP 4: ROBOT JUNK PROCESSING</font>
+<font color=#FFFFFF>- Robot Junk + Screwdriver</font>
+<font color=#888888>  -></font> <font color=#C0C0C0>Nano Sensor</font>
+
+<font color=#00BDBD>STEP 5: SENSOR ENHANCEMENT</font>
+<font color=#FFFFFF>- Nano Sensor + Nano Programming Interface</font>
+<font color=#888888>  -></font> <font color=#00FFFF>Interfaced Nano Sensor</font>
+
+<font color=#00BDBD>STEP 6: MANTIS EGG PREPARATION</font>
+<font color=#FFFFFF>- Perfectly Cut Soul Fragment + Mantis Egg</font>
+<font color=#888888>  -></font> <font color=#FFFF00>Petrified Mantis Egg</font>
+
+<font color=#00BDBD>STEP 7: EGG WIRING (2 STAGES)</font>
+<font color=#FFFFFF>- Gold Filigree Wire + Petrified Mantis Egg</font>
+<font color=#888888>  -></font> <font color=#FFCC00>Partially Wired Mantis Egg</font>
+<font color=#FFFFFF>- Gold Filigree Wire + Partially Wired Mantis Egg</font>
+<font color=#888888>  -></font> <font color=#FFFF00>Fully Wired Mantis Egg</font>
+
+<font color=#00BDBD>STEP 8: SENSOR INTEGRATION</font>
+<font color=#FFFFFF>- Interfaced Nano Sensor + Fully Wired Mantis Egg</font>
+<font color=#888888>  -></font> <font color=#FF9900>Virral Egg</font>
+
+<font color=#00BDBD>STEP 9: GEM ENHANCEMENT (3 STAGES)</font>
+<font color=#FFFFFF>- Jensen Gem Cutter + Gem</font> <font color=#888888>-></font> <font color=#00FFFF>Cut Gem</font>
+<font color=#FFFFFF>- Cut Gem + Virral Egg</font> <font color=#888888>-></font> <font color=#FF6600>Virral Egg with Gem</font>
+<font color=#FFFFFF>- Cut Gem + Virral Egg with Gem</font> <font color=#888888>-></font> <font color=#FF9900>Virral Egg with Dual Gems</font>
+<font color=#FFFFFF>- Cut Gem + Virral Egg with Dual Gems</font> <font color=#888888>-></font> <font color=#00FF00>VIRRAL TRIUMVIRATE EGG</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+">VTE Processing Guide</a>

@@ -1,0 +1,66 @@
+<a href="text://
+<font color=#00D4FF>Craftbot V1.0 - Automated Craft Bot</font>
+<font color=#00D4FF>Created by Code</font>
+<font color=#00D4FF>IF FOR SOME REASON BOT FAILS TO GIVE ITEMS BACK CONTACT ON DISCORD: Codepilot#3339</font>
+<font color=#00D4FF>Will get your items back to you ASAP</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#00D4FF>=== AVAILABLE COMMANDS ===</font>
+
+<a href='chatcmd:///tell {{ botname }} help'>help</a><font color=#00BDBD> - Show this processing guide</font>
+<a href='chatcmd:///tell {{ botname }} trade'>trade</a><font color=#00BDBD> - Request trade (will queue if bot is busy)</font>
+<a href='chatcmd:///tell {{ botname }} queue'>queue</a><font color=#00BDBD> - Check your position in trade queue</font>
+<a href='chatcmd:///tell {{ botname }} return'>return</a><font color=#00BDBD> - Recover saved items from interrupted trades</font>
+<font color=#FF6600>100larm 200rarm</font><font color=#00BDBD> - Set implant quality targets (NEW!)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>HOW TO USE:</font>
+<font color=#FFFFFF>1. Locate the bot next to the bor grid and stand next to it</font>
+<font color=#FFFFFF>2. Prepare your items in a bag or bags (no loose items)</font>
+<font color=#FFFFFF>3. Send the bot a tell such as /tell {{ botname }} trade</font>
+<font color=#FFFFFF>4. If I'm busy, you'll be added to queue - I'll message you when ready</font>
+<font color=#FFFFFF>5. I will open a trade with you, put the bag or bags in and accept the trade</font>
+<font color=#FFFFFF>6. I will process what I can from the bags, and than give back the completed items in your bags.</font>
+<font color=#FF0000>7. STAY NEXT TO THE BOT! Do not move away or your items cannot be returned!</font>
+<font color=#FFFF00>8. If you crash/disconnect during return, use '/tell {{ botname }} return' to recover your items</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#00D4FF>=== TRADESKILL CATEGORIES ===</font>
+
+<font color=#FFFF00>Click on a category below for detailed information:</font>
+
+<a href='chatcmd:///tell {{ botname }} help gemcutter'><font color=#00BDBD>Gem Cutter Processing</font></a><font color=#FFFFFF> - Gems & Pearls (35 types)</font>
+<a href='chatcmd:///tell {{ botname }} help smelting'><font color=#00BDBD>Smelting Processing</font></a><font color=#FFFFFF> - Jewelry & Metal Items (21 types)</font>
+<a href='chatcmd:///tell {{ botname }} help plasma'><font color=#00BDBD>Plasma Processing</font></a><font color=#FFFFFF> - Monster Parts (4 types)</font>
+<a href='chatcmd:///tell {{ botname }} help pitdemon'><font color=#00BDBD>Pit Demon Heart Processing</font></a><font color=#FFFFFF> - Pit Demon Heart (Player Bio-Comminutor Required)</font>
+<a href='chatcmd:///tell {{ botname }} help frederickson'><font color=#00BDBD>Frederickson Sleeves De-hacking</font></a><font color=#FFFFFF> - Frederickson Sleeves (Player Hacker Tool Required)</font>
+<a href='chatcmd:///tell {{ botname }} help nanocrystal'><font color=#00BDBD>Nano Crystal Repair</font></a><font color=#FFFFFF> - Damaged Crystals (Player Nano Tool Required)</font>
+<a href='chatcmd:///tell {{ botname }} help ice'><font color=#00BDBD>Ice Processing</font></a><font color=#FFFFFF> - ICE Items</font>
+<a href='chatcmd:///tell {{ botname }} help robotjunk'><font color=#00BDBD>Robot Junk Processing</font></a><font color=#FFFFFF> - Robot Junk Items</font>
+<a href='chatcmd:///tell {{ botname }} help vte'><font color=#00BDBD>VTE Processing</font></a><font color=#FFFFFF> - Virral Triumvirate Egg (9 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help pbpattern'><font color=#00BDBD>PB Pattern Processing</font></a><font color=#FFFFFF> - Pattern Blueprints (10 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help ringofpower'><font color=#00BDBD>Ring of Power Processing</font></a><font color=#FFFFFF> - Ultimate Force (4 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help clumps'><font color=#00BDBD>Clump Processing</font></a><font color=#FFFFFF> - Kyr'Ozch Bio-Material</font>
+<a href='chatcmd:///tell {{ botname }} help alienarmor'><font color=#00BDBD>Alien Armor Processing</font></a><font color=#FFFFFF> - Complete Alien Armor Crafting (8 steps + Combining)</font> <font color=#00FF00>(NEW!)</font>
+<a href='chatcmd:///tell {{ botname }} help taraarmor'><font color=#00BDBD>Tara Armor Processing</font></a><font color=#FFFFFF> - Dragon Materials (5 types)</font>
+<a href='chatcmd:///tell {{ botname }} help mantisarmor'><font color=#00BDBD>Mantis Armor Processing</font></a><font color=#FFFFFF> - Mantidae Materials (5 types)</font>
+<a href='chatcmd:///tell {{ botname }} help carbarmor'><font color=#00BDBD>Carb Armor Processing</font></a><font color=#FFFFFF> - Command-Based Carbonum Armor (3 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help implants'><font color=#00BDBD>Implant Processing</font></a><font color=#FFFFFF> - Implant & Cluster Enhancement</font> <font color=#FF6600>(NEW: Quality Targeting!)</font>
+<a href='chatcmd:///tell {{ botname }} help treatmentlibrary'><font color=#00BDBD>Treatment Library Processing</font></a><font color=#FFFFFF> - Surgery Clinic + Pharma Device</font> <font color=#FF6600>(NEW!)</font>
+<a href='chatcmd:///tell {{ botname }} help trimmer'><font color=#00BDBD>Trimmer Processing</font></a><font color=#FFFFFF> - Trimmer Casing & Smelly Liquid</font>
+<a href='chatcmd:///tell {{ botname }} help devalossleeve'><font color=#00BDBD>De'Valos Sleeve Processing</font></a><font color=#FFFFFF> - Viral-Bots & Cyber Armor Sleeves</font>
+<a href='chatcmd:///tell {{ botname }} help perenniumweapons'><font color=#00BDBD>Perennium Weapons Processing</font></a><font color=#FFFFFF> - Superior Perennium Weapons (4 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help hackgrafts'><font color=#00BDBD>Hack Grafts Processing</font></a><font color=#FFFFFF> - Boosted-Graft Hacking (Player Hacker Tool Required)</font>
+<a href='chatcmd:///tell {{ botname }} help sealedweapons'><font color=#00BDBD>Sealed Weapons Processing</font></a><font color=#FFFFFF> - Sealed Weapon Receptacles & Upgrades (Player Hacker Tool Required)</font>
+<a href='chatcmd:///tell {{ botname }} help robotbrain'><font color=#00BDBD>Robot Brain Processing</font></a><font color=#FFFFFF> - Robot Junk to Personalized Basic Robot Brain (3 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help aibiotechrodrings'><font color=#00BDBD>AI Biotech Rod Rings Processing</font></a><font color=#FFFFFF> - Gold Ingots to Biotech Rod Rings (4 steps, 3 variants)</font>
+<a href='chatcmd:///tell {{ botname }} help stalkerhelmet'><font color=#00BDBD>Stalker Helmet Processing</font></a><font color=#FFFFFF> - MasterComm + Stalker Carapace</font>
+<a href='chatcmd:///tell {{ botname }} help barterarmor'><font color=#00BDBD>Barter Armor Processing</font></a><font color=#FFFFFF> - Augmented Nano Armor Upgrade (4 steps)</font>
+<a href='chatcmd:///tell {{ botname }} help niznosbombblaster'><font color=#00BDBD>Nizno's Bomb Blaster Processing</font></a><font color=#FFFFFF> - Explosif Device + Biomaterial Tubing</font>
+<a href='chatcmd:///tell {{ botname }} help salabimshotgun'><font color=#00BDBD>Salabim Shotgun Processing</font></a><font color=#FFFFFF> - Fused Biotech Material + Biomaterial Tubing</font>
+<a href='chatcmd:///tell {{ botname }} help crepusculeleatherarmor'><font color=#00BDBD>Crepuscule Leather Armor Processing</font></a><font color=#FFFFFF> - Novictum Spangled Hide to Crepuscule Armor (4 steps, 5 variants)</font>
+<a href='chatcmd:///tell {{ botname }} help sealedweapon'><font color=#00BDBD>Sealed Weapon Processing</font></a><font color=#FFFFFF> - Two-Stage Weapon Unsealing & Upgrading (Player Hacker Tool Required)</font>
+">Craftbot Help Menu</a>

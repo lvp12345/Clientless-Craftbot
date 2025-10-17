@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1E2D3C4-B5A6-9870-FEDC-BA0987654321}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Craftbot</RootNamespace>
+    <AssemblyName>Craftbot</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <OutputPath>bin\Debug\Control Panel\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AOSharp.Common">
+      <HintPath>..\aosharp.clientless\AOSharp.Clientless\bin\Debug\AOSharp.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AOSharp.Clientless">
+      <HintPath>..\aosharp.clientless\AOSharp.Clientless\bin\Debug\AOSharp.Clientless.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AOSharp.Clientless.Common">
+      <HintPath>..\aosharp.clientless\AOSharp.Clientless.Common\bin\Debug\AOSharp.Clientless.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AOSharp.Clientless.Chat">
+      <HintPath>..\aosharp.clientless\AOSharp.Clientless.Chat\bin\Debug\AOSharp.Clientless.Chat.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\aosharp.clientless\AOSharp.Clientless\bin\Debug\Serilog.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Craftbot.cs" />
+    <Compile Include="Config.cs" />
+    <!-- Core System -->
+    <Compile Include="Core\UnifiedMessageHandler.cs" />
+    <Compile Include="Core\HelpMessageHandler.cs" />
+    <Compile Include="Core\TradeMessageHandler.cs" />
+    <Compile Include="Core\ReturnMessageHandler.cs" />
+    <Compile Include="Core\StatusMessageHandler.cs" />
+    <Compile Include="Core\TradeLogger.cs" />
+    <Compile Include="Core\ItemTracker.cs" />
+    <Compile Include="Core\ImplantQualityManager.cs" />
+    <Compile Include="Core\ImplantQualityMessageHandler.cs" />
+    <Compile Include="Core\ImplantTradeManager.cs" />
+    <Compile Include="Core\TreatmentLibraryTradeManager.cs" />
+    <!-- Configuration System -->
+    <Compile Include="Core\ConfigurationManager.cs" />
+    <Compile Include="Core\MessageConfiguration.cs" />
+    <Compile Include="Core\RecipeConfiguration.cs" />
+    <Compile Include="Core\CommandConfiguration.cs" />
+    <Compile Include="Core\MessageService.cs" />
+    <Compile Include="Core\DynamicCommandHandler.cs" />
+    <Compile Include="Core\DynamicRecipeLoader.cs" />
+    <Compile Include="Core\ConfigurableHelpSystem.cs" />
+    <Compile Include="Core\TradingSystem.cs" />
+    <!-- Modules -->
+    <Compile Include="Modules\PrivateMessageModule.cs" />
+    <Compile Include="Recipes\IRecipeProcessor.cs" />
+    <Compile Include="Recipes\BaseRecipeProcessor.cs" />
+    <Compile Include="Recipes\RecipeUtilities.cs" />
+    <Compile Include="Recipes\RecipeManager.cs" />
+    <Compile Include="Recipes\PlasmaRecipe.cs" />
+    <Compile Include="Recipes\PitDemonHeartRecipe.cs" />
+    <Compile Include="Recipes\FredericksonSleevesRecipe.cs" />
+    <Compile Include="Recipes\NanoCrystalRepairRecipe.cs" />
+    <Compile Include="Recipes\PearlRecipe.cs" />
+    <Compile Include="Recipes\SmeltingRecipe.cs" />
+    <Compile Include="Recipes\IceRecipe.cs" />
+    <Compile Include="Recipes\RobotBrainRecipe.cs" />
+    <Compile Include="Recipes\VTERecipe.cs" />
+    <Compile Include="Recipes\PBPatternRecipe.cs" />
+    <Compile Include="Recipes\TaraArmorRecipe.cs" />
+    <Compile Include="Recipes\MantisArmorRecipe.cs" />
+    <Compile Include="Recipes\CrawlerRecipe.cs" />
+    <Compile Include="Recipes\ImplantRecipe.cs" />
+    <Compile Include="Recipes\ClumpsRecipe.cs" />
+    <Compile Include="Recipes\AlienArmorRecipe.cs" />
+    <Compile Include="Recipes\CarbArmorRecipe.cs" />
+    <Compile Include="Recipes\TrimmerRecipe.cs" />
+    <Compile Include="Recipes\DevalosSleeveRecipe.cs" />
+    <Compile Include="Recipes\PerenniumWeaponsRecipe.cs" />
+    <Compile Include="Recipes\HackGraftsRecipe.cs" />
+    <Compile Include="Recipes\PredatorCircletRecipe.cs" />
+    <Compile Include="Recipes\SealedWeaponRecipe.cs" />
+    <!-- Templates -->
+    <Compile Include="Templates\CraftbotScriptTemplate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\CraftbotHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\RingOfPowerHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\TrimmerHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\DevalosSleeveHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\PerenniumWeaponsHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\PitDemonHeartHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\FredericksonSleevesHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\NanoCrystalRepairHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\HackGraftsHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\SealedWeaponHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\ImplantsHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\AlienArmorHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Target Name="CopyPythonUI" AfterTargets="Build">
+    <Copy SourceFiles="Management Window\src\craftbot_management_window.py" DestinationFolder="$(OutputPath)" />
+    <Copy SourceFiles="CraftbotLauncher\bin\Debug\CraftbotLauncher.exe" DestinationFolder="$(OutputPath)" />
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

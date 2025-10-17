@@ -1,0 +1,106 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT CARB ARMOR PROCESSING        </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMMAND-BASED PROCESSING ===</font>
+<font color=#FF0000>SPECIAL: This recipe uses command-based processing!</font>
+<font color=#FFFFFF>Use: /tell {{ botname }} trade carb [slot names]</font>
+
+<font color=#FF0000>=== IMPORTANT: COMMAND REQUIRED ===</font>
+<font color=#FF0000>- Carb armor ONLY processes through commands</font>
+<font color=#FF0000>- Trading carb items without commands will NOT work</font>
+<font color=#FF0000>- Bot will send you back to this help page if you try</font>
+<font color=#FFFFFF>- You MUST use the command format shown above</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== VALID SLOT NAMES ===</font>
+<font color=#00FF00>- head, helmet</font> <font color=#888888>-></font> <font color=#FFFFFF>Carbonum Plate Helmet</font>
+<font color=#00FF00>- chest, breast, chestpiece</font> <font color=#888888>-></font> <font color=#FFFFFF>Carbonum Breastplate</font>
+<font color=#00FF00>- pants, legs</font> <font color=#888888>-></font> <font color=#FFFFFF>Carbonum Plate Legs</font>
+<font color=#00FF00>- sleeve, sleeves, arms</font> <font color=#888888>-></font> <font color=#FFFFFF>Carbonum Plate Arms</font>
+<font color=#00FF00>- feet, boots</font> <font color=#888888>-></font> <font color=#FFFFFF>Carbonum Plate Boots</font>
+<font color=#00FF00>- gloves, hands</font> <font color=#888888>-></font> <font color=#FFFFFF>Carbonum Plate Gloves</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMMAND EXAMPLES ===</font>
+<font color=#00BDBD>Single pieces:</font>
+<font color=#FFFFFF>/tell {{ botname }} trade carb head</font>
+<font color=#FFFFFF>/tell {{ botname }} trade carb chest pants</font>
+
+<font color=#00BDBD>Multiple quantities:</font>
+<font color=#FFFFFF>/tell {{ botname }} trade carb 2sleeve 3feet</font>
+<font color=#FFFFFF>/tell {{ botname }} trade carb head chest 2pants</font>
+
+<font color=#00BDBD>Full set:</font>
+<font color=#FFFFFF>/tell {{ botname }} trade carb head chest pants sleeve feet gloves</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== REQUIRED MATERIALS ===</font>
+<font color=#FFFFFF>- Sheet of Curved Carbonum Plating</font> <font color=#888888>(1 per piece)</font>
+<font color=#888888>Bot will tell you exactly how many sheets needed</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING STEPS (AUTOMATIC) ===</font>
+
+<font color=#00BDBD>STEP 1: SKETCHING</font>
+<font color=#FFFFFF>- Sheet of Curved Carbonum Plating + Sketching Tool</font>
+<font color=#888888>  -></font> <font color=#FFD700>Etched Pattern for Carbonum [Piece]</font>
+
+<font color=#00BDBD>STEP 2: SHAPING</font>
+<font color=#FFFFFF>- Etched Pattern + (Mass Relocating Robot OR Screwdriver)</font>
+<font color=#888888>  -></font> <font color=#00FF00>Carbonum Plate [Piece]</font>
+
+<font color=#00BDBD>STEP 3: SIDED UPGRADE (OPTIONAL)</font>
+<font color=#FFFFFF>- Carbonum Plate [Piece] + Clanalizer</font>
+<font color=#888888>  -></font> <font color=#FF6600>Storm Carbonum Plate [Piece]</font>
+<font color=#FFFFFF>- Carbonum Plate [Piece] + Omnifier</font>
+<font color=#888888>  -></font> <font color=#0066FF>Omni Carbonum Plate [Piece]</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS PROVIDED BY BOT ===</font>
+<font color=#00FF00>- HSR - Sketch and Etch - [All Types]</font>
+<font color=#00FF00>- Mass Relocating Robot (Shape Hard Armor)</font>
+<font color=#00FF00>- Screwdriver (backup tool)</font>
+<font color=#888888>Optional: Clanalizer/Omnifier for sided armor</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== HOW TO USE ===</font>
+<font color=#FFFFFF>1. Send command with desired pieces</font>
+<font color=#FFFFFF>2. Bot calculates sheets needed</font>
+<font color=#FFFFFF>3. Bot opens trade window</font>
+<font color=#FFFFFF>4. Provide required sheets</font>
+<font color=#FFFFFF>5. Bot processes all pieces automatically</font>
+<font color=#FFFFFF>6. Receive completed armor pieces</font>
+
+<font color=#FFFF00>=== WHAT NOT TO DO ===</font>
+<font color=#FF0000>❌ Do NOT trade carb items without commands</font>
+<font color=#FF0000>❌ Do NOT put sheets in bags and trade normally</font>
+<font color=#FF0000>❌ Do NOT expect auto-detection like other recipes</font>
+<font color=#00FF00>✅ ALWAYS use: /tell {{ botname }} trade carb [slots]</font>
+<font color=#00FF00>✅ WAIT for bot to tell you how many sheets needed</font>
+<font color=#00FF00>✅ THEN trade the exact number of sheets requested</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FF0000>=== IMPORTANT NOTES ===</font>
+<font color=#FF0000>- COMMAND REQUIRED: Must use trade carb command</font>
+<font color=#FF0000>- NO AUTO-PROCESSING: Unlike other recipes</font>
+<font color=#FF0000>- Stay close to bot during processing</font>
+<font color=#FF0000>- Provide exact number of sheets requested</font>
+<font color=#FF0000>- Bot handles all tools and processing steps</font>
+<font color=#FF0000>- Sided upgrades require Clanalizer/Omnifier</font>
+<font color=#FF0000>- Trading carb items normally will redirect here</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+">Carb Armor Processing Guide</a>
