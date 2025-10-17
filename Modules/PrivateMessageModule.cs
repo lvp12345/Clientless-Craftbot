@@ -1141,42 +1141,7 @@ namespace Craftbot.Modules
             }
         }
 
-        private static void HandleInviteCommand(string sender, string[] args)
-        {
-            if (args.Length == 0)
-            {
-                SendPrivateMessage(sender, "Usage: invite <playername>");
-                return;
-            }
 
-            try
-            {
-                string playerName = args[0];
-
-                LogDebug($"[PM] {sender} requested team invite for {playerName}");
-
-                // Try to find the player first
-                PlayerChar targetPlayer = DynelManager.Players
-                    .FirstOrDefault(p => p.Name.Equals(playerName, StringComparison.OrdinalIgnoreCase));
-
-                if (targetPlayer != null)
-                {
-                    // Found locally, send invite directly
-                    Team.Invite(new Identity(IdentityType.SimpleChar, targetPlayer.Identity.Instance));
-                    SendPrivateMessage(sender, $"Team invite sent to {playerName}");
-                }
-                else
-                {
-                    // Not found locally, would need to use lookup system like TeamInviteModule does
-                    LogDebug($"[PM] Player {playerName} not found locally, would need character lookup");
-                    SendPrivateMessage(sender, $"Player {playerName} not found in current area. Manual invite required.");
-                }
-            }
-            catch (Exception ex)
-            {
-                SendPrivateMessage(sender, $"Error sending invite: {ex.Message}");
-            }
-        }
 
         private static void HandleAcceptCommand(string sender, string[] args)
         {

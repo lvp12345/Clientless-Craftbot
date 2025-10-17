@@ -73,7 +73,6 @@ Then run: `CraftbotLauncher.exe`
 - **Remote Control**: Execute commands via private messages from authorized users
 - **Management Window**: Python-based GUI for easy configuration
 - **Modular Design**: Enable/disable individual features as needed
-- **Trade Queue System**: Manages multiple trade requests with queue support
 
 ## Documentation
 
