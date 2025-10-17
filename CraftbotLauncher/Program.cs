@@ -234,16 +234,25 @@ namespace CraftbotLauncher
         {
             try
             {
-                var defaultConfig = new LauncherConfig
-                {
-                    Username = "your_username",
-                    Password = "your_password",
-                    CharacterName = "your_character_name",
-                    Dimension = Dimension.RubiKa2019
-                };
+                // Create config with comments as a formatted string
+                string configContent = @"{
+  // Your Anarchy Online username
+  ""Username"": ""your_username"",
 
-                string json = Newtonsoft.Json.JsonConvert.SerializeObject(defaultConfig, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(configPath, json);
+  // Your Anarchy Online password
+  ""Password"": ""your_password"",
+
+  // Your character name
+  ""CharacterName"": ""your_character_name"",
+
+  // Available dimensions:
+  //   - RubiKa (Live server)
+  //   - RubiKa2019 (2019 server)
+  //   - Test (Test server)
+  ""Dimension"": ""RubiKa2019""
+}";
+
+                File.WriteAllText(configPath, configContent);
 
                 Console.WriteLine($"Created default launcher config at: {configPath}");
                 Console.WriteLine("Please edit launcher-config.json with your credentials before running again.");

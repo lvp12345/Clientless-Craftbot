@@ -1,6 +1,16 @@
 {
+  // Your Anarchy Online username
   "Username": "your_username",
+
+  // Your Anarchy Online password
   "Password": "your_password",
+
+  // Your character name
   "CharacterName": "YourCharacterName",
+
+  // Available dimensions:
+  //   - RubiKa (Live server)
+  //   - RubiKa2019 (2019 server)
+  //   - Test (Test server)
   "Dimension": "RubiKa2019"
 }
