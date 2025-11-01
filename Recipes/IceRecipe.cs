@@ -18,32 +18,28 @@ namespace Craftbot.Recipes
         public override bool CanProcess(Item item)
         {
             // Specific Ice item for processing
-            return item.Name.Equals("Hacker ICE-Breaker Source", StringComparison.OrdinalIgnoreCase);
+            bool canProcess = item.Name.Equals("Hacker ICE-Breaker Source", StringComparison.OrdinalIgnoreCase);
+            RecipeUtilities.LogDebug($"[ICE CHECK] Item: '{item.Name}' -> Can process: {canProcess}");
+            return canProcess;
         }
 
         protected override async Task ProcessRecipeLogic(Item item, Container targetContainer)
         {
+            RecipeUtilities.LogDebug($"[{RecipeName}] *** STARTING PROCESSING *** Item: {item.Name}, From bag: {targetContainer != null}");
+
             // Get Nano Programming Interface tool using unified core
             var nanoProgrammingInterface = FindTool("Nano Programming Interface");
             if (nanoProgrammingInterface == null)
             {
-                RecipeUtilities.LogDebug($"[{RecipeName}] Nano Programming Interface not found - cannot process");
+                RecipeUtilities.LogDebug($"[{RecipeName}] ❌ Nano Programming Interface not found - cannot process");
                 return;
             }
 
-            // Find the specific ice item in inventory using unified core
-            var iceItem = Inventory.Items.FirstOrDefault(invItem =>
-                CanProcess(invItem) && invItem.Name.Equals(item.Name, StringComparison.OrdinalIgnoreCase));
+            RecipeUtilities.LogDebug($"[{RecipeName}] ✅ Found tool: {nanoProgrammingInterface.Name}");
 
-            if (iceItem == null)
-            {
-                RecipeUtilities.LogDebug($"[{RecipeName}] Could not find {item.Name} in inventory");
-                return;
-            }
-
-            // Process using unified core
-            RecipeUtilities.LogDebug($"[{RecipeName}] Processing {iceItem.Name} with {nanoProgrammingInterface.Name}");
-            await CombineItems(nanoProgrammingInterface, iceItem);
+            // Use the item parameter directly - it's already been moved to inventory by the base processor
+            RecipeUtilities.LogDebug($"[{RecipeName}] Processing {item.Name} with {nanoProgrammingInterface.Name}");
+            await CombineItems(nanoProgrammingInterface, item);
 
             // Check result and stack if needed
             if (Inventory.Find("Upgraded Controller Recompiler Unit", out Item upgradedUnit))

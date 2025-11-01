@@ -1,0 +1,25 @@
+<a href="text://
+<font color=#FF6600>Implant Cleaning Service</font>
+<font color=#888888>Clean your implants using the Implant Disassembly Clinic</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>Command:</font> /tell <botname> clean
+
+<font color=#FFFF00>Description:</font>
+I will clean all of your implants using my Implant Disassembly Clinic tool. Simply trade me your implants and I'll process them all and return them to you cleaned!
+
+<font color=#FFFF00>What happens:</font>
+1. You trade me your implants
+2. I use my Implant Disassembly Clinic to clean each one
+3. All cleaned implants are returned to you in your bag
+
+<font color=#FFFF00>Important:</font>
+- I keep my Implant Disassembly Clinic tool - it will NOT be given to you
+- All cleaned implants will be returned to your bag
+- The service is free!
+
+<font color=#FFFF00>Example:</font>
+/tell <botname> clean
+">Click here for Implant Cleaning help</a>
+

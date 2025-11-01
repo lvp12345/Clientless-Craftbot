@@ -104,6 +104,19 @@ namespace Craftbot.Core
                     Category = "General",
                     Cooldown = 10,
                     Rank = "Everyone"
+                },
+                new ConfigurableCommand
+                {
+                    Name = "clean",
+                    Aliases = new List<string> { "implantclean", "ic" },
+                    Description = "Clean implants using Implant Disassembly Clinic",
+                    Response = "Opening trade to clean your implants. Please add the implants you want cleaned!",
+                    Enabled = true,
+                    RequiresParameters = false,
+                    Category = "Recipes",
+                    Cooldown = 5,
+                    Rank = "Everyone",
+                    ActionType = "action"
                 }
             });
         }

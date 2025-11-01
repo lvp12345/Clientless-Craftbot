@@ -81,6 +81,7 @@
     <Compile Include="Core\ImplantQualityManager.cs" />
     <Compile Include="Core\ImplantQualityMessageHandler.cs" />
     <Compile Include="Core\ImplantTradeManager.cs" />
+    <Compile Include="Core\CleanTradeManager.cs" />
     <Compile Include="Core\TreatmentLibraryTradeManager.cs" />
     <!-- Configuration System -->
     <Compile Include="Core\ConfigurationManager.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Recipes\PitDemonHeartRecipe.cs" />
     <Compile Include="Recipes\FredericksonSleevesRecipe.cs" />
     <Compile Include="Recipes\NanoCrystalRepairRecipe.cs" />
+    <Compile Include="Recipes\NanoCrystalCreationRecipe.cs" />
     <Compile Include="Recipes\PearlRecipe.cs" />
     <Compile Include="Recipes\SmeltingRecipe.cs" />
     <Compile Include="Recipes\IceRecipe.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Recipes\MantisArmorRecipe.cs" />
     <Compile Include="Recipes\CrawlerRecipe.cs" />
     <Compile Include="Recipes\ImplantRecipe.cs" />
+    <Compile Include="Recipes\ImplantCleaningRecipe.cs" />
     <Compile Include="Recipes\ClumpsRecipe.cs" />
     <Compile Include="Recipes\AlienArmorRecipe.cs" />
     <Compile Include="Recipes\CarbArmorRecipe.cs" />
@@ -153,6 +156,9 @@
     <Content Include="Templates\NanoCrystalRepairHelpTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Templates\NanoCrystalCreationHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\HackGraftsHelpTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -162,6 +168,9 @@
     <Content Include="Templates\ImplantsHelpTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Templates\ImplantCleaningHelpTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\AlienArmorHelpTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -169,6 +178,11 @@
   <Target Name="CopyPythonUI" AfterTargets="Build">
     <Copy SourceFiles="Management Window\src\craftbot_management_window.py" DestinationFolder="$(OutputPath)" />
     <Copy SourceFiles="CraftbotLauncher\bin\Debug\CraftbotLauncher.exe" DestinationFolder="$(OutputPath)" />
+    <!-- Copy help templates to config/help-templates folder -->
+    <ItemGroup>
+      <HelpTemplates Include="Templates\*HelpTemplate.txt" />
+    </ItemGroup>
+    <Copy SourceFiles="@(HelpTemplates)" DestinationFolder="$(OutputPath)config\help-templates" />
   </Target>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

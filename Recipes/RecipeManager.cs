@@ -36,6 +36,7 @@ namespace Craftbot.Recipes
                 try { _processors.Add(new PitDemonHeartRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ PitDemonHeartRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new FredericksonSleevesRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ FredericksonSleevesRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new NanoCrystalRepairRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ NanoCrystalRepairRecipe failed: {ex.Message}"); }
+                try { _processors.Add(new NanoCrystalCreationRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ NanoCrystalCreationRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new PearlRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ PearlRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new SmeltingRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ SmeltingRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new IceRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ IceRecipe failed: {ex.Message}"); }
@@ -47,6 +48,7 @@ namespace Craftbot.Recipes
                 try { _processors.Add(new MantisArmorRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ MantisArmorRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new CrawlerRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ CrawlerRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new ImplantRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ ImplantRecipe failed: {ex.Message}"); }
+                try { _processors.Add(new ImplantCleaningRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ ImplantCleaningRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new ClumpsRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ ClumpsRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new AlienArmorRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ AlienArmorRecipe failed: {ex.Message}"); }
                 try { _processors.Add(new TrimmerRecipe()); } catch (Exception ex) { RecipeUtilities.LogDebug($"[RECIPE MANAGER] ❌ TrimmerRecipe failed: {ex.Message}"); }
@@ -297,6 +299,16 @@ namespace Craftbot.Recipes
                 int totalProcessed = 0;
 
                 RecipeUtilities.LogDebug($"[RECIPE MANAGER] Found {allItems.Count} total items grouped into {itemGroups.Count} unique item types");
+
+                // CRITICAL DEBUG: Log to transaction log as well
+                if (allItems.Count == 0)
+                {
+                    RecipeUtilities.LogWarning($"[RECIPE MANAGER] ⚠️ CONTAINER IS EMPTY! Cannot process items.");
+                    RecipeUtilities.LogWarning($"[RECIPE MANAGER] Container name: {container.Item?.Name ?? "Unknown"}");
+                    RecipeUtilities.LogWarning($"[RECIPE MANAGER] Container identity: {container.Identity}");
+                    return 0;
+                }
+
                 foreach (var group in itemGroups)
                 {
                     RecipeUtilities.LogDebug($"[RECIPE MANAGER] - {group.Count()}x {group.Key}");

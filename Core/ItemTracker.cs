@@ -268,7 +268,7 @@ namespace Craftbot.Core
         {
             if (!_initialized) Initialize();
 
-            // EXCLUSION: Monster parts, clusters, implants, and nano crystals are NEVER bot personal items
+            // EXCLUSION: Monster parts, clusters, implants, nano crystals, and pearls/gems are NEVER bot personal items
             if (item?.Name != null)
             {
                 var itemNameLower = item.Name.ToLower();
@@ -276,7 +276,15 @@ namespace Craftbot.Core
                     itemNameLower.Contains("pelted monster parts") ||
                     itemNameLower.Contains("cluster") ||
                     itemNameLower.Contains("implant") ||
-                    itemNameLower.Contains("nano crystal"))
+                    itemNameLower.Contains("nano crystal") ||
+                    itemNameLower.Contains("pearl") ||
+                    itemNameLower.Contains("gem") ||
+                    itemNameLower.Contains("ruby") ||
+                    itemNameLower.Contains("sapphire") ||
+                    itemNameLower.Contains("emerald") ||
+                    itemNameLower.Contains("diamond") ||
+                    itemNameLower.Contains("soul fragment") ||
+                    itemNameLower.Contains("ember"))
                 {
                     return false; // Processable items are NEVER bot personal items
                 }
@@ -342,7 +350,7 @@ namespace Craftbot.Core
         {
             if (!_initialized) Initialize();
 
-            // EXCLUSION: Monster parts, clusters, implants, and nano crystals are NEVER bot tools
+            // EXCLUSION: Monster parts, clusters, implants, nano crystals, and pearls/gems are NEVER bot tools
             if (item?.Name != null)
             {
                 var itemNameLower = item.Name.ToLower();
@@ -350,7 +358,15 @@ namespace Craftbot.Core
                     itemNameLower.Contains("pelted monster parts") ||
                     itemNameLower.Contains("cluster") ||
                     itemNameLower.Contains("implant") ||
-                    itemNameLower.Contains("nano crystal"))
+                    itemNameLower.Contains("nano crystal") ||
+                    itemNameLower.Contains("pearl") ||
+                    itemNameLower.Contains("gem") ||
+                    itemNameLower.Contains("ruby") ||
+                    itemNameLower.Contains("sapphire") ||
+                    itemNameLower.Contains("emerald") ||
+                    itemNameLower.Contains("diamond") ||
+                    itemNameLower.Contains("soul fragment") ||
+                    itemNameLower.Contains("ember"))
                 {
                     return false; // Processable items are NEVER bot tools
                 }
@@ -1055,6 +1071,12 @@ namespace Craftbot.Core
                 itemNameLower.Contains("pelted monster parts"))
             {
                 return false; // Monster parts are processable items, NOT tools
+            }
+
+            // CRITICAL FIX: "Hacker ICE-Breaker Source" is a processable item for Ice recipe, NOT a tool
+            if (itemNameLower.Contains("hacker ice-breaker source") || itemNameLower.Contains("hacker ice breaker source"))
+            {
+                return false; // This is a processable item for Ice recipe, NOT a tool
             }
 
             var toolIndicators = new[]

@@ -17,11 +17,15 @@ namespace Craftbot.Recipes
 
         public override bool CanProcess(Item item)
         {
-            // Check for any item containing "boosted graft" or "boosted-graft"
-            bool canProcess = item.Name.ToLower().Contains("boosted graft") ||
-                             item.Name.ToLower().Contains("boosted-graft");
+            // CRITICAL FIX: Only process UN-HACKED boosted grafts, NOT already hacked ones
+            // Check for "boosted graft" or "boosted-graft" but EXCLUDE items that already contain "hacked"
+            var itemNameLower = item.Name.ToLower();
+            bool isAlreadyHacked = itemNameLower.Contains("hacked");
+            bool isBoostedGraft = itemNameLower.Contains("boosted graft") || itemNameLower.Contains("boosted-graft");
 
-            RecipeUtilities.LogDebug($"[HACK GRAFTS CHECK] Item: '{item.Name}' -> Can process: {canProcess}");
+            bool canProcess = isBoostedGraft && !isAlreadyHacked;
+
+            RecipeUtilities.LogDebug($"[HACK GRAFTS CHECK] Item: '{item.Name}' -> Can process: {canProcess} (BoostedGraft: {isBoostedGraft}, AlreadyHacked: {isAlreadyHacked})");
             return canProcess;
         }
 
@@ -52,8 +56,9 @@ namespace Craftbot.Recipes
             RecipeUtilities.LogDebug($"[{RecipeName}] Processing {boostedGraft.Name} with player-provided {playerHackerTool.Name}");
             await CombineItems(playerHackerTool, boostedGraft);
 
-            // Check result
-            var hackedGraftCount = Inventory.Items.Where(invItem => invItem.Name.Contains("Hacked") && invItem.Name.Contains("Graft")).Count();
+            // Check result - use ToList() to avoid "Collection was modified" errors
+            var inventorySnapshot = Inventory.Items.ToList();
+            var hackedGraftCount = inventorySnapshot.Where(invItem => invItem.Name.Contains("Hacked") && invItem.Name.Contains("Graft")).Count();
             RecipeUtilities.LogDebug($"[{RecipeName}] Completed processing - now have {hackedGraftCount} Hacked Graft items in inventory");
         }
 

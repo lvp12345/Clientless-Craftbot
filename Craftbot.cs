@@ -93,6 +93,9 @@ namespace Craftbot
                     // Startup analysis complete
                     await Task.Delay(2000); // Wait additional 2 seconds for inventory to stabilize
                     PrivateMessageModule.LogInfo("[CRAFTBOT] ✅ Bot startup completed successfully - Ready for trades!");
+
+                    // Mark initialization as complete - bot will now accept commands and trades
+                    PrivateMessageModule.MarkInitializationComplete();
                 });
 
                 PrivateMessageModule.LogInfo("[CRAFTBOT] Craftbot plugin initialization completed successfully");

@@ -100,10 +100,14 @@ namespace Craftbot.Modules
         private static Dictionary<int, List<Item>> _playerBags = new Dictionary<int, List<Item>>(); // Track bags received from players
         private static Identity? _currentTradeTarget = null; // Track who we're currently trading with
 
+        // Initialization state - bot ignores commands and closes trades until initialization completes
+        private static bool _isInitializing = true;
+
         // Debug logging to file
+        // CRITICAL FIX: Assembly location is already in "Control Panel" folder, so just add "logs"
         private static string _debugLogPath = System.IO.Path.Combine(
             System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
-            "Control Panel", "logs", "craftbot_debug.log");
+            "logs", "craftbot_debug.log");
         private static readonly object _logLock = new object();
 
         // Trade queue system with proper state management
@@ -179,21 +183,22 @@ namespace Craftbot.Modules
             try
             {
                 // Get the directory where this DLL is located
+                // CRITICAL FIX: Assembly is already in "Control Panel" folder, don't add it again!
                 string assemblyLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 string assemblyDirectory = System.IO.Path.GetDirectoryName(assemblyLocation);
 
-                // For logs, put them in Control Panel/logs
+                // For logs, put them in logs/ (assembly is already in Control Panel)
                 if (fileName.EndsWith(".log") || fileName == "trade_logs.txt" || fileName == "alien_armor.log")
                 {
-                    string logsDir = System.IO.Path.Combine(assemblyDirectory, "Control Panel", "logs");
+                    string logsDir = System.IO.Path.Combine(assemblyDirectory, "logs");
                     System.IO.Directory.CreateDirectory(logsDir);
                     string filePath = System.IO.Path.Combine(logsDir, System.IO.Path.GetFileName(fileName));
                     LogDebug($"[FILE PATH] {fileName} will be at: {filePath}");
                     return filePath;
                 }
 
-                // For config files, keep them in Control Panel/config
-                string filePath2 = System.IO.Path.Combine(assemblyDirectory, "Control Panel", fileName);
+                // For config files, keep them in config/ (assembly is already in Control Panel)
+                string filePath2 = System.IO.Path.Combine(assemblyDirectory, fileName);
                 LogDebug($"[FILE PATH] {fileName} will be at: {filePath2}");
                 return filePath2;
             }
@@ -213,6 +218,15 @@ namespace Craftbot.Modules
 
 
 
+        /// <summary>
+        /// Mark initialization as complete - bot will now accept commands and trades
+        /// </summary>
+        public static void MarkInitializationComplete()
+        {
+            _isInitializing = false;
+            LogInfo("[INIT] ✅ Bot initialization complete - now accepting commands and trades");
+        }
+
         public static void Initialize()
         {
             try
@@ -224,8 +238,10 @@ namespace Craftbot.Modules
                 _currentBotState = BotState.Ready;
                 _currentProcessingPlayer = null;
                 _autoDeclinedTrades.Clear();
+                _isInitializing = true; // Set to initializing state
                 LogDebug($"[INIT] ===== CRAFTBOT STARTUP - {DateTime.Now:yyyy-MM-dd HH:mm:ss} =====");
                 LogDebug($"[INIT] Bot state reset to Ready on initialization");
+                LogDebug($"[INIT] Bot is now in INITIALIZING state - will ignore commands and close trades");
 
                 // Initialize recipe manager
                 LogInfo("[INIT] Initializing Recipe Manager...");
@@ -572,6 +588,14 @@ namespace Craftbot.Modules
         {
             try
             {
+                // INITIALIZATION CHECK: Ignore all commands during bot initialization
+                if (_isInitializing)
+                {
+                    LogDebug($"[PM] Ignoring command from {senderName} - bot is still initializing");
+                    SendPrivateMessage(senderName, "⏳ Bot is still initializing. Please wait a moment and try again.");
+                    return;
+                }
+
                 // LogDebug($"[PM] Received message from {senderName}: '{content}'"); // Hidden for cleaner logs (except for Hive messages)
 
                 // Store the last sender for potential trade operations
@@ -2319,6 +2343,17 @@ namespace Craftbot.Modules
                         // Clear the current trade's received items tracking
                         Core.ItemTracker.ClearCurrentTradeItems();
 
+                        // Clear any pending special trade flags
+                        var playerName = GetPlayerName(playerId);
+                        if (!string.IsNullOrEmpty(playerName))
+                        {
+                            if (Core.CleanTradeManager.HasPendingCleanTrade(playerName))
+                            {
+                                Core.CleanTradeManager.ClearPendingCleanTrade(playerName);
+                                LogDebug($"[TRADE PROCESSING] Cleared pending clean trade for {playerName} after return");
+                            }
+                        }
+
                         LogDebug($"[BOT STATE] Return trade completed - changed to Ready");
                         LogDebug($"[QUEUE] Bot is now ready for new trades");
 
@@ -2511,6 +2546,14 @@ namespace Craftbot.Modules
             try
             {
                 LogDebug($"[TRADE] Trade opened with {traderId}");
+
+                // INITIALIZATION CHECK: Close all trades during bot initialization
+                if (_isInitializing)
+                {
+                    LogDebug($"[TRADE] Declining trade - bot is still initializing");
+                    Trade.Decline();
+                    return;
+                }
 
                 if (traderId.Type == IdentityType.SimpleChar)
                 {
@@ -2899,6 +2942,11 @@ namespace Craftbot.Modules
                             if (isAdminTrade)
                             {
                                 LogDebug($"[TRADE] This was an admin trade for {playerName} - skipping all recipe processing");
+
+                                // CRITICAL FIX: Clean up the admin trade from DynamicCommandHandler to prevent next trade from being marked as admin
+                                Core.DynamicCommandHandler.ClearAdminTrade(playerName);
+                                LogDebug($"[TRADE] Cleared admin trade flag for {playerName}");
+
                                 // Admin trades are handled entirely by DynamicCommandHandler
                                 // Clear the stored trade target and exit
                                 _currentTradeTarget = null;
@@ -3014,6 +3062,17 @@ namespace Craftbot.Modules
                                     _playerBags.Remove(playerId); // Clean up any remaining bag tracking
                                     _newItemsAddedDuringReturn.Remove(playerId); // Clean up tracking
                                     _returnRetryCount.Remove(playerId); // Clean up retry counter
+
+                                    // Clear any pending special trade flags
+                                    var playerNameForCleanup = GetPlayerName(playerId);
+                                    if (!string.IsNullOrEmpty(playerNameForCleanup))
+                                    {
+                                        if (Core.CleanTradeManager.HasPendingCleanTrade(playerNameForCleanup))
+                                        {
+                                            Core.CleanTradeManager.ClearPendingCleanTrade(playerNameForCleanup);
+                                            LogDebug($"[TRADE PROCESSING] Cleared pending clean trade for {playerNameForCleanup} after return");
+                                        }
+                                    }
 
                                     // STATE TRANSITION: Returning → Ready
                                     _currentBotState = BotState.Ready;
@@ -4488,14 +4547,23 @@ namespace Craftbot.Modules
             {
                 lock (_logLock)
                 {
+                    // CRITICAL FIX: Ensure the directory exists before writing
+                    string logDir = System.IO.Path.GetDirectoryName(_debugLogPath);
+                    System.IO.Directory.CreateDirectory(logDir);
+
                     // Clear the log file by overwriting it with startup header
                     string startupHeader = $"===== CRAFTBOT DEBUG LOG - STARTUP {DateTime.Now:yyyy-MM-dd HH:mm:ss} =====" + Environment.NewLine;
                     System.IO.File.WriteAllText(_debugLogPath, startupHeader);
+
+                    // Log to console to confirm it worked
+                    Console.WriteLine($"[CRAFTBOT] Debug log cleared and initialized at: {_debugLogPath}");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Silent error handling for log clearing
+                // Log the error to console so we can see what's wrong
+                Console.WriteLine($"[CRAFTBOT ERROR] Failed to clear debug log: {ex.Message}");
+                Console.WriteLine($"[CRAFTBOT ERROR] Log path was: {_debugLogPath}");
             }
         }
 
@@ -4509,6 +4577,10 @@ namespace Craftbot.Modules
                 // Also write to file with timestamp
                 lock (_logLock)
                 {
+                    // CRITICAL FIX: Ensure directory exists before writing
+                    string logDir = System.IO.Path.GetDirectoryName(_debugLogPath);
+                    System.IO.Directory.CreateDirectory(logDir);
+
                     string logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} [DEBUG] {message}";
                     System.IO.File.AppendAllText(_debugLogPath, logEntry + Environment.NewLine);
                 }
@@ -5051,14 +5123,19 @@ namespace Craftbot.Modules
                 // CRITICAL FIX: Clear alien armor consumed items tracking for new trade
                 Recipes.AlienArmorRecipe.ClearConsumedItemsTracking();
 
-                // Check if this is a special implant trade or treatment library trade
+                // Check if this is a special implant trade, clean trade, or treatment library trade
                 string playerName = GetPlayerNameFromId(playerId);
                 bool isImplantTrade = !string.IsNullOrEmpty(playerName) && Core.ImplantTradeManager.HasPendingImplantTrade(playerName);
+                bool isCleanTrade = !string.IsNullOrEmpty(playerName) && Core.CleanTradeManager.HasPendingCleanTrade(playerName);
                 bool isTreatmentLibraryTrade = !string.IsNullOrEmpty(playerName) && Core.TreatmentLibraryTradeManager.HasPendingTreatmentLibraryTrade(playerName);
 
                 if (isImplantTrade)
                 {
                     LogDebug($"[TRADE PROCESSING] Detected pending implant trade for {playerName} - will use custom implant processing with unified return logic");
+                }
+                else if (isCleanTrade)
+                {
+                    LogDebug($"[TRADE PROCESSING] Detected pending clean trade for {playerName} - will use implant cleaning recipe");
                 }
                 else if (isTreatmentLibraryTrade)
                 {
@@ -5345,6 +5422,13 @@ namespace Craftbot.Modules
                             if (container != null)
                             {
                                 LogDebug($"[TRADE PROCESSING] Processing contents of {bagItem.Name}");
+                                LogDebug($"[TRADE PROCESSING] Container has {container.Items.Count} items");
+
+                                // Log each item in the container
+                                foreach (var item in container.Items.Take(10))
+                                {
+                                    LogDebug($"[TRADE PROCESSING] Container item: {item.Name} (ID: {item.Id})");
+                                }
 
                                 // CUSTOM TRADE INTEGRATION: Use unified infrastructure with custom processing
                                 if (isImplantTrade)
@@ -5363,6 +5447,10 @@ namespace Craftbot.Modules
                                     LogDebug($"[TRADE PROCESSING] Calling ScanAndProcessContainerContents for normal trade");
                                     await ScanAndProcessContainerContents(container, bagItem, playerId);
                                 }
+                            }
+                            else
+                            {
+                                LogDebug($"[TRADE PROCESSING] ⚠️ Could not find container for bag item: {bagItem.Name}");
                             }
                         }
 
@@ -5397,6 +5485,40 @@ namespace Craftbot.Modules
                             await Core.ImplantTradeManager.ProcessImplantTrade(playerName, newLooseItems);
 
                             LogDebug($"[TRADE PROCESSING] Custom implant processing completed - continuing with unified return logic");
+                        }
+                        else if (isCleanTrade)
+                        {
+                            LogDebug($"[TRADE PROCESSING] Using ONLY ImplantCleaningRecipe for {newLooseItems.Count} loose items");
+
+                            // UNIFIED INFRASTRUCTURE: Track item ownership for leftover recovery
+                            foreach (var item in newLooseItems)
+                            {
+                                string itemKey = $"{item.Name}_{item.Id}";
+                                _itemToPlayerMapping[itemKey] = playerName;
+                                LogDebug($"[ITEM TRACKING] Mapped loose item {itemKey} to player {playerName}");
+
+                                // COMPREHENSIVE INVENTORY TRACKING: Track as received item
+                                Core.ItemTracker.ProcessReceivedItems(new List<Item> { item }, playerName);
+                                LogDebug($"[COMPREHENSIVE TRACKING] Tracked received loose item: {item.Name} from {playerName}");
+                            }
+
+                            // CLEAN TRADE PROCESSING: Call ImplantCleaningRecipe directly, bypassing RecipeManager
+                            var cleanRecipe = new Recipes.ImplantCleaningRecipe();
+                            LogDebug($"[TRADE PROCESSING] Processing {newLooseItems.Count} items with ImplantCleaningRecipe directly");
+
+                            foreach (var item in newLooseItems)
+                            {
+                                string itemDisplayName = GetItemDisplayName(item);
+                                LogDebug($"[TRADE PROCESSING] Processing item for cleaning: {itemDisplayName}");
+
+                                // Process directly with ImplantCleaningRecipe, bypassing RecipeManager
+                                await cleanRecipe.ProcessItem(item, null);
+                                LogDebug($"[TRADE PROCESSING] Completed processing for cleaning: {itemDisplayName}");
+
+                                await Task.Delay(100);
+                            }
+
+                            LogDebug($"[TRADE PROCESSING] Clean trade processing completed - continuing with unified return logic");
                         }
                         else if (isTreatmentLibraryTrade)
                         {
@@ -5513,6 +5635,13 @@ namespace Craftbot.Modules
                         LogDebug($"[TRADE PROCESSING] Cleared pending implant trade for {playerName}");
                     }
 
+                    // Clear clean trade flag if this was a clean trade
+                    if (isCleanTrade)
+                    {
+                        Core.CleanTradeManager.ClearPendingCleanTrade(playerName);
+                        LogDebug($"[TRADE PROCESSING] Cleared pending clean trade for {playerName}");
+                    }
+
                     // STATE TRANSITION: Processing → Returning
                     _currentBotState = BotState.Returning;
                     LogDebug($"[BOT STATE] Changed to Returning for player {playerId}");
@@ -5535,6 +5664,13 @@ namespace Craftbot.Modules
                     {
                         Core.ImplantTradeManager.ClearPendingImplantTrade(playerName);
                         LogDebug($"[TRADE PROCESSING] Cleared pending implant trade for {playerName} (no items detected)");
+                    }
+
+                    // Clear clean trade flag if this was a clean trade
+                    if (isCleanTrade)
+                    {
+                        Core.CleanTradeManager.ClearPendingCleanTrade(playerName);
+                        LogDebug($"[TRADE PROCESSING] Cleared pending clean trade for {playerName} (no items detected)");
                     }
 
                     // Send immediate feedback to user

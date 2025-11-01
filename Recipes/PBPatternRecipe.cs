@@ -801,17 +801,25 @@ namespace Craftbot.Recipes
                     !item.Name.ToLower().Contains("subdued") &&
                     !item.Name.ToLower().Contains("novictum ring")).ToList();
 
-                var ancientRefiner = FindTool("Ancient Novictum Refiner");
-
-                if (ancientRefiner != null && rawNovictum.Any())
+                // FIXED: Only pull tool if we have items to process
+                if (rawNovictum.Any())
                 {
-                    foreach (var novictum in rawNovictum)
+                    var ancientRefiner = FindTool("Ancient Novictum Refiner");
+
+                    if (ancientRefiner != null)
                     {
-                        if (!novictum.Name.ToLower().Contains("subdued"))
+                        foreach (var novictum in rawNovictum)
                         {
-                            RecipeUtilities.LogDebug($"[{RecipeName}] Processing {novictum.Name} with Ancient Novictum Refiner");
-                            await CombineItems(ancientRefiner, novictum);
+                            if (!novictum.Name.ToLower().Contains("subdued"))
+                            {
+                                RecipeUtilities.LogDebug($"[{RecipeName}] Processing {novictum.Name} with Ancient Novictum Refiner");
+                                await CombineItems(ancientRefiner, novictum);
+                            }
                         }
+                    }
+                    else
+                    {
+                        RecipeUtilities.LogDebug($"[{RecipeName}] ⚠️ Have raw novictum but Ancient Novictum Refiner not found");
                     }
                 }
 

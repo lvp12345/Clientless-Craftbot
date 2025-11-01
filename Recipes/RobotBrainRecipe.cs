@@ -17,6 +17,14 @@ namespace Craftbot.Recipes
     {
         public override string RecipeName => "Robot Brain";
 
+        /// <summary>
+        /// Robot Brain combinations need extra time for server to process the tradeskill
+        /// </summary>
+        protected override int GetCombinationDelay()
+        {
+            return 500; // Increased from default 200ms to fix processing failures
+        }
+
         public enum RobotBrainStage
         {
             None,
@@ -39,11 +47,9 @@ namespace Craftbot.Recipes
         {
             RecipeUtilities.LogDebug($"[{RecipeName}] Starting Robot Brain multistep processing for {item.Name}");
 
-            // Move Robot Brain components to inventory for processing (Robot Brain needs all components moved)
-            if (targetContainer != null)
-            {
-                await MoveRobotBrainComponentsToInventory(targetContainer);
-            }
+            // DON'T move items - process them directly in the bag
+            // The base class ProcessAllItemsUntilComplete already moved Robot Junk to inventory
+            // We just need to detect the stage and process it
 
             // Detect current stage and process accordingly
             var currentStage = DetectRobotBrainStageFromInventory();

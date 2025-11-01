@@ -205,6 +205,17 @@ namespace Craftbot.Recipes
             if (Inventory.Items.Any(i => i.Name.Contains("Kyr'Ozch Formatted Viralbot Solution")))
                 return AlienArmorStage.Step7_FormattedViralbot;
 
+            // Check for plain Kyr'Ozch Viralbots (not Lead, not Memory-Wiped, not Formatted)
+            // This is Step 4 - needs to be processed with DNA Cocktail
+            if (Inventory.Items.Any(i => i.Name.Contains("Kyr'Ozch Viralbots") &&
+                !i.Name.Contains("Lead") &&
+                !i.Name.Contains("Memory-Wiped") &&
+                !i.Name.Contains("Formatted")))
+            {
+                RecipeUtilities.LogDebug($"[{RecipeName}] Detected plain Kyr'Ozch Viralbots - starting at Step 4");
+                return AlienArmorStage.Step4_DNACocktail;
+            }
+
             if (Inventory.Items.Any(i => i.Name.Contains("DNA Cocktail")))
                 return AlienArmorStage.Step4_DNACocktail;
 
@@ -696,6 +707,14 @@ namespace Craftbot.Recipes
 
             if (items.Any(i => i.Name.Contains("Kyr'Ozch Formatted Viralbot Solution")))
                 return AlienArmorStage.Step7_FormattedViralbot;
+
+            // Check for plain Kyr'Ozch Viralbots (not Lead, not Memory-Wiped, not Formatted)
+            // This is Step 4 - needs to be processed with DNA Cocktail
+            if (items.Any(i => i.Name.Contains("Kyr'Ozch Viralbots") &&
+                !i.Name.Contains("Lead") &&
+                !i.Name.Contains("Memory-Wiped") &&
+                !i.Name.Contains("Formatted")))
+                return AlienArmorStage.Step4_DNACocktail;
 
             if (items.Any(i => i.Name.Contains("DNA Cocktail")))
                 return AlienArmorStage.Step4_DNACocktail;

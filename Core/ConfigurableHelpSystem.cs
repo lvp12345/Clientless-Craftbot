@@ -146,6 +146,7 @@ namespace Craftbot.Core
                 case "pitdemonhearthelptemplate": return "pitdemon";
                 case "fredericksonsleevedhelptemplate": return "frederickson";
                 case "nanocrystalrepairhelptemplate": return "nanocrystal";
+                case "nanocrystalcreationhelptemplate": return "nanocrystal-creation";
                 case "icehelptemplate": return "ice";
                 case "robotjunkhelptemplate": return "robotjunk";
                 case "vtehelptemplate": return "vte";
@@ -358,7 +359,9 @@ namespace Craftbot.Core
             // Also write to debug log file if possible
             try
             {
-                var logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "craftbot_debug.log");
+                // FIXED: BaseDirectory is already "Control Panel", just add "logs"
+                var logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs", "craftbot_debug.log");
+                Directory.CreateDirectory(Path.GetDirectoryName(logPath));
                 File.AppendAllText(logPath, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} [DEBUG] {message}\n");
             }
             catch

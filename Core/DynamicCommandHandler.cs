@@ -207,7 +207,12 @@ namespace Craftbot.Core
                 case "status":
                     return Task.FromResult(MessageService.GetStatusMessage("Online", GetProcessedCount(), GetUptime()));
 
-
+                case "clean":
+                case "implantclean":
+                case "ic":
+                    // Handle implant cleaning command - open trade
+                    HandleCleanCommand(playerName);
+                    return Task.FromResult(ProcessResponseTemplate(command.Response, playerName, parameters));
 
                 default:
                     return Task.FromResult(ProcessResponseTemplate(command.Response, playerName, parameters));
@@ -1223,6 +1228,68 @@ namespace Craftbot.Core
         public static bool IsAdminTrade(string playerName)
         {
             return _pendingAdminTrades.ContainsKey(playerName);
+        }
+
+        /// <summary>
+        /// Clear an admin trade from the pending list (called when trade completes)
+        /// </summary>
+        public static void ClearAdminTrade(string playerName)
+        {
+            if (_pendingAdminTrades.ContainsKey(playerName))
+            {
+                _pendingAdminTrades.Remove(playerName);
+                LogDebug($"[ADMIN TRADE] Cleared pending admin trade for {playerName}");
+            }
+        }
+
+        /// <summary>
+        /// Handle the clean command - opens trade for implant cleaning
+        /// </summary>
+        private static void HandleCleanCommand(string playerName)
+        {
+            try
+            {
+                LogDebug($"[CLEAN COMMAND] Processing clean command from {playerName}");
+
+                // Mark this as a clean trade so it routes to ImplantCleaningRecipe
+                CleanTradeManager.SetPendingCleanTrade(playerName);
+
+                // Find the player
+                var targetPlayer = DynelManager.Players.FirstOrDefault(p =>
+                    p.Name.Equals(playerName, StringComparison.OrdinalIgnoreCase));
+
+                if (targetPlayer == null)
+                {
+                    LogDebug($"[CLEAN COMMAND] Player {playerName} not found");
+                    CleanTradeManager.ClearPendingCleanTrade(playerName);
+                    Modules.PrivateMessageModule.SendPrivateMessage(playerName, "❌ Could not find you. Please try again when you're closer.");
+                    return;
+                }
+
+                LogDebug($"[CLEAN COMMAND] Found player {playerName}, opening trade");
+
+                // Open trade with delay to ensure message is sent first
+                System.Threading.Tasks.Task.Delay(500).ContinueWith(_ =>
+                {
+                    try
+                    {
+                        LogDebug($"[CLEAN COMMAND] Opening trade with {playerName} (ID: {targetPlayer.Identity.Instance})");
+                        Trade.Open(targetPlayer.Identity);
+                    }
+                    catch (Exception ex)
+                    {
+                        LogDebug($"[CLEAN COMMAND] Error opening trade: {ex.Message}");
+                        CleanTradeManager.ClearPendingCleanTrade(playerName);
+                        Modules.PrivateMessageModule.SendPrivateMessage(playerName, "❌ Could not open trade. Please try again when you're closer.");
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LogDebug($"[CLEAN COMMAND] Error in HandleCleanCommand: {ex.Message}");
+                CleanTradeManager.ClearPendingCleanTrade(playerName);
+                Modules.PrivateMessageModule.SendPrivateMessage(playerName, "Error processing clean command. Please try again.");
+            }
         }
     }
 
