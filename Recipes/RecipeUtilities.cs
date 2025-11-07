@@ -273,6 +273,48 @@ namespace Craftbot.Recipes
                     foreach (var stuckTool in stuckTools)
                     {
                         LogDebug($"[TOOL RETURN] ⚠️ Stuck tool: {stuckTool.Name} (ID:{stuckTool.Id}, Instance:{stuckTool.UniqueIdentity.Instance})");
+
+                        // CRITICAL FIX: Force-return stuck bot tools to any available bot tool bag
+                        if (Core.ItemTracker.IsBotPersonalItem(stuckTool))
+                        {
+                            LogDebug($"[TOOL RETURN] 🔧 FORCE RETURN: Attempting to return stuck bot tool {stuckTool.Name} to tool bag");
+
+                            // Find any bot tool bag
+                            var botToolBag = Inventory.Containers.FirstOrDefault(c => Core.ItemTracker.IsBotToolBag(c.Item));
+                            if (botToolBag != null)
+                            {
+                                try
+                                {
+                                    stuckTool.MoveToContainer(botToolBag);
+                                    await Task.Delay(200);
+
+                                    // Verify it moved
+                                    var stillStuck = Inventory.Items.FirstOrDefault(i =>
+                                        i.Id == stuckTool.Id && i.UniqueIdentity.Instance == stuckTool.UniqueIdentity.Instance);
+
+                                    if (stillStuck == null)
+                                    {
+                                        LogDebug($"[TOOL RETURN] ✅ Successfully force-returned {stuckTool.Name} to {botToolBag.Item?.Name}");
+                                    }
+                                    else
+                                    {
+                                        LogDebug($"[TOOL RETURN] ❌ FAILED to force-return {stuckTool.Name} - tool remains stuck!");
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    LogDebug($"[TOOL RETURN] ❌ Error force-returning {stuckTool.Name}: {ex.Message}");
+                                }
+                            }
+                            else
+                            {
+                                LogDebug($"[TOOL RETURN] ❌ No bot tool bag found to return {stuckTool.Name}!");
+                            }
+                        }
+                        else
+                        {
+                            LogDebug($"[TOOL RETURN] ⚠️ Stuck tool {stuckTool.Name} is NOT a bot tool - leaving in inventory for return to player");
+                        }
                     }
                 }
                 else
@@ -370,11 +412,18 @@ namespace Craftbot.Recipes
 
             // PATTERN MATCHING - Catch any tool-like items
             string itemNameLower = item.Name.ToLower();
+
+            // CRITICAL FIX: Check for Surgery Clinic FIRST - it's a player item, NOT a tool
+            if (itemNameLower.Contains("surgery clinic") || itemNameLower.Contains("portable surgery clinic"))
+            {
+                return false; // Surgery Clinic is a player item for treatment library processing, NOT a bot tool
+            }
+
             string[] toolPatterns = {
                 "tool", "cutter", "interface", "reclaimer",
                 "robot", "furnace", "machine", "screwdriver",
                 "hsr - sketch and etch", "clanalizer", "omnifier",
-                "bio-comminutor", "programming", "disassembly", "clinic",
+                "bio-comminutor", "programming", "disassembly clinic", // Changed "clinic" to "disassembly clinic" to be more specific
                 "structural analyzer"
             };
 
@@ -1158,10 +1207,24 @@ namespace Craftbot.Recipes
                 // Check all containers for the tool
                 foreach (var container in Inventory.Containers)
                 {
+                    // CRITICAL FIX: Skip bot's tool bags - NEVER pull from bot's own tool bags!
+                    if (Core.ItemTracker.IsBotToolBag(container.Item))
+                    {
+                        LogDebug($"[PLAYER TOOL] Skipping bot's tool bag: {container.Item?.Name ?? "Unknown"}");
+                        continue;
+                    }
+
                     var tool = container.Items.FirstOrDefault(item => item.Name.Contains(toolName));
                     if (tool != null)
                     {
-                        LogDebug($"[PLAYER TOOL] Found {toolName} in bag {container.Item?.Name ?? "Unknown"}, pulling to inventory");
+                        // CRITICAL FIX: Verify this is NOT a bot's personal tool
+                        if (Core.ItemTracker.IsBotPersonalItem(tool))
+                        {
+                            LogDebug($"[PLAYER TOOL] ❌ BLOCKED: {toolName} is bot's personal tool - NEVER use bot's tools for player-provided recipes!");
+                            continue; // Skip this tool and keep looking
+                        }
+
+                        LogDebug($"[PLAYER TOOL] Found player-provided {toolName} in bag {container.Item?.Name ?? "Unknown"}, pulling to inventory");
 
                         // Track the tool's origin for later return
                         // Store bag Name|Id|Instance to distinguish between bot bags and player bags with same name!

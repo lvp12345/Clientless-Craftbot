@@ -251,9 +251,9 @@ namespace Craftbot.Core
                 }
             }
 
-            // Check containers for BOT'S hacker tool
-            var containers = Inventory.Containers.Where(container => container != null && container.IsOpen).ToList();
-            foreach (var container in containers)
+            // CRITICAL FIX: Check OPEN containers first
+            var openContainers = Inventory.Containers.Where(container => container != null && container.IsOpen).ToList();
+            foreach (var container in openContainers)
             {
                 if (container.Items == null) continue;
 
@@ -265,7 +265,7 @@ namespace Craftbot.Core
                     // Check if this is the bot's personal tool
                     if (Core.ItemTracker.IsBotTool(tool) || Core.ItemTracker.IsBotPersonalItem(tool))
                     {
-                        Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Found BOT'S hacker tool in container: {tool.Name}");
+                        Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Found BOT'S hacker tool in open container: {tool.Name}");
                         // Move to inventory for use
                         tool.MoveToInventory();
                         await Task.Delay(200);
@@ -273,12 +273,54 @@ namespace Craftbot.Core
                     }
                     else
                     {
-                        Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Found PLAYER'S hacker tool in container: {tool.Name} - skipping (will be returned to player)");
+                        Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Found PLAYER'S hacker tool in open container: {tool.Name} - skipping (will be returned to player)");
                     }
                 }
             }
 
-            Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] No BOT'S hacker tool found in inventory or bags");
+            // CRITICAL FIX: If not found in open bags, try to open CLOSED tool bags (same logic as RecipeUtilities.FindAndPullTool)
+            Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Hacker tool not found in open bags, checking for closed tool bags to open");
+            var closedToolBags = Inventory.Items.Where(item =>
+                item.UniqueIdentity.Type == IdentityType.Container &&
+                (item.Name.ToLower().Contains("tool") || item.Name.ToLower().Contains("bag") || item.Name.ToLower().Contains("backpack")) &&
+                // Only open bags that aren't already open
+                !Inventory.Containers.Any(bp => bp.Identity.Instance == item.UniqueIdentity.Instance)).ToList();
+
+            foreach (var bagItem in closedToolBags)
+            {
+                Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Opening closed tool bag: {bagItem.Name}");
+                bagItem.Use(); // Open the bag
+                await Task.Delay(100); // Wait for bag to open
+
+                // Check if this newly opened bag contains the hacker tool
+                var newContainer = Inventory.Containers.FirstOrDefault(bp =>
+                    bp.Identity.Instance == bagItem.UniqueIdentity.Instance);
+
+                if (newContainer != null && newContainer.Items != null)
+                {
+                    var containerHackerTools = newContainer.Items.Where(item =>
+                        item.Name.ToLower().Contains("hacker tool")).ToList();
+
+                    foreach (var tool in containerHackerTools)
+                    {
+                        // Check if this is the bot's personal tool
+                        if (Core.ItemTracker.IsBotTool(tool) || Core.ItemTracker.IsBotPersonalItem(tool))
+                        {
+                            Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Found BOT'S hacker tool in newly opened bag: {tool.Name}");
+                            // Move to inventory for use
+                            tool.MoveToInventory();
+                            await Task.Delay(200);
+                            return tool;
+                        }
+                        else
+                        {
+                            Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] Found PLAYER'S hacker tool in newly opened bag: {tool.Name} - skipping (will be returned to player)");
+                        }
+                    }
+                }
+            }
+
+            Modules.PrivateMessageModule.LogDebug($"[TREATMENT LIBRARY] No BOT'S hacker tool found in inventory or bags (checked {closedToolBags.Count} closed bags)");
             return null;
         }
 
