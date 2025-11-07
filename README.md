@@ -76,11 +76,21 @@ Then run: `CraftbotLauncher.exe`
 
 ## Documentation
 
-See the included screenshots for UI documentation:
-- **Page 1.png** - Main interface overview
-- **Page 2.png** - Recipe configuration
-- **Page 3.png** - Command settings
-- **Page 4.png** - Rank management
-- **Page 5.png** - Log viewer
+### Management Window Screenshots
+
+**Page 1 - Main interface overview**
+![Page 1](Page%201.png)
+
+**Page 2 - Recipe configuration**
+![Page 2](Page%202.png)
+
+**Page 3 - Command settings**
+![Page 3](Page%203.png)
+
+**Page 4 - Rank management**
+![Page 4](Page%204.png)
+
+**Page 5 - Log viewer**
+![Page 5](Page%205.png)
 
 For detailed launcher information, see `CraftbotLauncher/README.md`
