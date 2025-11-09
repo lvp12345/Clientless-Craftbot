@@ -384,6 +384,25 @@ namespace Craftbot.Core
                 }
             }
 
+            // CRITICAL FIX: If not found in bags, check by known tool IDs
+            // This catches tools that were moved to inventory during recipe processing
+            HashSet<int> knownToolIds = new HashSet<int>
+            {
+                154332, // Advanced Bio-Comminutor - CRITICAL: Was being given away
+                151366, // Jensen Gem Cutter
+                229870, // Ancient Novictum Refiner
+                87814,  // Advanced Hacker Tool
+                268509, // Alien Material Conversion kit
+                267751, // Ancient Engineering Device
+                95577,  // Lock Pick
+            };
+
+            if (knownToolIds.Contains(item.Id))
+            {
+                LogTransaction("SYSTEM", $"[TOOL PROTECTION] BLOCKING bot's tool by ID: {item.Name} | ID:{item.Id} | UniqueInstance:{item.UniqueIdentity.Instance}");
+                return true;
+            }
+
             return false;
         }
 
