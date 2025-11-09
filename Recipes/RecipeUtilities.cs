@@ -564,7 +564,10 @@ namespace Craftbot.Recipes
                 return true;
 
             // CLUMPS PROCESSING RESULTS - Items created from clump processing
-            if (itemNameLower.Contains("kyr'ozch") && !itemNameLower.Contains("bio-material") && !itemNameLower.Contains("analyzer"))
+            // CRITICAL FIX: Only protect the actual Kyr'Ozch tools, not all items with "Kyr'Ozch" in the name
+            // This prevents weapons like "Kyr'Ozch Energy Hammer" from being incorrectly protected
+            if (itemNameLower.Contains("kyr'ozch atomic re-structuralizing tool") ||
+                itemNameLower.Contains("kyr'ozch structural analyzer"))
                 return true;
 
             // PB PATTERN PROCESSING RESULTS - Completed patterns
@@ -734,7 +737,11 @@ namespace Craftbot.Recipes
                 // IMPROVED BAG RETURN: Handle space issues more intelligently
                 var temporarilyMovedBags = new List<Item>();
 
-                foreach (var item in itemsToMove)
+                // CRITICAL FIX: Create a copy of the list to avoid "Collection was modified" error
+                // This happens because MoveToContainer modifies the Inventory.Items collection
+                var itemsToMoveCopy = itemsToMove.ToList();
+
+                foreach (var item in itemsToMoveCopy)
                 {
                     bool itemMoved = false;
                     int attempts = 0;
