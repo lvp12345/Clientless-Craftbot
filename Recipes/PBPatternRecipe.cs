@@ -689,13 +689,15 @@ namespace Craftbot.Recipes
                 }
 
                 // Step 4: Find the result from step 3 and combine with Dom pattern
+                // FIXED: Check for both "dom pattern:" and "dom pattern" formats
                 var domPattern = Inventory.Items.FirstOrDefault(item =>
-                    item.Name.ToLower().Contains("dom pattern:") &&
+                    (item.Name.ToLower().Contains("dom pattern:") || item.Name.ToLower().Contains("dom pattern")) &&
                     item.Name.ToLower().Contains(patternName.ToLower()));
 
                 var step3Result = Inventory.Items.FirstOrDefault(item =>
                     item.Name.ToLower().Contains(patternName.ToLower()) &&
-                    !item.Name.ToLower().Contains("pattern:"));
+                    !item.Name.ToLower().Contains("pattern:") &&
+                    !item.Name.ToLower().Contains("pattern"));
 
                 if (domPattern != null && step3Result != null)
                 {
