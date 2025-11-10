@@ -395,6 +395,7 @@ namespace Craftbot.Core
                 268509, // Alien Material Conversion kit
                 267751, // Ancient Engineering Device
                 95577,  // Lock Pick
+                161699, // Nano Programming Interface - CRITICAL: Was being given away to Ducksurper
             };
 
             if (knownToolIds.Contains(item.Id))

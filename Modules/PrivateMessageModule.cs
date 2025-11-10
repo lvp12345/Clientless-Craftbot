@@ -5056,6 +5056,7 @@ namespace Craftbot.Modules
                 268509, // Alien Material Conversion kit - Bot's personal tool (from admin inventory)
                 267751, // Ancient Engineering Device - Bot's personal tool (from admin inventory)
                 95577,  // Lock Pick - CRITICAL: Bot's personal tool that was being given away
+                161699, // Nano Programming Interface - CRITICAL: Bot's personal tool that was given away to Ducksurper
 
                 // Add more tool IDs as they are identified through careful observation
                 // TODO: Build comprehensive tool ID database through gameplay observation

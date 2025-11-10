@@ -275,7 +275,8 @@ namespace Craftbot.Recipes
                         LogDebug($"[TOOL RETURN] ⚠️ Stuck tool: {stuckTool.Name} (ID:{stuckTool.Id}, Instance:{stuckTool.UniqueIdentity.Instance})");
 
                         // CRITICAL FIX: Force-return stuck bot tools to any available bot tool bag
-                        if (Core.ItemTracker.IsBotPersonalItem(stuckTool))
+                        // Check BOTH IsBotPersonalItem AND IsBotTool to catch all bot tools
+                        if (Core.ItemTracker.IsBotPersonalItem(stuckTool) || Core.ItemTracker.IsBotTool(stuckTool))
                         {
                             LogDebug($"[TOOL RETURN] 🔧 FORCE RETURN: Attempting to return stuck bot tool {stuckTool.Name} to tool bag");
 
@@ -1171,6 +1172,7 @@ namespace Craftbot.Recipes
                 268509, // Alien Material Conversion kit
                 267751, // Ancient Engineering Device
                 95577,  // Lock Pick
+                161699, // Nano Programming Interface - CRITICAL: Bot's personal tool that was given away to Ducksurper
             };
 
             if (knownToolIds.Contains(item.Id))
