@@ -1,0 +1,51 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>     CRAFTBOT NANO CRYSTAL CREATION          </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#FF0000>- Jensen Personal Ore Extractor</font>
+<font color=#FF0000>- Isotope Separator</font>
+<font color=#FF0000>- Neutron Displacer</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== RECIPE OVERVIEW ===</font>
+<font color=#FFFFFF>This is a complex 7-step recipe to create Nano Crystals from instruction discs.</font>
+<font color=#FFFFFF>The recipe supports two different processes depending on the instruction disc type.</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== STARTING MATERIALS ===</font>
+<font color=#FFFFFF>- Instruction Disc (any type)</font>
+<font color=#FFFFFF>- Symbol Library</font>
+<font color=#FFFFFF>- Compiled Algorithm</font>
+<font color=#FFFFFF>- Photon Particle Emitter</font>
+<font color=#FFFFFF>- Carbonrich Rock or Carbonrich Ore</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING STEPS ===</font>
+<font color=#FFFFFF>1. Process Instruction Disc → Symbol Library</font>
+<font color=#FFFFFF>2. Process Symbol Library → Compiled Algorithm</font>
+<font color=#FFFFFF>3. Process Compiled Algorithm → Photon Particle Emitter</font>
+<font color=#FFFFFF>4. Process Photon Particle Emitter → Programmed Photon Particle Emitter</font>
+<font color=#FFFFFF>5. Process Carbonrich Rock/Ore → Pure Carbon Crystal</font>
+<font color=#FFFFFF>6. Process Pure Carbon Crystal → Program Crystal</font>
+<font color=#FFFFFF>7. Combine all components → Nano Crystal</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Place all materials in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects and processes intermediate items</font>
+<font color=#00FF00>- You can start from any step in the process</font>
+<font color=#00FF00>- Results in completed Nano Crystals</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Nano Crystal Creation Guide</a>

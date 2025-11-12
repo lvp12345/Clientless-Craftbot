@@ -1,0 +1,60 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>      CRAFTBOT PIT DEMON HEART PROCESSING     </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FF0000>- Bio-Comminutor (YOU MUST PROVIDE THIS TOOL!)</font>
+<font color=#FF6600>⚠️ You must provide 1 tool per crystal</font>
+<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
+
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== IMPORTANT NOTICE ===</font>
+<font color=#FF0000>This recipe CONSUMES the Bio-Comminutor tool!</font>
+<font color=#FF0000>You must provide your own Bio-Comminutor for processing!</font>
+<font color=#FF0000>Bot will never use its own tools for this recipe!</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING ===</font>
+
+<font color=#00BDBD>SINGLE STEP PROCESS:</font>
+<font color=#FFFFFF>- Pit Demon Heart + Bio-Comminutor (player-provided)</font>
+<font color=#888888>  -></font> <font color=#FF6600>Processed Pit Demon Heart</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== USAGE INSTRUCTIONS ===</font>
+<font color=#FFFFFF>1. Obtain your own Bio-Comminutor tool</font>
+<font color=#FFFFFF>2. Place Pit Demon Heart(s) and Bio-Comminutor(s) in bags</font>
+<font color=#FFFFFF>3. Trade bags to bot</font>
+<font color=#FFFFFF>4. Bot processes hearts using your tools</font>
+<font color=#FFFFFF>5. Receive processed hearts back in bags</font>
+<font color=#FF0000>6. Bio-Comminutor tools will be consumed!</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Supports up to 10 sets per trade</font>
+<font color=#00FF00>- One Bio-Comminutor needed per Pit Demon Heart</font>
+<font color=#00FF00>- Place all items in bags before trading</font>
+<font color=#FF0000>- Bot will never touch its own Bio-Comminutor tools</font>
+<font color=#00FF00>- Fast processing time (500ms per item)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Pit Demon Heart: Pit Demon boss drops</font>
+<font color=#FFFFFF>- Bio-Comminutor: General stores (tradeskill department)</font>
+<font color=#888888>  Note: You must buy your own Bio-Comminutor tools!</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Pit Demon Heart Processing Guide</a>
+

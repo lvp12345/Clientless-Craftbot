@@ -6,7 +6,7 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
 <font color=#00FF00>- Trimmer Casing</font>
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
@@ -22,9 +22,8 @@
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
 <font color=#FFFF00>=== PROCESSING NOTES ===</font>
-<font color=#00FF00>- Requires Trimmer Casing as processing tool</font>
 <font color=#00FF00>- Place items in bags before trading</font>
-<font color=#00FF00>- Bot automatically detects both components</font>
+<font color=#00FF00>- Bot automatically detects components</font>
 <font color=#00FF00>- Single-step processing recipe</font>
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>

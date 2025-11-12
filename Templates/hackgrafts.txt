@@ -6,13 +6,6 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOL REQUIRED ===</font>
-<font color=#FF0000>- Hacker Tool (Any type - PLAYER PROVIDED)</font>
-<font color=#FF6600>⚠️ You must provide your own Hacker Tool</font>
-<font color=#FF6600>⚠️ Bot will NOT use its personal tools for this recipe</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
 <font color=#FFFF00>=== RECIPE ===</font>
 <font color=#FFFFFF>Any Hacker Tool</font> <font color=#888888>+</font> <font color=#FFFFFF>Any Boosted Graft</font> <font color=#888888>=</font> <font color=#00FF00>Hacked Boosted-Graft</font>
 
@@ -29,3 +22,4 @@
 
 <a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
 ">Hack Grafts Processing Guide</a>
+

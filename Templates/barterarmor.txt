@@ -1,0 +1,22 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT BARTER ARMOR PROCESSING      </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING ===</font>
+<font color=#FFFFFF>Barter Armor processing creates Augmented Nano Armor Upgrade (4 steps).</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Place items in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects components</font>
+<font color=#00FF00>- Multi-step processing</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Barter Armor Processing Guide</a>

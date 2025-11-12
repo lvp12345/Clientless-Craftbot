@@ -30,8 +30,36 @@ namespace Craftbot.Recipes
 
         protected override async Task ProcessRecipeLogic(Item item, Container targetContainer)
         {
-            // Get Kyr'Ozch Structural Analyzer tool using unified core
-            var analyzer = FindTool("Kyr'Ozch Structural Analyzer");
+            // CRITICAL FIX: Try to use player-provided Kyr'Ozch Structural Analyzer FIRST
+            // This prevents the bot from giving away its own tool
+            var analyzer = Inventory.Items.FirstOrDefault(invItem =>
+                invItem.Name.Contains("Kyr'Ozch Structural Analyzer") &&
+                !RecipeUtilities.IsBotPersonalTool(invItem));
+
+            // If no player-provided analyzer in inventory, try to pull from player bags
+            if (analyzer == null)
+            {
+                if (RecipeUtilities.FindAndPullPlayerProvidedTool("Kyr'Ozch Structural Analyzer"))
+                {
+                    // Wait a moment for tool to move to inventory
+                    await Task.Delay(100);
+                    analyzer = Inventory.Items.FirstOrDefault(invItem =>
+                        invItem.Name.Contains("Kyr'Ozch Structural Analyzer") &&
+                        !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                    if (analyzer != null)
+                    {
+                        RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Kyr'Ozch Structural Analyzer from bag: {analyzer.Name}");
+                    }
+                }
+            }
+
+            // If still no player-provided analyzer, use bot's tool as fallback
+            if (analyzer == null)
+            {
+                analyzer = FindTool("Kyr'Ozch Structural Analyzer");
+            }
+
             if (analyzer == null)
             {
                 RecipeUtilities.LogDebug($"[{RecipeName}] Kyr'Ozch Structural Analyzer not found - cannot process");

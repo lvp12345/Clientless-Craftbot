@@ -12,7 +12,6 @@ using SmokeLounge.AOtomation.Messaging.Messages.ChatMessages;
 using SmokeLounge.AOtomation.Messaging.Messages;
 using SmokeLounge.AOtomation.Messaging.GameData;
 using SmokeLounge.AOtomation.Messaging.Messages.N3Messages;
-using Craftbot.Templates;
 using Craftbot.Recipes;
 using Craftbot.Core;
 

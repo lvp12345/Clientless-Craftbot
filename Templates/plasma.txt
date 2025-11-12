@@ -1,0 +1,27 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT PLASMA PROCESSING           </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
+<font color=#00FF00>- Bio-Comminutor</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMPLETE ITEM LIST (4 TYPES) ===</font>
+
+<font color=#00BDBD>BASIC MONSTER PARTS:</font>
+<font color=#FFFFFF>- Monster Parts</font> <font color=#888888>
+
+<font color=#00BDBD>PELTED VARIANTS:</font>
+<font color=#FFFFFF>- Pelted Monster Parts</font> <font color=#888888>
+
+<font color=#00BDBD>IVORY VARIANTS:</font>
+<font color=#FFFFFF>- Monster Parts with Ivory</font> <font color=#888888>
+
+<font color=#00BDBD>PREMIUM VARIANTS:</font>
+<font color=#FFFFFF>- Pelted Monster Parts with Ivory</font> <font color=#888888>
+">Plasma Processing Guide</a>

@@ -7,7 +7,6 @@
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
 <font color=#FFFF00>=== TOOLS REQUIRED ===</font>
-<font color=#00FF00>- Screwdriver</font>
 <font color=#00FF00>- Bio Analyzing Computer</font>
 <font color=#00FF00>- MasterComm - Personalization Device</font>
 
@@ -50,3 +49,4 @@
 
 <a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
 ">Robot Brain Processing Guide</a>
+

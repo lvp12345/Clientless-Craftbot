@@ -6,6 +6,11 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
+<font color=#00FF00>- Advanced Hacker Tool</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
 <font color=#FFFF00>=== TWO-STAGE PROCESS ===</font>
 
 <font color=#00FF00>STAGE 1: Unsealing Weapons</font>

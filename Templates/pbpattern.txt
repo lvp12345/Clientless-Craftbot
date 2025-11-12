@@ -6,9 +6,8 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
 <font color=#00FF00>- Ancient Novictum Refiner</font>
-<font color=#00FF00>- Notum Crystal Chipper</font>
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
@@ -26,12 +25,12 @@
 <font color=#FFFF00>=== PB PATTERN PROCESSING STEPS ===</font>
 
 <font color=#00BDBD>STEPS 1-4: PATTERN COMBINATION</font>
-<font color=#FFFFFF>- Abhan Pattern + Bhotaar Pattern</font> <font color=#888888>-></font> <font color=#FF6600>Combined Pattern</font>
-<font color=#FFFFFF>- Combined Pattern + Chi Pattern</font> <font color=#888888>-></font> <font color=#FF9900>Advanced Pattern</font>
-<font color=#FFFFFF>- Advanced Pattern + Dom Pattern</font> <font color=#888888>-></font> <font color=#FFCC00>Completed 4-Step Pattern</font>
+<font color=#FFFFFF>- Abhan Pattern + Bhotaar Pattern</font> <font color=#888888>
+<font color=#FFFFFF>- Combined Pattern + Chi Pattern</font> <font color=#888888>
+<font color=#FFFFFF>- Advanced Pattern + Dom Pattern</font> <font color=#888888>
 
 <font color=#00BDBD>STEP 5: PATTERN COMPLETION</font>
-<font color=#FFFFFF>- Completed 4-Step Pattern</font> <font color=#888888>-></font> <font color=#FFFF00>Ready for Novictum Processing</font>
+<font color=#FFFFFF>- Completed 4-Step Pattern</font> <font color=#888888>
 
 <font color=#00BDBD>STEP 6: NOVICTUM PROCESSING</font>
 <font color=#FFFFFF>- Raw Novictum Items + Ancient Novictum Refiner</font> <font color=#888888>-></font> <font color=#00FFFF>Processed Novictum</font>
@@ -48,15 +47,5 @@
 <font color=#00BDBD>STEP 10: FINAL ENHANCEMENT</font>
 <font color=#FFFFFF>- Subdued Novictum + Complete Blueprint</font> <font color=#888888>-></font> <font color=#FFFF00>Etched Crystal</font>
 <font color=#FFFFFF>- Etched Crystal</font> <font color=#888888>-></font> <font color=#00FF00>FINAL NOVICTALIZED ENHANCEMENT</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
-<font color=#FFFF00>=== SUPPORTED PATTERN TYPES ===</font>
-<font color=#FF6600>- Abhan Pattern: [Various Pattern Names]</font>
-<font color=#FF9900>- Bhotaar Pattern: [Various Pattern Names]</font>
-<font color=#FFCC00>- Chi Pattern: [Various Pattern Names]</font>
-<font color=#FFFF00>- Dom Pattern: [Various Pattern Names]</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
 ">PB Pattern Processing Guide</a>
+

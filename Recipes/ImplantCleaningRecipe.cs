@@ -62,8 +62,36 @@ namespace Craftbot.Recipes
             {
                 RecipeUtilities.LogDebug($"[{RecipeName}] Starting implant cleaning process");
 
-                // Find the Implant Disassembly Clinic tool
-                var clinic = FindTool("Implant Disassembly Clinic");
+                // CRITICAL FIX: Try to use player-provided Implant Disassembly Clinic FIRST
+                // This prevents the bot from giving away its own tool
+                var clinic = Inventory.Items.FirstOrDefault(invItem =>
+                    invItem.Name.Contains("Implant Disassembly Clinic") &&
+                    !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                // If no player-provided clinic in inventory, try to pull from player bags
+                if (clinic == null)
+                {
+                    if (RecipeUtilities.FindAndPullPlayerProvidedTool("Implant Disassembly Clinic"))
+                    {
+                        // Wait a moment for tool to move to inventory
+                        await Task.Delay(100);
+                        clinic = Inventory.Items.FirstOrDefault(invItem =>
+                            invItem.Name.Contains("Implant Disassembly Clinic") &&
+                            !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                        if (clinic != null)
+                        {
+                            RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Implant Disassembly Clinic from bag: {clinic.Name}");
+                        }
+                    }
+                }
+
+                // If still no player-provided clinic, use bot's tool as fallback
+                if (clinic == null)
+                {
+                    clinic = FindTool("Implant Disassembly Clinic");
+                }
+
                 if (clinic == null)
                 {
                     RecipeUtilities.LogDebug($"[{RecipeName}] ❌ Implant Disassembly Clinic not found!");

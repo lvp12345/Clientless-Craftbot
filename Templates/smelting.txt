@@ -1,0 +1,54 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT SMELTING PROCESSING          </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMPLETE ITEM LIST (21 TYPES) ===</font>
+
+<font color=#00BDBD>BASIC ORES:</font>
+<font color=#FFFFFF>- Iron Ore</font> <font color=#888888>-></font> <font color=#C0C0C0>Refined Iron</font>
+<font color=#FFFFFF>- Copper Ore</font> <font color=#888888>-></font> <font color=#FF6600>Refined Copper</font>
+<font color=#FFFFFF>- Silver Ore</font> <font color=#888888>-></font> <font color=#E6E6FA>Refined Silver</font>
+<font color=#FFFFFF>- Gold Ore</font> <font color=#888888>-></font> <font color=#FFD700>Refined Gold</font>
+<font color=#FFFFFF>- Platinum Ore</font> <font color=#888888>-></font> <font color=#E5E4E2>Refined Platinum</font>
+
+<font color=#00BDBD>RAW METALS:</font>
+<font color=#FFFFFF>- Raw Metal</font> <font color=#888888>-></font> <font color=#808080>Processed Metal</font>
+
+<font color=#00BDBD>JEWELRY COMPONENTS:</font>
+<font color=#FFFFFF>- Metal Rings</font> <font color=#888888>-></font> <font color=#FFD700>Refined Rings</font>
+<font color=#FFFFFF>- Metal Chains</font> <font color=#888888>-></font> <font color=#C0C0C0>Refined Chains</font>
+<font color=#FFFFFF>- Metal Bracelets</font> <font color=#888888>-></font> <font color=#FF6600>Refined Bracelets</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#00FF00>- Higher quality refined materials</font>
+<font color=#00FF00>- Enhanced stats and properties</font>
+<font color=#00FF00>- Ready for advanced crafting recipes</font>
+<font color=#00FF00>- Improved tradeskill requirements</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Fast processing time (400ms per item)</font>
+<font color=#00FF00>- Supports up to 15 sets per trade</font>
+<font color=#00FF00>- Place all ores and metals in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects processable items</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Ores: Mining, mission rewards, drops</font>
+<font color=#FFFFFF>- Raw Metals: Various sources, salvaging</font>
+<font color=#FFFFFF>- Jewelry Components: Shops, crafting, drops</font>
+<font color=#FFFFFF>- Smelting Tool: General stores (tradeskill department)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Smelting Processing Guide</a>
+

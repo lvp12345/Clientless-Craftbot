@@ -124,63 +124,23 @@
     <Compile Include="Recipes\HackGraftsRecipe.cs" />
     <Compile Include="Recipes\PredatorCircletRecipe.cs" />
     <Compile Include="Recipes\SealedWeaponRecipe.cs" />
-    <!-- Templates -->
-    <Compile Include="Templates\CraftbotScriptTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Keep only the main Craftbot help template -->
     <Content Include="Templates\CraftbotHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\RingOfPowerHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\TrimmerHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\DevalosSleeveHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\PerenniumWeaponsHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\PitDemonHeartHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\FredericksonSleevesHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\NanoCrystalRepairHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\NanoCrystalCreationHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\HackGraftsHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\SealedWeaponHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\ImplantsHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\ImplantCleaningHelpTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\AlienArmorHelpTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Target Name="CopyPythonUI" AfterTargets="Build">
     <Copy SourceFiles="Management Window\src\craftbot_management_window.py" DestinationFolder="$(OutputPath)" />
     <Copy SourceFiles="CraftbotLauncher\bin\Debug\CraftbotLauncher.exe" DestinationFolder="$(OutputPath)" />
-    <!-- Copy help templates to config/help-templates folder -->
+    <!-- Copy all help templates from Templates folder to config/help-templates folder -->
     <ItemGroup>
-      <HelpTemplates Include="Templates\*HelpTemplate.txt" />
+      <HelpTemplates Include="Templates\*.txt" />
     </ItemGroup>
     <Copy SourceFiles="@(HelpTemplates)" DestinationFolder="$(OutputPath)config\help-templates" />
   </Target>

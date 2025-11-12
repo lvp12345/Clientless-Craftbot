@@ -6,7 +6,7 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
 <font color=#00FF00>- Mass Relocating Robot (Shape Soft Armor)</font>
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
@@ -18,14 +18,4 @@
 <font color=#FFFFFF>- Deformed Mantidae Tarsus</font> <font color=#888888>-></font> <font color=#00FF00>Metalic Mantis Armor Boots</font>
 <font color=#FFFFFF>- Deformed Mantidae Tibia</font> <font color=#888888>-></font> <font color=#00FF00>Metalic Mantis Armor Legs</font>
 <font color=#FFFFFF>- Deformed Mantidae Wing</font> <font color=#888888>-></font> <font color=#00FF00>Metalic Mantis Armor Gloves</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
-<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
-<font color=#00FF00>- Metalic Mantis Body Armor</font> <font color=#888888>(chest piece)</font>
-<font color=#00FFFF>- Metalic Mantis Armor Sleeves</font> <font color=#888888>(arm armor)</font>
-<font color=#FFFF00>- Metalic Mantis Helmet</font> <font color=#888888>(head protection)</font>
-<font color=#FFCC00>- Metalic Mantis Armor Boots & Legs</font> <font color=#888888>(leg armor)</font>
-<font color=#FF9900>- Metalic Mantis Armor Gloves</font> <font color=#888888>(hand protection)</font>
-
 ">Mantis Armor Processing Guide</a>

@@ -61,6 +61,9 @@ class CraftbotManagementWindow:
         self.setup_commands_tab()
         self.setup_ranks_tab()
         self.setup_logs_tab()
+
+        # Bind tab change event to auto-reload lists
+        self.notebook.bind("<<NotebookTabChanged>>", self.on_tab_changed)
     
     def create_default_ranks(self):
         """Create default rank files if they don't exist"""
@@ -74,12 +77,21 @@ class CraftbotManagementWindow:
         """Setup the Recipes tab with dual columns"""
         # Left column - Recipe list
         left_frame = ttk.Frame(self.recipes_tab)
-        left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False, padx=5, pady=5)
-        
+        left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+
         ttk.Label(left_frame, text="Recipes", font=("Arial", 12, "bold")).pack()
-        
-        self.recipes_listbox = tk.Listbox(left_frame, width=25, height=30)
-        self.recipes_listbox.pack(fill=tk.BOTH, expand=True)
+
+        # Create a frame for the listbox and scrollbar
+        listbox_frame = ttk.Frame(left_frame)
+        listbox_frame.pack(fill=tk.BOTH, expand=True)
+
+        # Add scrollbar
+        scrollbar = ttk.Scrollbar(listbox_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.recipes_listbox = tk.Listbox(listbox_frame, width=25, yscrollcommand=scrollbar.set)
+        self.recipes_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.recipes_listbox.yview)
         self.recipes_listbox.bind('<<ListboxSelect>>', self.on_recipe_select)
         
         # Load recipes
@@ -137,14 +149,26 @@ class CraftbotManagementWindow:
 
     def setup_help_menu_tab(self):
         """Setup the Help Menu tab with dual columns"""
+        # Track currently selected template name (persists even if listbox selection is lost)
+        self.current_help_template = None
+
         # Left column - Help template list
         left_frame = ttk.Frame(self.help_menu_tab)
-        left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False, padx=5, pady=5)
+        left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
 
         ttk.Label(left_frame, text="Help Templates", font=("Arial", 12, "bold")).pack()
 
-        self.help_templates_listbox = tk.Listbox(left_frame, width=25, height=30)
-        self.help_templates_listbox.pack(fill=tk.BOTH, expand=True)
+        # Create a frame for the listbox and scrollbar
+        listbox_frame = ttk.Frame(left_frame)
+        listbox_frame.pack(fill=tk.BOTH, expand=True)
+
+        # Add scrollbar
+        scrollbar = ttk.Scrollbar(listbox_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.help_templates_listbox = tk.Listbox(listbox_frame, width=25, yscrollcommand=scrollbar.set)
+        self.help_templates_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.help_templates_listbox.yview)
         self.help_templates_listbox.bind('<<ListboxSelect>>', self.on_help_template_select)
 
         # Load help templates
@@ -175,6 +199,7 @@ class CraftbotManagementWindow:
         selection = self.help_templates_listbox.curselection()
         if selection:
             template_name = self.help_templates_listbox.get(selection[0])
+            self.current_help_template = template_name  # Store the template name
             template_file = self.help_templates_path / template_name
             if template_file.exists():
                 content = template_file.read_text()
@@ -183,12 +208,12 @@ class CraftbotManagementWindow:
 
     def save_help_template(self):
         """Save edited help template"""
-        selection = self.help_templates_listbox.curselection()
-        if not selection:
+        # Use the stored template name instead of relying on listbox selection
+        if not self.current_help_template:
             messagebox.showwarning("Warning", "Please select a template first")
             return
 
-        template_name = self.help_templates_listbox.get(selection[0])
+        template_name = self.current_help_template
         template_file = self.help_templates_path / template_name
 
         try:
@@ -392,16 +417,19 @@ class CraftbotManagementWindow:
     
     def setup_logs_tab(self):
         """Setup the Logs tab with file viewing and editing"""
+        # Track currently selected log name (persists even if listbox selection is lost)
+        self.current_log = None
+
         # Left column - Log file list
         left_frame = ttk.Frame(self.logs_tab)
         left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False, padx=5, pady=5)
-        
+
         ttk.Label(left_frame, text="Log Files", font=("Arial", 12, "bold")).pack()
-        
+
         self.logs_listbox = tk.Listbox(left_frame, width=30, height=30)
         self.logs_listbox.pack(fill=tk.BOTH, expand=True)
         self.logs_listbox.bind('<<ListboxSelect>>', self.on_log_select)
-        
+
         # Load logs
         self.load_logs_list()
         
@@ -447,6 +475,7 @@ class CraftbotManagementWindow:
         selection = self.logs_listbox.curselection()
         if selection:
             log_name = self.logs_listbox.get(selection[0])
+            self.current_log = log_name  # Store the log name
             log_file = self.logs_path / log_name
             if log_file.exists():
                 content = log_file.read_text()
@@ -455,20 +484,33 @@ class CraftbotManagementWindow:
     
     def save_log(self):
         """Save edited log file"""
-        selection = self.logs_listbox.curselection()
-        if not selection:
+        if not self.current_log:
             messagebox.showwarning("Warning", "Please select a log file first")
             return
-        
-        log_name = self.logs_listbox.get(selection[0])
-        log_file = self.logs_path / log_name
-        
+
+        log_file = self.logs_path / self.current_log
+
         try:
             content = self.log_text.get(1.0, tk.END)
             log_file.write_text(content)
-            messagebox.showinfo("Success", f"Log file '{log_name}' saved successfully!")
+            messagebox.showinfo("Success", f"Log file '{self.current_log}' saved successfully!")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save log: {e}")
+
+    def on_tab_changed(self, event):
+        """Auto-reload lists when switching tabs"""
+        selected_tab = self.notebook.select()
+        tab_index = self.notebook.index(selected_tab)
+
+        # Reload appropriate list based on which tab is selected
+        if tab_index == 0:  # Recipes tab
+            self.load_recipes_list()
+        elif tab_index == 1:  # Help Menu tab
+            self.load_help_templates_list()
+        elif tab_index == 2:  # Commands tab
+            self.load_commands_list()
+        elif tab_index == 4:  # Logs tab
+            self.load_logs_list()
 
 if __name__ == "__main__":
     root = tk.Tk()

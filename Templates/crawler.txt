@@ -1,0 +1,48 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT CRAWLER ARMOR PROCESSING        </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
+<font color=#00FF00>- Mass Relocating Robot (Shape Soft Armor)</font>
+<font color=#FF0000>- Player does NOT need to provide this tool</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== CRAWLER HIDE MATERIALS (7 TYPES) ===</font>
+<font color=#FFFFFF>- Large Patch of Hard Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Body Armor</font>
+<font color=#FFFFFF>- Large Patch of Soft Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Armor Pants</font>
+<font color=#FFFFFF>- Patch of Hard Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Armor Boots</font>
+<font color=#FFFFFF>- Patch of Inflexible Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Armor Shoulder Pad</font>
+<font color=#FFFFFF>- Patch of Soft Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Armor Sleeves</font>
+<font color=#FFFFFF>- Small Patch of Soft Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Armor Gloves</font>
+<font color=#FFFFFF>- Small Patch of Hard Skincrawler Hide</font> <font color=#888888>-></font> <font color=#FF0000>Crawler Armor Hood</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#FF0000>- Crawler Body Armor</font> <font color=#888888>(chest piece)</font>
+<font color=#FF6600>- Crawler Armor Pants</font> <font color=#888888>(leg protection)</font>
+<font color=#FF9900>- Crawler Armor Boots</font> <font color=#888888>(foot armor)</font>
+<font color=#FFCC00>- Crawler Armor Shoulder Pad</font> <font color=#888888>(shoulder protection)</font>
+<font color=#FFFF00>- Crawler Armor Sleeves</font> <font color=#888888>(arm armor)</font>
+<font color=#00FFFF>- Crawler Armor Gloves</font> <font color=#888888>(hand protection)</font>
+<font color=#00FF00>- Crawler Armor Hood</font> <font color=#888888>(head armor)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== HOW TO USE ===</font>
+<font color=#FFFFFF>1. Place your Skincrawler Hide materials in a bag</font>
+<font color=#FFFFFF>2. Trade the bag to {{ botname }}</font>
+<font color=#FFFFFF>3. Bot will process each hide piece into armor</font>
+<font color=#FFFFFF>4. All armor pieces will be returned in your bag</font>
+<font color=#00FF00>5. Bot provides the Mass Relocating Robot - you don't need to bring it!</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#888888>All processed armor pieces are returned to your bag automatically</font>
+">Crawler Armor Processing Guide</a>
+

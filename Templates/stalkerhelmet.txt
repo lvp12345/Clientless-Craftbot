@@ -1,0 +1,52 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>      CRAFTBOT STALKER HELMET PROCESSING      </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- MasterComm - Personalization Device</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING ===</font>
+
+<font color=#00BDBD>SINGLE STEP PROCESS:</font>
+<font color=#FFFFFF>- MasterComm - Personalization Device + Stalker Carapace</font>
+<font color=#888888>  -></font> <font color=#FF6600>Stalker Helmet</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== REQUIRED MATERIALS ===</font>
+<font color=#FFFFFF>- Stalker Carapace (base material)</font>
+<font color=#FFFFFF>- MasterComm - Personalization Device (processing tool)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== USAGE INSTRUCTIONS ===</font>
+<font color=#FFFFFF>1. Obtain Stalker Carapace and MasterComm device</font>
+<font color=#FFFFFF>2. Place both items in bags</font>
+<font color=#FFFFFF>3. Trade bags to bot</font>
+<font color=#FFFFFF>4. Bot combines items to create Stalker Helmet</font>
+<font color=#FFFFFF>5. Receive completed helmet back in bags</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Simple single-step recipe</font>
+<font color=#00FF00>- Supports multiple sets per trade</font>
+<font color=#00FF00>- Place all items in bags before trading</font>
+<font color=#00FF00>- Fast processing time</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Stalker Carapace: Stalker enemy drops</font>
+<font color=#FFFFFF>- MasterComm - Personalization Device: Specialized vendors</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Stalker Helmet Processing Guide</a>

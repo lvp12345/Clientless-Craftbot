@@ -83,7 +83,27 @@ namespace Craftbot.Recipes
             else if (IsCarbonrichRock(item))
             {
                 // Step 3: Jensen Extractor + Carbonrich Rock = Carbonrich Ore
-                var jensenExtractor = FindTool("Jensen Personal Ore Extractor");
+                // CRITICAL FIX: Try to use player-provided Jensen Personal Ore Extractor FIRST
+                var jensenExtractor = Inventory.Items.FirstOrDefault(invItem =>
+                    invItem.Name.Contains("Jensen Personal Ore Extractor") &&
+                    !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                if (jensenExtractor == null)
+                {
+                    if (RecipeUtilities.FindAndPullPlayerProvidedTool("Jensen Personal Ore Extractor"))
+                    {
+                        await Task.Delay(100);
+                        jensenExtractor = Inventory.Items.FirstOrDefault(invItem =>
+                            invItem.Name.Contains("Jensen Personal Ore Extractor") &&
+                            !RecipeUtilities.IsBotPersonalTool(invItem));
+                    }
+                }
+
+                if (jensenExtractor == null)
+                {
+                    jensenExtractor = FindTool("Jensen Personal Ore Extractor");
+                }
+
                 if (jensenExtractor != null)
                 {
                     RecipeUtilities.LogDebug($"[{RecipeName}] Step 3: {jensenExtractor.Name} + {item.Name}");
@@ -93,7 +113,27 @@ namespace Craftbot.Recipes
             else if (IsCarbonrichOre(item))
             {
                 // Step 4: Isotope Separator + Carbonrich Ore = Pure Carbon Crystal
-                var isotopeSeparator = FindTool("Isotope Separator");
+                // CRITICAL FIX: Try to use player-provided Isotope Separator FIRST
+                var isotopeSeparator = Inventory.Items.FirstOrDefault(invItem =>
+                    invItem.Name.Contains("Isotope Separator") &&
+                    !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                if (isotopeSeparator == null)
+                {
+                    if (RecipeUtilities.FindAndPullPlayerProvidedTool("Isotope Separator"))
+                    {
+                        await Task.Delay(100);
+                        isotopeSeparator = Inventory.Items.FirstOrDefault(invItem =>
+                            invItem.Name.Contains("Isotope Separator") &&
+                            !RecipeUtilities.IsBotPersonalTool(invItem));
+                    }
+                }
+
+                if (isotopeSeparator == null)
+                {
+                    isotopeSeparator = FindTool("Isotope Separator");
+                }
+
                 if (isotopeSeparator != null)
                 {
                     RecipeUtilities.LogDebug($"[{RecipeName}] Step 4: {isotopeSeparator.Name} + {item.Name}");
@@ -103,7 +143,27 @@ namespace Craftbot.Recipes
             else if (IsPureCarbonCrystal(item))
             {
                 // Step 5: Neutron Displacer + Pure Carbon Crystal = Program Crystal
-                var neutronDisplacer = FindTool("Neutron Displacer");
+                // CRITICAL FIX: Try to use player-provided Neutron Displacer FIRST
+                var neutronDisplacer = Inventory.Items.FirstOrDefault(invItem =>
+                    invItem.Name.Contains("Neutron Displacer") &&
+                    !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                if (neutronDisplacer == null)
+                {
+                    if (RecipeUtilities.FindAndPullPlayerProvidedTool("Neutron Displacer"))
+                    {
+                        await Task.Delay(100);
+                        neutronDisplacer = Inventory.Items.FirstOrDefault(invItem =>
+                            invItem.Name.Contains("Neutron Displacer") &&
+                            !RecipeUtilities.IsBotPersonalTool(invItem));
+                    }
+                }
+
+                if (neutronDisplacer == null)
+                {
+                    neutronDisplacer = FindTool("Neutron Displacer");
+                }
+
                 if (neutronDisplacer != null)
                 {
                     RecipeUtilities.LogDebug($"[{RecipeName}] Step 5: {neutronDisplacer.Name} + {item.Name}");

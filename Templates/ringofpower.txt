@@ -6,12 +6,6 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
-<font color=#00FF00>- No special tools required</font>
-<font color=#888888>  (Ring of Power items combine directly)</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
 <font color=#FFFF00>=== REQUIRED MATERIALS ===</font>
 <font color=#FF6600>- Ring of Power - Melee</font>
 <font color=#FF9900>- Ring of Power - Projectiles</font>
@@ -77,3 +71,4 @@
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
 ">Ring of Power Processing Guide</a>
+

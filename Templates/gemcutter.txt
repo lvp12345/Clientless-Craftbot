@@ -1,0 +1,59 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>        CRAFTBOT GEM CUTTER PROCESSING        </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== COMPLETE ITEM LIST (35 TYPES) ===</font>
+
+<font color=#00BDBD>BASIC GEMS:</font>
+<font color=#FFFFFF>- Diamond</font> <font color=#888888>-></font> <font color=#E0E0E0>Cut Diamond</font>
+<font color=#FFFFFF>- Ruby</font> <font color=#888888>-></font> <font color=#FF0000>Cut Ruby</font>
+<font color=#FFFFFF>- Sapphire</font> <font color=#888888>-></font> <font color=#0000FF>Cut Sapphire</font>
+<font color=#FFFFFF>- Emerald</font> <font color=#888888>-></font> <font color=#00FF00>Cut Emerald</font>
+
+<font color=#00BDBD>PEARLS:</font>
+<font color=#FFFFFF>- Pearl</font> <font color=#888888>-></font> <font color=#F0F0F0>Polished Pearl</font>
+<font color=#FFFFFF>- Black Pearl</font> <font color=#888888>-></font> <font color=#404040>Polished Black Pearl</font>
+<font color=#FFFFFF>- Cultured Pearl</font> <font color=#888888>-></font> <font color=#FFF8DC>Polished Cultured Pearl</font>
+
+<font color=#00BDBD>SPECIAL GEMS:</font>
+<font color=#FFFFFF>- Soul Fragment</font> <font color=#888888>-></font> <font color=#FF6600>Perfectly Cut Soul Fragment</font>
+<font color=#FFFFFF>- Crystal</font> <font color=#888888>-></font> <font color=#00FFFF>Refined Crystal</font>
+
+<font color=#00BDBD>RARE GEMS:</font>
+<font color=#FFFFFF>- Alexandrite</font> <font color=#888888>-></font> <font color=#9932CC>Cut Alexandrite</font>
+<font color=#FFFFFF>- Topaz</font> <font color=#888888>-></font> <font color=#FFD700>Cut Topaz</font>
+<font color=#FFFFFF>- Amethyst</font> <font color=#888888>-></font> <font color=#9966CC>Cut Amethyst</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING RESULTS ===</font>
+<font color=#00FF00>- Higher quality cut gems</font>
+<font color=#00FF00>- Enhanced stats and properties</font>
+<font color=#00FF00>- Ready for jewelry crafting</font>
+<font color=#00FF00>- Improved tradeskill requirements</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Fast processing time (300ms per item)</font>
+<font color=#00FF00>- Supports up to 20 sets per trade</font>
+<font color=#00FF00>- Place all gems and pearls in bags before trading</font>
+<font color=#00FF00>- Bot automatically detects processable gems</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== ITEM SOURCES ===</font>
+<font color=#FFFFFF>- Gems: Mining, mission rewards, drops</font>
+<font color=#FFFFFF>- Pearls: Aquatic sources, special missions</font>
+<font color=#FFFFFF>- Soul Fragments: Special boss drops</font>
+<font color=#FFFFFF>- Jensen Gem Cutter: General stores (tradeskill department)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Gem Cutter Processing Guide</a>
+

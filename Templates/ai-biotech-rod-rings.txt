@@ -6,13 +6,6 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
-<font color=#00FF00>- Personal Furnace</font>
-<font color=#00FF00>- Wire Drawing Machine</font>
-<font color=#00FF00>- Generic Ring Template</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
 <font color=#FFFF00>=== MATERIALS REQUIRED ===</font>
 <font color=#FFFFFF>- Small Gold Ingot (must be at least 80% of Biotech Rod's QL)</font>
 <font color=#FFFFFF>- One of the three Biotech Rods:</font>
@@ -66,3 +59,4 @@
 
 <a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
 ">AI Biotech Rod Rings Processing Guide</a>
+

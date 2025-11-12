@@ -6,7 +6,7 @@
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
 
-<font color=#FFFF00>=== TOOL REQUIRED ===</font>
+<font color=#FFFF00>=== BOT PROVIDES TOOL ===</font>
 <font color=#00FF00>- Nano Programming Interface</font>
 
 <img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
@@ -33,9 +33,4 @@
 <font color=#00FF00>- Place items in bags before trading</font>
 <font color=#00FF00>- Bot automatically detects ICE-Breaker Sources</font>
 <font color=#00FF00>- Results in upgraded controller components</font>
-<font color=#00FF00>- Used for advanced nano programming</font>
-
-<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
-
-<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
 ">Ice Processing Guide</a>

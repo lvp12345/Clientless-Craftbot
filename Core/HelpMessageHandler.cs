@@ -52,8 +52,8 @@ namespace Craftbot.Core
         {
             try
             {
-                // Use the working template system that VTE uses
-                string template = Templates.CraftbotScriptTemplate.HelpWindow();
+                // Use the configurable help system
+                string template = ConfigurableHelpSystem.GetMainHelpWindow();
                 if (!string.IsNullOrEmpty(template))
                 {
                     int startIndex = template.IndexOf("<a href=\"text://") + 16;
@@ -79,11 +79,11 @@ namespace Craftbot.Core
         {
             try
             {
-                // Use the working template system that VTE uses
+                // Use the configurable help system
                 string templateName = GetTemplateName(category);
                 if (!string.IsNullOrEmpty(templateName))
                 {
-                    string template = Templates.CraftbotScriptTemplate.CategoryHelpWindow(templateName);
+                    string template = ConfigurableHelpSystem.GetCategoryHelpWindow(templateName);
                     if (!string.IsNullOrEmpty(template))
                     {
                         // Extract content between <a href="text:// and ">

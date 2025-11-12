@@ -61,8 +61,36 @@ namespace Craftbot.Recipes
 
         protected override async Task ProcessRecipeLogic(Item item, Container targetContainer)
         {
-            // Get Jensen Gem Cutter tool using unified core
-            var cutter = FindTool("Jensen Gem Cutter");
+            // CRITICAL FIX: Try to use player-provided Jensen Gem Cutter FIRST
+            // This prevents the bot from giving away its own tool
+            var cutter = Inventory.Items.FirstOrDefault(invItem =>
+                invItem.Name.Contains("Jensen Gem Cutter") &&
+                !RecipeUtilities.IsBotPersonalTool(invItem));
+
+            // If no player-provided cutter in inventory, try to pull from player bags
+            if (cutter == null)
+            {
+                if (RecipeUtilities.FindAndPullPlayerProvidedTool("Jensen Gem Cutter"))
+                {
+                    // Wait a moment for tool to move to inventory
+                    await Task.Delay(100);
+                    cutter = Inventory.Items.FirstOrDefault(invItem =>
+                        invItem.Name.Contains("Jensen Gem Cutter") &&
+                        !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                    if (cutter != null)
+                    {
+                        RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Jensen Gem Cutter from bag: {cutter.Name}");
+                    }
+                }
+            }
+
+            // If still no player-provided cutter, use bot's tool as fallback
+            if (cutter == null)
+            {
+                cutter = FindTool("Jensen Gem Cutter");
+            }
+
             if (cutter == null)
             {
                 RecipeUtilities.LogDebug($"[{RecipeName}] Jensen Gem Cutter not found - cannot process");

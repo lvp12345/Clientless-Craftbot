@@ -1,0 +1,83 @@
+<a href="text://
+<font color=#00D4FF>===============================================</font>
+<font color=#00D4FF>       CRAFTBOT IMPLANT PROCESSING (NEW!)    </font>
+<font color=#00D4FF>===============================================</font>
+<font color=#888888>Created by Code</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== NEW QUALITY TARGETING FEATURE ===</font>
+<font color=#FF6600>You can now set quality targets for implants!</font>
+<font color=#FFFFFF>Usage: Send a tell with slot abbreviations and target QL</font>
+<font color=#00FF00>Example: /tell {{ botname }} 100larm 200rarm 150head</font>
+
+<font color=#00BDBD>SLOT ABBREVIATIONS:</font>
+<font color=#FFFFFF>head, eye, ear, rarm, chest, larm, rwrist, waist, lwrist, rhand, legs, lhand, feet</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== TOOLS REQUIRED ===</font>
+<font color=#00FF00>- Various Clusters (matching implant slots)</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING SYSTEM ===</font>
+
+<font color=#00BDBD>AUTOMATIC SLOT MATCHING:</font>
+<font color=#FFFFFF>- Bot automatically matches clusters to implants by slot</font>
+<font color=#FFFFFF>- Head implants combine with Head clusters</font>
+<font color=#FFFFFF>- Arm implants combine with Arm clusters</font>
+<font color=#FFFFFF>- And so on for all 13 implant slots</font>
+
+<font color=#00BDBD>QUALITY TARGETING (NEW!):</font>
+<font color=#FFFFFF>- Set target QL for each slot using commands</font>
+<font color=#FFFFFF>- Bot will combine until target is reached or no more clusters</font>
+<font color=#FFFFFF>- Targets persist until you set new ones</font>
+
+<font color=#00BDBD>PROCESSING OPTIMIZATION:</font>
+<font color=#FFFFFF>- All implants and clusters kept in inventory during processing</font>
+<font color=#FFFFFF>- Maximum combinations attempted before returning items</font>
+<font color=#FFFFFF>- Efficient batch processing for multiple sets</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== SUPPORTED IMPLANT TYPES ===</font>
+
+<font color=#00BDBD>BASIC IMPLANTS:</font>
+<font color=#FFFFFF>- Faded Implants (all slots)</font>
+<font color=#FFFFFF>- Bright Implants (all slots)</font>
+<font color=#FFFFFF>- Shining Implants (all slots)</font>
+
+<font color=#00BDBD>CLUSTER TYPES:</font>
+<font color=#FFFFFF>- All 13 slot-specific clusters</font>
+<font color=#FFFFFF>- Various quality levels supported</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== USAGE EXAMPLES ===</font>
+
+<font color=#00BDBD>BASIC PROCESSING:</font>
+<font color=#FFFFFF>1. Put implants and clusters in bags</font>
+<font color=#FFFFFF>2. Trade bags to bot</font>
+<font color=#FFFFFF>3. Bot processes all possible combinations</font>
+<font color=#FFFFFF>4. Receive enhanced implants back in bags</font>
+
+<font color=#00BDBD>WITH QUALITY TARGETING:</font>
+<font color=#FFFFFF>1. Set targets: /tell {{ botname }} 200head 150larm 180rarm</font>
+<font color=#FFFFFF>2. Trade implants and clusters</font>
+<font color=#FFFFFF>3. Bot combines until targets reached</font>
+<font color=#FFFFFF>4. Receive targeted-quality implants</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<font color=#FFFF00>=== PROCESSING NOTES ===</font>
+<font color=#00FF00>- Clusters are consumed during combination</font>
+<font color=#00FF00>- Implants are enhanced with cluster stats</font>
+<font color=#00FF00>- Bot handles all 13 implant slots automatically</font>
+<font color=#00FF00>- Quality targeting is optional - works without targets too</font>
+<font color=#00FF00>- Place all items in bags before trading</font>
+
+<img src=tdb://id:GFX_GUI_FRIENDLIST_SPLITTER>
+
+<a href='chatcmd:///tell {{ botname }} help'><font color=#00BDBD><-- BACK TO MAIN HELP</font></a>
+">Implant Processing Guide</a>

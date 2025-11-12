@@ -27,8 +27,36 @@ namespace Craftbot.Recipes
         {
             RecipeUtilities.LogDebug($"[{RecipeName}] *** STARTING PROCESSING *** Item: {item.Name}, From bag: {targetContainer != null}");
 
-            // Get Nano Programming Interface tool using unified core
-            var nanoProgrammingInterface = FindTool("Nano Programming Interface");
+            // CRITICAL FIX: Try to use player-provided Nano Programming Interface FIRST
+            // This prevents the bot from giving away its own tool
+            var nanoProgrammingInterface = Inventory.Items.FirstOrDefault(invItem =>
+                invItem.Name.Contains("Nano Programming Interface") &&
+                !RecipeUtilities.IsBotPersonalTool(invItem));
+
+            // If no player-provided tool in inventory, try to pull from player bags
+            if (nanoProgrammingInterface == null)
+            {
+                if (RecipeUtilities.FindAndPullPlayerProvidedTool("Nano Programming Interface"))
+                {
+                    // Wait a moment for tool to move to inventory
+                    await Task.Delay(100);
+                    nanoProgrammingInterface = Inventory.Items.FirstOrDefault(invItem =>
+                        invItem.Name.Contains("Nano Programming Interface") &&
+                        !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                    if (nanoProgrammingInterface != null)
+                    {
+                        RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Nano Programming Interface from bag: {nanoProgrammingInterface.Name}");
+                    }
+                }
+            }
+
+            // If still no player-provided tool, use bot's tool as fallback
+            if (nanoProgrammingInterface == null)
+            {
+                nanoProgrammingInterface = FindTool("Nano Programming Interface");
+            }
+
             if (nanoProgrammingInterface == null)
             {
                 RecipeUtilities.LogDebug($"[{RecipeName}] ❌ Nano Programming Interface not found - cannot process");

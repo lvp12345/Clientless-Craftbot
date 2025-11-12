@@ -41,8 +41,36 @@ namespace Craftbot.Recipes
 
         protected override async Task ProcessRecipeLogic(Item item, Container targetContainer)
         {
-            // Get Bio-Comminutor tool using unified core
-            var bio = FindTool("Bio-Comminutor");
+            // CRITICAL FIX: Try to use player-provided Bio-Comminutor FIRST
+            // This prevents the bot from giving away its own tool
+            var bio = Inventory.Items.FirstOrDefault(invItem =>
+                invItem.Name.Contains("Bio-Comminutor") &&
+                !RecipeUtilities.IsBotPersonalTool(invItem));
+
+            // If no player-provided bio in inventory, try to pull from player bags
+            if (bio == null)
+            {
+                if (RecipeUtilities.FindAndPullPlayerProvidedTool("Bio-Comminutor"))
+                {
+                    // Wait a moment for tool to move to inventory
+                    await Task.Delay(100);
+                    bio = Inventory.Items.FirstOrDefault(invItem =>
+                        invItem.Name.Contains("Bio-Comminutor") &&
+                        !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                    if (bio != null)
+                    {
+                        RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Bio-Comminutor from bag: {bio.Name}");
+                    }
+                }
+            }
+
+            // If still no player-provided bio, use bot's tool as fallback
+            if (bio == null)
+            {
+                bio = FindTool("Bio-Comminutor");
+            }
+
             if (bio == null)
             {
                 RecipeUtilities.LogDebug($"[{RecipeName}] Bio-Comminutor not found - cannot process");

@@ -61,8 +61,36 @@ namespace Craftbot.Recipes
 
         protected override async Task ProcessRecipeLogic(Item item, Container targetContainer)
         {
-            // Get Precious Metal Reclaimer tool using unified core
-            var reclaimer = FindTool("Precious Metal Reclaimer");
+            // CRITICAL FIX: Try to use player-provided Precious Metal Reclaimer FIRST
+            // This prevents the bot from giving away its own tool
+            var reclaimer = Inventory.Items.FirstOrDefault(invItem =>
+                invItem.Name.Contains("Precious Metal Reclaimer") &&
+                !RecipeUtilities.IsBotPersonalTool(invItem));
+
+            // If no player-provided reclaimer in inventory, try to pull from player bags
+            if (reclaimer == null)
+            {
+                if (RecipeUtilities.FindAndPullPlayerProvidedTool("Precious Metal Reclaimer"))
+                {
+                    // Wait a moment for tool to move to inventory
+                    await Task.Delay(100);
+                    reclaimer = Inventory.Items.FirstOrDefault(invItem =>
+                        invItem.Name.Contains("Precious Metal Reclaimer") &&
+                        !RecipeUtilities.IsBotPersonalTool(invItem));
+
+                    if (reclaimer != null)
+                    {
+                        RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Precious Metal Reclaimer from bag: {reclaimer.Name}");
+                    }
+                }
+            }
+
+            // If still no player-provided reclaimer, use bot's tool as fallback
+            if (reclaimer == null)
+            {
+                reclaimer = FindTool("Precious Metal Reclaimer");
+            }
+
             if (reclaimer == null)
             {
                 RecipeUtilities.LogDebug($"[{RecipeName}] Precious Metal Reclaimer not found - cannot process");

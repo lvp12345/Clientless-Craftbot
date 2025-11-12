@@ -75,14 +75,14 @@ namespace Craftbot.Core
         {
             try
             {
-                string helpContent = Templates.CraftbotScriptTemplate.HelpWindow();
+                string helpContent = ConfigurableHelpSystem.GetMainHelpWindow();
                 PrivateMessageModule.SendPrivateMessage(senderName, helpContent);
                 ItemTracker.LogTransaction(senderName, "HELP REQUESTED");
             }
             catch (Exception ex)
             {
                 ItemTracker.LogTransaction("SYSTEM", $"Error sending help to {senderName}: {ex.Message}");
-                PrivateMessageModule.SendPrivateMessage(senderName, 
+                PrivateMessageModule.SendPrivateMessage(senderName,
                     "Error loading help. Available commands: help, list, get <item>");
             }
         }
