@@ -54,18 +54,24 @@ namespace Craftbot.Core
             {
                 // Use the configurable help system
                 string template = ConfigurableHelpSystem.GetMainHelpWindow();
+                PrivateMessageModule.LogDebug($"[HELP HANDLER] GetMainHelpWindow returned: {(string.IsNullOrEmpty(template) ? "NULL/EMPTY" : $"LENGTH={template.Length}")}");
+
                 if (!string.IsNullOrEmpty(template))
                 {
                     int startIndex = template.IndexOf("<a href=\"text://") + 16;
                     int endIndex = template.LastIndexOf("\">");
 
+                    PrivateMessageModule.LogDebug($"[HELP HANDLER] Extraction: startIndex={startIndex}, endIndex={endIndex}");
+
                     if (startIndex > 15 && endIndex > startIndex)
                     {
                         string content = template.Substring(startIndex, endIndex - startIndex);
+                        PrivateMessageModule.LogDebug($"[HELP HANDLER] Extracted content length: {content.Length}");
                         return content;
                     }
                 }
 
+                PrivateMessageModule.LogDebug($"[HELP HANDLER] Falling back to default help");
                 return CreateFallbackHelp();
             }
             catch (Exception ex)
@@ -119,7 +125,9 @@ namespace Craftbot.Core
                 case "plasma": return "plasma";
                 case "pitdemon": return "pitdemon";
                 case "frederickson": return "frederickson";
-                case "nanocrystal": return "nanocrystal";
+                case "nanocrystal": return "nano-crystal-repair";
+                case "nano-crystal-repair": return "nano-crystal-repair";
+                case "nano-crystal-creation": return "nano-crystal-creation";
                 case "ice": return "ice";
                 case "robotjunk": return "robotjunk";
                 case "vte": return "vte";
@@ -132,13 +140,17 @@ namespace Craftbot.Core
                 case "crawler": return "crawler";
                 case "carbarmor": return "carbarmor";
                 case "implants": return "implants";
+                case "implant-cleaning": return "implant-cleaning";
                 case "trimmer": return "trimmer";
                 case "devalossleeve": return "devalossleeve";
                 case "perenniumweapons": return "perenniumweapons";
                 case "hackgrafts": return "hackgrafts";
-                case "sealedweapons": return "sealedweapons";
-                case "robotbrain": return "RobotBrainHelpTemplate";
+                case "sealedweapons": return "sealedweapon";
+                case "sealedweapon": return "sealedweapon";
+                case "robotbrain": return "robot-brain";
+                case "robot-brain": return "robot-brain";
                 case "aibiotechrodrings": return "ai-biotech-rod-rings";
+                case "ai-biotech-rod-rings": return "ai-biotech-rod-rings";
                 case "stalkerhelmet": return "stalkerhelmet";
                 case "barterarmor": return "barterarmor";
                 case "niznosbombblaster": return "niznosbombblaster";
@@ -146,7 +158,7 @@ namespace Craftbot.Core
                 case "crepusculeleatherarmor": return "crepusculeleatherarmor";
                 case "treatmentlibrary": return "treatmentlibrary";
                 case "treatlib": return "treatmentlibrary";
-                default: return null;
+                default: return category.ToLower(); // Return category as-is to support any template file
             }
         }
 
@@ -161,9 +173,13 @@ namespace Craftbot.Core
                 case "frederickson":
                     return "Frederickson Sleeves De-hacking Help";
                 case "nanocrystal":
+                case "nano-crystal-repair":
                     return "Nano Crystal Repair Help";
+                case "nano-crystal-creation":
+                    return "Nano Crystal Creation Help";
                 case "pearl":
                 case "gems":
+                case "gemcutter":
                     return "Gem Cutting Help";
                 case "ice":
                     return "ICE Processing Help";
@@ -181,6 +197,8 @@ namespace Craftbot.Core
                     return "Alien Armor Processing Help";
                 case "implants":
                     return "Implant Enhancement Help";
+                case "implant-cleaning":
+                    return "Implant Cleaning Help";
                 case "mantisarmor":
                     return "Mantis Armor Help";
                 case "taraarmor":
@@ -198,10 +216,13 @@ namespace Craftbot.Core
                 case "hackgrafts":
                     return "Hack Grafts Help";
                 case "sealedweapons":
+                case "sealedweapon":
                     return "Sealed Weapons Help";
                 case "robotbrain":
+                case "robot-brain":
                     return "Robot Brain Help";
                 case "aibiotechrodrings":
+                case "ai-biotech-rod-rings":
                     return "AI Biotech Rod Rings Help";
                 case "stalkerhelmet":
                     return "Stalker Helmet Help";
@@ -216,6 +237,8 @@ namespace Craftbot.Core
                 case "treatmentlibrary":
                 case "treatlib":
                     return "Treatment Library Help";
+                case "ringofpower":
+                    return "Ring of Power Help";
                 default:
                     return "Craftbot Help";
             }

@@ -1031,7 +1031,8 @@ namespace Craftbot.Core
                 "Hacker Tool",
                 "Engineering Device",
                 "Conversion Kit",
-                "Refiner"
+                "Refiner",
+                "Nano Programming Interface"
             };
 
             // Check if this tool matches any common recipe tool

@@ -515,6 +515,10 @@ namespace Craftbot.Recipes
                 await Task.Delay(100);
             }
 
+            // CRITICAL FIX: Wait for items to fully appear in inventory before processing
+            // This ensures the inventory snapshot in ProcessAllItemsUntilComplete will see the moved items
+            await Task.Delay(300);
+
             // Clean up any temporary data receptacles
             RecipeUtilities.DeleteTemporaryDataReceptacle();
 

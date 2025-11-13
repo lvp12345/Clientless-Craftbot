@@ -12,7 +12,7 @@ namespace Craftbot.Core
     /// </summary>
     public static class ConfigurableHelpSystem
     {
-        private static readonly string HelpTemplatesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Control Panel", "Templates");
+        private static readonly string HelpTemplatesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "help-templates");
         private static readonly Dictionary<string, FileSystemWatcher> _watchers = new Dictionary<string, FileSystemWatcher>();
         private static readonly Dictionary<string, string> _loadedTemplates = new Dictionary<string, string>();
         private static bool _initialized = false;
@@ -61,13 +61,19 @@ namespace Craftbot.Core
         public static string GetMainHelpWindow()
         {
             EnsureInitialized();
-            
+
+            LogDebug($"[HELP SYSTEM] GetMainHelpWindow called. Looking for 'main' template.");
+            LogDebug($"[HELP SYSTEM] Available templates: {string.Join(", ", _loadedTemplates.Keys)}");
+            LogDebug($"[HELP SYSTEM] Total templates loaded: {_loadedTemplates.Count}");
+
             var template = GetTemplate("main");
             if (!string.IsNullOrEmpty(template))
             {
+                LogDebug($"[HELP SYSTEM] Found 'main' template, length: {template.Length}");
                 return template.Replace("{{ botname }}", Client.CharacterName);
             }
-            
+
+            LogDebug($"[HELP SYSTEM] 'main' template not found, using fallback");
             return CreateFallbackMainHelp();
         }
 
@@ -127,9 +133,15 @@ namespace Craftbot.Core
 
         private static void LoadAllTemplates()
         {
+            LogDebug($"[HELP SYSTEM] Loading templates from: {HelpTemplatesDirectory}");
+            LogDebug($"[HELP SYSTEM] Directory exists: {Directory.Exists(HelpTemplatesDirectory)}");
+
             var templateFiles = Directory.GetFiles(HelpTemplatesDirectory, "*.txt");
+            LogDebug($"[HELP SYSTEM] Found {templateFiles.Length} .txt files");
+
             foreach (var filePath in templateFiles)
             {
+                LogDebug($"[HELP SYSTEM] Processing file: {filePath}");
                 LoadTemplateFile(filePath);
             }
         }
@@ -137,40 +149,45 @@ namespace Craftbot.Core
         private static string MapFileNameToTemplateKey(string fileName)
         {
             // Map template file names to expected keys
-            switch (fileName)
+            // Files are named like: clumps.txt, smelting.txt, etc.
+            // Just return the filename as-is since it's already the template key
+            switch (fileName.ToLower())
             {
                 case "craftbothelptemplate": return "main";
-                case "gemcutterhelptemplate": return "gemcutter";
-                case "smeltinghelptemplate": return "smelting";
-                case "plasmahelptemplate": return "plasma";
-                case "pitdemonhearthelptemplate": return "pitdemon";
-                case "fredericksonsleevedhelptemplate": return "frederickson";
-                case "nanocrystalrepairhelptemplate": return "nanocrystal";
-                case "nanocrystalcreationhelptemplate": return "nanocrystal-creation";
-                case "icehelptemplate": return "ice";
-                case "robotjunkhelptemplate": return "robotjunk";
-                case "vtehelptemplate": return "vte";
-                case "pbpatternhelptemplate": return "pbpattern";
-                case "ringofpowerhelptemplate": return "ringofpower";
-                case "clumpshelptemplate": return "clumps";
-                case "alienarmorhelptemplate": return "alienarmor";
-                case "taraarmorhelptemplate": return "taraarmor";
-                case "mantisarmorhelptemplate": return "mantisarmor";
-                case "crawlerhelptemplate": return "crawler";
-                case "carbarmorhelptemplate": return "carbarmor";
-                case "implantshelptemplate": return "implants";
-                case "trimmerhelptemplate": return "trimmer";
-                case "devalossleevehelptemplate": return "devalossleeve";
-                case "perenniumweaponshelptemplate": return "perenniumweapons";
-                case "hackgraftshelptemplate": return "hackgrafts";
-                case "sealedweaponhelptemplate": return "sealedweapon";
-                case "aibiotechrodringshelptemplate": return "aibiotechrodrings";
-                case "stalkerhelmethelptemplate": return "stalkerhelmet";
-                case "barterarmorhelptemplate": return "barterarmor";
-                case "niznosbombblasterhelptemplate": return "niznosbombblaster";
-                case "salabimshotgunhelptemplate": return "salabimshotgun";
-                case "crepusculeleatherarmorhelptemplate": return "crepusculeleatherarmor";
-                case "treatmentlibraryhelptemplate": return "treatmentlibrary";
+                // Direct mappings for files named with their recipe names
+                case "gemcutter": return "gemcutter";
+                case "smelting": return "smelting";
+                case "plasma": return "plasma";
+                case "pitdemon": return "pitdemon";
+                case "frederickson": return "frederickson";
+                case "nano-crystal-repair": return "nano-crystal-repair";
+                case "nano-crystal-creation": return "nano-crystal-creation";
+                case "ice": return "ice";
+                case "robotjunk": return "robotjunk";
+                case "vte": return "vte";
+                case "pbpattern": return "pbpattern";
+                case "ringofpower": return "ringofpower";
+                case "clumps": return "clumps";
+                case "alienarmor": return "alienarmor";
+                case "taraarmor": return "taraarmor";
+                case "mantisarmor": return "mantisarmor";
+                case "crawler": return "crawler";
+                case "carbarmor": return "carbarmor";
+                case "implants": return "implants";
+                case "implant-cleaning": return "implant-cleaning";
+                case "trimmer": return "trimmer";
+                case "devalossleeve": return "devalossleeve";
+                case "perenniumweapons": return "perenniumweapons";
+                case "hackgrafts": return "hackgrafts";
+                case "sealedweapon": return "sealedweapon";
+                case "ai-biotech-rod-rings": return "ai-biotech-rod-rings";
+                case "stalkerhelmet": return "stalkerhelmet";
+                case "barterarmor": return "barterarmor";
+                case "niznosbombblaster": return "niznosbombblaster";
+                case "salabimshotgun": return "salabimshotgun";
+                case "crepusculeleatherarmor": return "crepusculeleatherarmor";
+                case "treatmentlibrary": return "treatmentlibrary";
+                case "robot-brain": return "robot-brain";
                 default: return fileName; // Return as-is for any other files
             }
         }

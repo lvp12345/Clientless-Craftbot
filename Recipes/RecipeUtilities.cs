@@ -627,7 +627,8 @@ namespace Craftbot.Recipes
                     !(item.Slot.Instance >= (int)EquipSlot.Weap_Hud1 && item.Slot.Instance <= (int)EquipSlot.Imp_Feet) && // NEVER move equipped items
                     item.Slot.Type == IdentityType.Inventory && // ONLY items in inventory slots, NOT equipped
                     !IsProcessingTool(item) &&
-                    !item.Name.Contains("Backpack") && // NEVER move containers into other containers
+                    // CRITICAL FIX: Only exclude bot's tool bags, NOT player-provided bags
+                    !(item.UniqueIdentity.Type == IdentityType.Container && Core.ItemTracker.IsBotToolBag(item)) &&
                     !item.Name.Contains("Novictum Ring") && // Exclude equipped novictum rings
                     !item.Name.Contains("Pure Novictum Ring") && // Exclude equipped pure novictum rings
                     !item.Name.Contains("Temporary: Data Receptacle")).ToList(); // INCLUDE ALL ITEMS - even processed results
