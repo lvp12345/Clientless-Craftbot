@@ -63,14 +63,14 @@ namespace Craftbot.Recipes
         }
 
         /// <summary>
-        /// Finds player-provided Hacker Tool, excluding bot's personal tools
+        /// Finds player-provided Hacker Tool (Basic or Advanced), excluding bot's personal tools
         /// </summary>
         /// <returns>Player-provided Hacker Tool or null</returns>
         private async Task<Item> FindPlayerProvidedHackerTool()
         {
-            // Check inventory first for ANY Hacker Tool
-            var hackerTool = Inventory.Items.FirstOrDefault(item => 
-                item.Name.Contains("Hacker Tool") && 
+            // Check inventory first for ANY Hacker Tool (Basic or Advanced)
+            var hackerTool = Inventory.Items.FirstOrDefault(item =>
+                item.Name.Contains("Hacker Tool") &&
                 !RecipeUtilities.IsBotPersonalTool(item));
 
             if (hackerTool != null)
@@ -80,15 +80,20 @@ namespace Craftbot.Recipes
             }
 
             // If not in inventory, check if we can pull from player bags
-            // This will only pull from bags that came from the current trade
-            if (RecipeUtilities.FindAndPullPlayerProvidedTool("Hacker Tool"))
+            // Try Advanced Hacker Tool first, then Basic Hacker Tool
+            RecipeUtilities.LogDebug($"[{RecipeName}] Searching for player-provided Hacker Tool in bags (Advanced or Basic)");
+
+            bool foundInBag = RecipeUtilities.FindAndPullPlayerProvidedTool("Advanced Hacker Tool") ||
+                              RecipeUtilities.FindAndPullPlayerProvidedTool("Hacker Tool");
+
+            if (foundInBag)
             {
                 // Wait a moment for tool to move to inventory
                 await Task.Delay(100);
-                hackerTool = Inventory.Items.FirstOrDefault(item => 
-                    item.Name.Contains("Hacker Tool") && 
+                hackerTool = Inventory.Items.FirstOrDefault(item =>
+                    item.Name.Contains("Hacker Tool") &&
                     !RecipeUtilities.IsBotPersonalTool(item));
-                
+
                 if (hackerTool != null)
                 {
                     RecipeUtilities.LogDebug($"[{RecipeName}] Pulled player-provided Hacker Tool from bag: {hackerTool.Name}");
@@ -96,7 +101,7 @@ namespace Craftbot.Recipes
                 }
             }
 
-            RecipeUtilities.LogDebug($"[{RecipeName}] No player-provided Hacker Tool found");
+            RecipeUtilities.LogDebug($"[{RecipeName}] No player-provided Hacker Tool found (searched for both Advanced and Basic)");
             return null;
         }
 

@@ -15,11 +15,22 @@ namespace Craftbot.Recipes
     public static class RecipeUtilities
     {
         // Track which bag tools came from so we can return them
-        // Key = "ToolName_ToolId_ToolInstance", Value = "BagName|BagId|BagInstance"
+        // Key = "ToolName_ToolId_ToolInstance", Value = "BagName|BagId|BagInstance|BOT"
         private static Dictionary<string, string> _toolOriginBags = new Dictionary<string, string>();
 
         /// <summary>
-        /// Finds and pulls a tool from bags to inventory with robust error handling
+        /// Clears all tool origin tracking - should be called at the start of each new trade
+        /// to prevent tools from previous trades from being tracked incorrectly
+        /// </summary>
+        public static void ClearToolTracking()
+        {
+            LogDebug($"[TOOL TRACKING] Clearing tool origin tracking ({_toolOriginBags.Count} tracked tools)");
+            _toolOriginBags.Clear();
+        }
+
+        /// <summary>
+        /// Finds and pulls a tool from BOT'S OWN bags to inventory with robust error handling
+        /// CRITICAL: Only searches BOT tool bags - NEVER player bags!
         /// </summary>
         /// <param name="toolName">Name of the tool to find</param>
         /// <returns>True if tool was found and successfully moved to inventory</returns>
@@ -27,20 +38,27 @@ namespace Craftbot.Recipes
         {
             try
             {
-                // First check already open containers
+                // CRITICAL FIX: First check already open BOT containers ONLY
                 foreach (var container in Inventory.Containers.Where(bp => bp.IsOpen))
                 {
+                    // CRITICAL: Skip if this is NOT a bot tool bag - NEVER pull from player bags!
+                    if (!Core.ItemTracker.IsBotToolBag(container.Item))
+                    {
+                        LogDebug($"[TOOL SEARCH] Skipping non-bot bag: {container.Item?.Name ?? "Unknown"}");
+                        continue;
+                    }
+
                     var tool = container.Items.FirstOrDefault(item => item.Name.Contains(toolName));
                     if (tool != null)
                     {
-                        LogDebug($"[TOOL SEARCH] Found {toolName} in open bag {container.Item?.Name ?? "Unknown"}, moving to inventory");
+                        LogDebug($"[TOOL SEARCH] Found {toolName} in BOT tool bag {container.Item?.Name ?? "Unknown"}, moving to inventory");
 
                         // Track where this tool came from so we can return it later
-                        // CRITICAL: Store bag Name|Id|Instance to distinguish between bot bags and player bags with same name!
+                        // CRITICAL: Store bag Name|Id|Instance AND mark as bot bag for return
                         string toolKey = $"{tool.Name}_{tool.Id}_{tool.UniqueIdentity.Instance}";
-                        string bagKey = $"{container.Item?.Name ?? "Unknown"}|{container.Item?.Id ?? 0}|{container.Item?.UniqueIdentity.Instance ?? 0}";
+                        string bagKey = $"{container.Item?.Name ?? "Unknown"}|{container.Item?.Id ?? 0}|{container.Item?.UniqueIdentity.Instance ?? 0}|BOT";
                         _toolOriginBags[toolKey] = bagKey;
-                        LogDebug($"[TOOL TRACKING] Tracking tool: {toolKey} from bag: {bagKey}");
+                        LogDebug($"[TOOL TRACKING] Tracking BOT tool: {toolKey} from BOT bag: {bagKey}");
 
                         // Attempt to move tool with retry logic
                         if (MoveToolToInventoryWithRetry(tool, toolName))
@@ -56,11 +74,13 @@ namespace Craftbot.Recipes
                     }
                 }
 
-                // If not found in open bags, try to open tool bags in inventory
-                LogDebug($"[TOOL SEARCH] {toolName} not found in open bags, checking for tool bags to open");
+                // If not found in open bot bags, try to open BOT tool bags in inventory
+                LogDebug($"[TOOL SEARCH] {toolName} not found in open bot bags, checking for bot tool bags to open");
+
+                // CRITICAL FIX: Only open bags that are BOT'S OWN tool bags
                 var toolBags = Inventory.Items.Where(item =>
                     item.UniqueIdentity.Type == IdentityType.Container &&
-                    (item.Name.ToLower().Contains("tool") || item.Name.ToLower().Contains("bag") || item.Name.ToLower().Contains("backpack")) &&
+                    Core.ItemTracker.IsBotToolBag(item) && // ONLY bot tool bags!
                     // Only open bags that aren't already open
                     !Inventory.Containers.Any(bp => bp.Identity.Instance == item.UniqueIdentity.Instance)).ToList();
 
@@ -82,11 +102,11 @@ namespace Craftbot.Recipes
                             LogDebug($"[TOOL SEARCH] Found {toolName} in newly opened BOT tool bag {newContainer.Item?.Name ?? "Unknown"}, moving to inventory");
 
                             // Track where this tool came from so we can return it later
-                            // Store bag Name|Id|Instance to distinguish between bot bags and player bags with same name!
+                            // CRITICAL: Store bag Name|Id|Instance AND mark as bot bag for return
                             string toolKey = $"{tool.Name}_{tool.Id}_{tool.UniqueIdentity.Instance}";
-                            string bagKey = $"{newContainer.Item?.Name ?? "Unknown"}|{newContainer.Item?.Id ?? 0}|{newContainer.Item?.UniqueIdentity.Instance ?? 0}";
+                            string bagKey = $"{newContainer.Item?.Name ?? "Unknown"}|{newContainer.Item?.Id ?? 0}|{newContainer.Item?.UniqueIdentity.Instance ?? 0}|BOT";
                             _toolOriginBags[toolKey] = bagKey;
-                            LogDebug($"[TOOL TRACKING] Tracking tool: {toolKey} from bag: {bagKey}");
+                            LogDebug($"[TOOL TRACKING] Tracking BOT tool: {toolKey} from BOT bag: {bagKey}");
 
                             // Attempt to move tool with retry logic
                             if (MoveToolToInventoryWithRetry(tool, toolName))
@@ -103,7 +123,7 @@ namespace Craftbot.Recipes
                     }
                 }
 
-                LogDebug($"[TOOL SEARCH] {toolName} not found in any bags (checked {toolBags.Count} potential tool bags)");
+                LogDebug($"[TOOL SEARCH] {toolName} not found in any BOT bags (checked {toolBags.Count} bot tool bags)");
                 return false;
             }
             catch (Exception ex)
@@ -124,7 +144,7 @@ namespace Craftbot.Recipes
                 foreach (var toolEntry in _toolOriginBags.ToList())
                 {
                     string toolKey = toolEntry.Key;
-                    string originBagInfo = toolEntry.Value; // Format: "BagName|BagId|BagInstance"
+                    string originBagInfo = toolEntry.Value; // Format: "BagName|BagId|BagInstance|BOT"
 
                     // Parse the tool key to get the unique identifiers
                     var keyParts = toolKey.Split('_');
@@ -143,7 +163,7 @@ namespace Craftbot.Recipes
                         continue;
                     }
 
-                    // Parse bag info: "BagName|BagId|BagInstance"
+                    // Parse bag info: "BagName|BagId|BagInstance|BOT"
                     var bagParts = originBagInfo.Split('|');
                     if (bagParts.Length < 3)
                     {
@@ -160,6 +180,15 @@ namespace Craftbot.Recipes
                         continue;
                     }
 
+                    // CRITICAL: Check if this was marked as a BOT tool
+                    bool isBotTool = bagParts.Length >= 4 && bagParts[3] == "BOT";
+                    if (!isBotTool)
+                    {
+                        LogDebug($"[TOOL RETURN] ⚠️ Tool {toolName} was NOT marked as BOT tool - skipping return (may be player tool)");
+                        _toolOriginBags.Remove(toolKey);
+                        continue;
+                    }
+
                     // Find the specific tool in inventory using unique identifiers
                     var tool = Inventory.Items.FirstOrDefault(item =>
                         item.Name == toolName &&
@@ -168,25 +197,51 @@ namespace Craftbot.Recipes
 
                     if (tool != null)
                     {
+                        // CRITICAL: Store the tool's Slot.Instance to verify it actually moved
+                        // Tools have UniqueIdentity.Instance = 0, so we MUST use Slot.Instance instead!
+                        int toolSlotInstance = tool.Slot.Instance;
+
                         // CRITICAL FIX: Match the EXACT bag by instance, not just by name!
                         // This prevents confusing bot bags with player bags that have the same name
                         var originalBag = Inventory.Containers.FirstOrDefault(bp =>
                             bp.Item?.UniqueIdentity.Instance == bagInstance);
 
+                        // CRITICAL: Verify the bag is a BOT tool bag before returning to it
+                        if (originalBag != null && Core.ItemTracker.IsBotToolBag(originalBag.Item))
+                        {
+                            // Standard bag capacity is 21 slots - use this as default
+                            const int DEFAULT_BAG_CAPACITY = 21;
+                            int bagItemCount = originalBag.Items.Count();
+                            if (bagItemCount >= DEFAULT_BAG_CAPACITY)
+                            {
+                                LogDebug($"[TOOL RETURN] ⚠️ Original bag {originalBag.Item?.Name} appears FULL ({bagItemCount} items) - looking for fallback");
+                                originalBag = null; // Force fallback
+                            }
+                            else
+                            {
+                                LogDebug($"[TOOL RETURN] Returning bot tool {toolName} (ID:{toolId}, Instance:{toolInstance}, SlotInstance:{toolSlotInstance}) to original bag {originalBag.Item?.Name} ({bagItemCount} items)");
+                            }
+                        }
+                        else if (originalBag != null)
+                        {
+                            LogDebug($"[TOOL RETURN] ⚠️ Original bag {originalBag.Item?.Name} is NOT a bot tool bag - looking for fallback");
+                            originalBag = null; // Force fallback
+                        }
+
                         if (originalBag != null)
                         {
-                            LogDebug($"[TOOL RETURN] Returning bot tool {toolName} (ID:{toolId}, Instance:{toolInstance}) to original bag {originalBag.Item?.Name}");
-
                             // Move tool with retry logic and verification
                             bool moved = false;
                             for (int attempt = 1; attempt <= 3; attempt++)
                             {
                                 tool.MoveToContainer(originalBag);
-                                await Task.Delay(200); // Longer delay to ensure move completes
+                                await Task.Delay(300); // Longer delay to ensure move completes
 
-                                // Verify the tool actually moved
+                                // CRITICAL FIX: Verify using Slot.Instance, NOT UniqueIdentity.Instance!
+                                // Tools have UniqueIdentity.Instance = 0, so we must check by Slot.Instance
                                 var toolStillInInventory = Inventory.Items.FirstOrDefault(item =>
-                                    item.Id == toolId && item.UniqueIdentity.Instance == toolInstance);
+                                    item.Slot.Type == IdentityType.Inventory &&
+                                    item.Slot.Instance == toolSlotInstance);
 
                                 if (toolStillInInventory == null)
                                 {
@@ -196,7 +251,7 @@ namespace Craftbot.Recipes
                                 }
                                 else if (attempt < 3)
                                 {
-                                    LogDebug($"[TOOL RETURN] ⚠️ Tool {toolName} still in inventory after attempt {attempt}, retrying...");
+                                    LogDebug($"[TOOL RETURN] ⚠️ Tool {toolName} (SlotInstance:{toolSlotInstance}) still in inventory after attempt {attempt}, retrying...");
                                 }
                             }
 
@@ -207,25 +262,28 @@ namespace Craftbot.Recipes
                         }
                         else
                         {
-                            // Fallback: try any bot tool bag if original not found
+                            // Fallback: try any bot tool bag with space if original not found
+                            // Standard bag capacity is 21 slots
+                            const int DEFAULT_BAG_CAPACITY = 21;
                             var anyBotToolBag = Inventory.Containers.FirstOrDefault(bp =>
-                                bp.Item?.Name?.ToLower().StartsWith("tools") == true ||
-                                bp.Item?.Name?.ToLower().Contains("tool bag") == true);
+                                Core.ItemTracker.IsBotToolBag(bp.Item) &&
+                                bp.Items.Count() < DEFAULT_BAG_CAPACITY); // CRITICAL: Must have space!
 
                             if (anyBotToolBag != null)
                             {
-                                LogDebug($"[TOOL RETURN] Original bag '{bagName}' not found, using fallback bag {anyBotToolBag.Item?.Name} for {toolName}");
+                                LogDebug($"[TOOL RETURN] Original bag '{bagName}' not available, using fallback bag {anyBotToolBag.Item?.Name} for {toolName}");
 
                                 // Move tool with retry logic and verification
                                 bool moved = false;
                                 for (int attempt = 1; attempt <= 3; attempt++)
                                 {
                                     tool.MoveToContainer(anyBotToolBag);
-                                    await Task.Delay(200);
+                                    await Task.Delay(300);
 
-                                    // Verify the tool actually moved
+                                    // CRITICAL FIX: Verify using Slot.Instance, NOT UniqueIdentity.Instance!
                                     var toolStillInInventory = Inventory.Items.FirstOrDefault(item =>
-                                        item.Id == toolId && item.UniqueIdentity.Instance == toolInstance);
+                                        item.Slot.Type == IdentityType.Inventory &&
+                                        item.Slot.Instance == toolSlotInstance);
 
                                     if (toolStillInInventory == null)
                                     {
@@ -235,7 +293,7 @@ namespace Craftbot.Recipes
                                     }
                                     else if (attempt < 3)
                                     {
-                                        LogDebug($"[TOOL RETURN] ⚠️ Tool {toolName} still in inventory after attempt {attempt}, retrying...");
+                                        LogDebug($"[TOOL RETURN] ⚠️ Tool {toolName} (SlotInstance:{toolSlotInstance}) still in inventory after attempt {attempt}, retrying...");
                                     }
                                 }
 
@@ -246,7 +304,7 @@ namespace Craftbot.Recipes
                             }
                             else
                             {
-                                LogDebug($"[TOOL RETURN] ❌ No bot tool bag found for {toolName} - keeping in inventory (THIS IS A BUG!)");
+                                LogDebug($"[TOOL RETURN] ❌ No bot tool bag with space found for {toolName} - keeping in inventory");
                             }
                         }
                     }
@@ -274,47 +332,65 @@ namespace Craftbot.Recipes
                     {
                         LogDebug($"[TOOL RETURN] ⚠️ Stuck tool: {stuckTool.Name} (ID:{stuckTool.Id}, Instance:{stuckTool.UniqueIdentity.Instance})");
 
-                        // CRITICAL FIX: Force-return stuck bot tools to any available bot tool bag
-                        // Check BOTH IsBotPersonalItem AND IsBotTool to catch all bot tools
-                        if (Core.ItemTracker.IsBotPersonalItem(stuckTool) || Core.ItemTracker.IsBotTool(stuckTool))
+                        // CRITICAL FIX: If IsProcessingTool() returned TRUE, this IS a bot tool that must be protected
+                        // NEVER leave processing tools in inventory for return to player - they are bot's tools!
+                        LogDebug($"[TOOL RETURN] 🔧 FORCE RETURN: Attempting to return stuck bot tool {stuckTool.Name} to tool bag");
+
+                        // Store the tool's Slot.Instance for verification
+                        int stuckToolSlotInstance = stuckTool.Slot.Instance;
+
+                        // Find any bot tool bag
+                        var botToolBag = Inventory.Containers.FirstOrDefault(c => Core.ItemTracker.IsBotToolBag(c.Item));
+                        if (botToolBag != null)
                         {
-                            LogDebug($"[TOOL RETURN] 🔧 FORCE RETURN: Attempting to return stuck bot tool {stuckTool.Name} to tool bag");
-
-                            // Find any bot tool bag
-                            var botToolBag = Inventory.Containers.FirstOrDefault(c => Core.ItemTracker.IsBotToolBag(c.Item));
-                            if (botToolBag != null)
+                            try
                             {
-                                try
+                                stuckTool.MoveToContainer(botToolBag);
+                                await Task.Delay(300);
+
+                                // CRITICAL FIX: Verify using Slot.Instance, NOT UniqueIdentity.Instance!
+                                var stillStuck = Inventory.Items.FirstOrDefault(i =>
+                                    i.Slot.Type == IdentityType.Inventory &&
+                                    i.Slot.Instance == stuckToolSlotInstance);
+
+                                if (stillStuck == null)
                                 {
-                                    stuckTool.MoveToContainer(botToolBag);
-                                    await Task.Delay(200);
-
-                                    // Verify it moved
-                                    var stillStuck = Inventory.Items.FirstOrDefault(i =>
-                                        i.Id == stuckTool.Id && i.UniqueIdentity.Instance == stuckTool.UniqueIdentity.Instance);
-
-                                    if (stillStuck == null)
-                                    {
-                                        LogDebug($"[TOOL RETURN] ✅ Successfully force-returned {stuckTool.Name} to {botToolBag.Item?.Name}");
-                                    }
-                                    else
-                                    {
-                                        LogDebug($"[TOOL RETURN] ❌ FAILED to force-return {stuckTool.Name} - tool remains stuck!");
-                                    }
+                                    LogDebug($"[TOOL RETURN] ✅ Successfully force-returned {stuckTool.Name} to {botToolBag.Item?.Name}");
                                 }
-                                catch (Exception ex)
+                                else
                                 {
-                                    LogDebug($"[TOOL RETURN] ❌ Error force-returning {stuckTool.Name}: {ex.Message}");
+                                    LogDebug($"[TOOL RETURN] ❌ FAILED to force-return {stuckTool.Name} (SlotInstance:{stuckToolSlotInstance}) - tool remains stuck!");
+                                    LogDebug($"[TOOL RETURN] 🚨 CRITICAL: Tool {stuckTool.Name} is stuck but MUST NOT be given to player - attempting multiple retries");
+
+                                    // Try multiple times to force it back
+                                    for (int retry = 0; retry < 5; retry++)
+                                    {
+                                        await Task.Delay(500);
+                                        var retryStuck = Inventory.Items.FirstOrDefault(i =>
+                                            i.Slot.Type == IdentityType.Inventory &&
+                                            i.Slot.Instance == stuckToolSlotInstance);
+
+                                        if (retryStuck != null)
+                                        {
+                                            retryStuck.MoveToContainer(botToolBag);
+                                            await Task.Delay(300);
+                                        }
+                                        else
+                                        {
+                                            LogDebug($"[TOOL RETURN] ✅ Tool {stuckTool.Name} successfully returned on retry {retry + 1}");
+                                            break;
+                                        }
+                                    }
                                 }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                LogDebug($"[TOOL RETURN] ❌ No bot tool bag found to return {stuckTool.Name}!");
+                                LogDebug($"[TOOL RETURN] ❌ Error force-returning {stuckTool.Name}: {ex.Message}");
                             }
                         }
                         else
                         {
-                            LogDebug($"[TOOL RETURN] ⚠️ Stuck tool {stuckTool.Name} is NOT a bot tool - leaving in inventory for return to player");
+                            LogDebug($"[TOOL RETURN] ❌ No bot tool bag found to return {stuckTool.Name}!");
                         }
                     }
                 }
@@ -1159,11 +1235,13 @@ namespace Craftbot.Recipes
         }
 
         /// <summary>
-        /// Check if an item is a known bot tool by ID or name
+        /// Check if an item is a known bot tool by ID AND UniqueIdentity.Instance
+        /// CRITICAL: Must check BOTH Item ID and Instance to avoid stealing player items with same ID
         /// </summary>
         private static bool IsKnownBotTool(Item item)
         {
             // Known bot tool IDs that must NEVER be given to players
+            // BUT we must ALSO verify the UniqueIdentity.Instance matches the bot's tool
             HashSet<int> knownToolIds = new HashSet<int>
             {
                 154332, // Advanced Bio-Comminutor
@@ -1176,18 +1254,29 @@ namespace Craftbot.Recipes
                 161699, // Nano Programming Interface - CRITICAL: Bot's personal tool that was given away to Ducksurper
             };
 
+            // CRITICAL FIX: Check if this specific item instance is in the bot's initial inventory
+            // This prevents stealing player items that have the same Item ID
             if (knownToolIds.Contains(item.Id))
             {
-                return true;
+                // Verify this is actually the bot's tool by checking the inventory snapshot
+                if (Core.ItemTracker.IsBotPersonalItem(item))
+                {
+                    LogDebug($"[TOOL CHECK] {item.Name} (ID:{item.Id}, Instance:{item.UniqueIdentity.Instance}) is bot's personal tool - VERIFIED by snapshot");
+                    return true;
+                }
+                else
+                {
+                    LogDebug($"[TOOL CHECK] {item.Name} (ID:{item.Id}, Instance:{item.UniqueIdentity.Instance}) has known tool ID but NOT in bot's snapshot - PLAYER'S TOOL");
+                    return false; // Same Item ID but different instance - this is the player's tool!
+                }
             }
 
-            // Also check by exact tool names
+            // Also check by exact tool names (but still verify with snapshot)
             string[] exactToolNames = {
                 "Jensen Gem Cutter",
                 "Jensen Personal Ore Extractor",
                 "Advanced Bio-Comminutor",
                 "Ancient Novictum Refiner",
-                "Advanced Hacker Tool",
                 "Alien Material Conversion kit",
                 "Ancient Engineering Device"
             };
@@ -1196,7 +1285,17 @@ namespace Craftbot.Recipes
             {
                 if (item.Name.Contains(toolName))
                 {
-                    return true;
+                    // Verify this is actually the bot's tool by checking the inventory snapshot
+                    if (Core.ItemTracker.IsBotPersonalItem(item))
+                    {
+                        LogDebug($"[TOOL CHECK] {item.Name} matches exact tool name and is bot's personal tool - VERIFIED");
+                        return true;
+                    }
+                    else
+                    {
+                        LogDebug($"[TOOL CHECK] {item.Name} matches exact tool name but NOT in bot's snapshot - PLAYER'S TOOL");
+                        return false; // Same name but different instance - this is the player's tool!
+                    }
                 }
             }
 

@@ -2621,6 +2621,10 @@ namespace Craftbot.Modules
                         // Clear the previous trade's received items tracking for new trade
                         Core.ItemTracker.ClearCurrentTradeItems();
 
+                        // CRITICAL FIX: Also clear tool tracking to prevent tools from previous trades
+                        // from being tracked incorrectly
+                        Recipes.RecipeUtilities.ClearToolTracking();
+
                         // CRITICAL FIX: Clear player from auto-declined set when bot is ready to process their trade
                         if (_autoDeclinedTrades.Contains(playerId))
                         {
@@ -2674,10 +2678,13 @@ namespace Craftbot.Modules
                         // This is a new trade - capture current inventory state using ITEM IDs ONLY
                         _preTradeInventory.Clear();
 
-                        // IMPROVED: More robust pre-trade inventory capture
+                        // CRITICAL FIX: Exclude bot tools and bot personal items from pre-trade inventory
+                        // This prevents stuck tools from being incorrectly identified as "new items" from players
                         var inventoryItems = Inventory.Items.Where(item =>
                             item.Slot.Type == IdentityType.Inventory &&
-                            item.UniqueIdentity.Type != IdentityType.Container).ToList();
+                            item.UniqueIdentity.Type != IdentityType.Container &&
+                            !Core.ItemTracker.IsBotTool(item) &&
+                            !Core.ItemTracker.IsBotPersonalItem(item)).ToList();
 
                         foreach (var item in inventoryItems)
                         {
@@ -3820,6 +3827,87 @@ namespace Craftbot.Modules
             }
         }
 
+        /// <summary>
+        /// CLEAN TRADE: Uses unified infrastructure (logging, tracking, mapping) but ImplantCleaningRecipe processing
+        /// </summary>
+        private static async Task<int> ScanAndProcessContainerContentsWithCleanTradeProcessing(Container container, Item bagItem, int playerId, string playerName)
+        {
+            try
+            {
+                LogDebug($"[BAG SCAN] *** STARTING CLEAN TRADE SCAN *** Scanning contents of container: {container.Item?.Name ?? "Unknown"}");
+
+                // Use container.Items directly (LootManager approach)
+                var bagContents = container.Items.ToList();
+                int processedCount = 0;
+
+                if (!bagContents.Any())
+                {
+                    LogDebug($"[BAG SCAN] Container {container.Item?.Name ?? "Unknown"} is empty");
+                    return 0;
+                }
+
+                LogDebug($"[BAG SCAN] Found {bagContents.Count} items in container");
+
+                // Log received bag contents for detailed trade log
+                var itemNames = bagContents.Select(item => GetItemDisplayName(item)).ToList();
+                LogReceivedBag(playerId, container.Item?.Name ?? "Unknown", itemNames);
+
+                // UNIFIED INFRASTRUCTURE: Track item ownership for leftover recovery
+                foreach (var item in bagContents)
+                {
+                    string itemKey = $"{item.Name}_{item.Id}";
+                    _itemToPlayerMapping[itemKey] = playerName;
+                    LogDebug($"[ITEM TRACKING] Mapped bag item {itemKey} to player {playerName}");
+
+                    // COMPREHENSIVE INVENTORY TRACKING: Track as received item
+                    Core.ItemTracker.ProcessReceivedItems(new List<Item> { item }, playerName);
+                    LogDebug($"[COMPREHENSIVE TRACKING] Tracked received bag item: {item.Name} from {playerName}");
+                }
+
+                // CLEAN TRADE PROCESSING: Call ImplantCleaningRecipe directly, bypassing RecipeManager
+                LogDebug($"[BAG SCAN] Using ImplantCleaningRecipe for {bagContents.Count} items");
+                var cleanRecipe = new Recipes.ImplantCleaningRecipe();
+
+                try
+                {
+                    // Process all implants in the bag using ImplantCleaningRecipe
+                    foreach (var item in bagContents)
+                    {
+                        string itemDisplayName = GetItemDisplayName(item);
+                        LogDebug($"[BAG SCAN] Processing item for cleaning: {itemDisplayName}");
+
+                        // Process directly with ImplantCleaningRecipe, bypassing RecipeManager
+                        await cleanRecipe.ProcessItem(item, container);
+                        LogDebug($"[BAG SCAN] Completed processing for cleaning: {itemDisplayName}");
+
+                        await Task.Delay(100);
+                    }
+
+                    LogDebug($"[BAG SCAN] ImplantCleaningRecipe processing completed successfully");
+
+                    // CRITICAL: Move processed items back to bag (following unified recipe workflow)
+                    LogDebug($"[BAG SCAN] Moving processed items back to bag container");
+                    await Recipes.RecipeUtilities.MoveProcessedItemsBackToContainer(container, "Implant Cleaning");
+                }
+                catch (Exception ex)
+                {
+                    LogDebug($"[BAG SCAN] ERROR in ImplantCleaningRecipe processing: {ex.Message}");
+                    LogDebug($"[BAG SCAN] Stack trace: {ex.StackTrace}");
+                }
+
+                // For now, assume all items were processed
+                processedCount = bagContents.Count;
+
+                LogDebug($"[BAG SCAN] Completed clean trade scanning container {container.Item?.Name ?? "Unknown"}. Processed {processedCount} items.");
+                return processedCount;
+            }
+            catch (Exception ex)
+            {
+                LogDebug($"[BAG SCAN] Error scanning bag contents with clean trade processing: {ex.Message}");
+                return 0;
+            }
+        }
+
         private static async Task ReturnBagsToPlayer(int playerId)
         {
             try
@@ -4842,6 +4930,15 @@ namespace Craftbot.Modules
             // RULE #5: TOOLS MUST NEVER UNDER ANY CIRCUMSTANCE BE GIVEN TO PLAYERS
             // COMPREHENSIVE PROTECTION: ALL tools used in ANY recipe MUST be protected
 
+            // ABSOLUTE PROTECTION: Shape tools (Mass Relocating Robot) MUST NEVER EVER be given away
+            // These are SUPER VALUABLE and irreplaceable - protect them BEFORE any other checks
+            // Item ID 162219 = Mass Relocating Robot (Shape Soft Armor)
+            if (item.Id == 162219)
+            {
+                LogDebug($"[TOOL PROTECTION] 🚨 ABSOLUTE: {GetItemDisplayName(item)} is SHAPE TOOL - NEVER EVER GIVE AWAY - PROTECTED");
+                return true; // ABSOLUTE PROTECTION - even if player gave it to us, we keep it
+            }
+
             // CRITICAL: Check if item was received from player FIRST
             // If player gave us this item, it's THEIR item, not ours - return it!
             if (Core.ItemTracker.WasReceivedFromPlayer(item))
@@ -4916,9 +5013,11 @@ namespace Craftbot.Modules
                 // Smelting/Metal Processing
                 "Precious Metal Reclaimer",
 
-                // Armor Processing
-                "Mass Relocating Robot (Shape Soft Armor)",
+                // Armor Processing - EXACT NAMES ONLY
                 "Mass Relocating Robot (Shape Hard Armor)",
+                "Mass Relocating Robot (Shape Soft Armor)",
+                "Mass Relocating Robot (Improve Thrusting Weapons)",
+                "Mass Relocating Robot (Improve Crushing Weapons)",
 
                 // VTE Processing
                 "Ancient Novictum Refiner",
@@ -4944,7 +5043,7 @@ namespace Craftbot.Modules
             string itemNameLower = item.Name.ToLower();
             string[] toolPatterns = {
                 "tool", "cutter", "analyzer", "interface", "reclaimer",
-                "relocating robot", "furnace", "machine", "screwdriver",
+                "furnace", "machine", "screwdriver",
                 "hsr - sketch and etch", "clanalizer", "omnifier",
                 "bio-comminutor", "programming", "disassembly", "clinic",
                 "structural analyzer"
@@ -4989,6 +5088,14 @@ namespace Craftbot.Modules
                 return false; // Robot brain results are recipe outputs, NOT tools
             }
 
+            // CRITICAL FIX: Exclude Robot Junk from tool detection
+            // Robot Junk is a recipe ingredient, NOT a tool
+            if (item.Name.Equals("Robot Junk", StringComparison.OrdinalIgnoreCase))
+            {
+                LogDebug($"[TOOL PROTECTION] RECIPE INGREDIENT: {GetItemDisplayName(item)} is Robot Junk recipe ingredient - NOT PROTECTED");
+                return false; // Robot Junk is a recipe ingredient, NOT a tool
+            }
+
             // CHECK EXACT TOOL NAMES FIRST
             foreach (var toolName in exactToolNames)
             {
@@ -5008,12 +5115,6 @@ namespace Craftbot.Modules
             }
 
             // ADDITIONAL HARDCODED PROTECTIONS
-            // Any item with "Mass Relocating Robot" in name
-            if (item.Name.Contains("Mass Relocating Robot"))
-            {
-                return true;
-            }
-
             // Any HSR sketching tool (absolute protection)
             if (item.Name.Contains("HSR") && item.Name.Contains("Sketch"))
             {
@@ -5223,12 +5324,16 @@ namespace Craftbot.Modules
                 if (_preTradeInventory.Count > 0)
                 {
                     // UNIFIED METHOD: Compare against pre-trade inventory using UniqueIdentity.Instance (same as bags)
+                    // CRITICAL FIX: Also exclude bot tools and bot personal items to prevent stuck tools from being returned
                     newLooseItems = currentInventoryItems.Where(item =>
                         // EXCLUDE equipment pages - they should NEVER be considered for trading
                         item.Slot.Type != IdentityType.ArmorPage &&
                         item.Slot.Type != IdentityType.WeaponPage &&
                         item.Slot.Type != IdentityType.ImplantPage &&
                         item.Slot.Type != IdentityType.SocialPage &&
+                        // CRITICAL: Exclude bot tools and personal items
+                        !Core.ItemTracker.IsBotTool(item) &&
+                        !Core.ItemTracker.IsBotPersonalItem(item) &&
                         !_preTradeInventory.Any(preItem =>
                             preItem.Type == IdentityType.None &&
                             preItem.Instance == item.Slot.Instance)).ToList();
@@ -5349,17 +5454,24 @@ namespace Craftbot.Modules
                         LogDebug($"[TRADE LOG] 🛡️ BLOCKED bot original item from trade log: {itemDisplayName}");
                     }
 
-                    // Track item ownership for leftover recovery (always track for processing)
-                    var currentPlayerName = GetPlayerName(playerId);
-                    if (!string.IsNullOrEmpty(currentPlayerName))
+                    // Track item ownership for leftover recovery (ONLY if NOT bot original)
+                    if (!isBotOriginalItem)
                     {
-                        string itemKey = $"{itemDisplayName}_{looseItem.Id}";
-                        _itemToPlayerMapping[itemKey] = currentPlayerName;
-                        LogDebug($"[ITEM TRACKING] Mapped item {itemKey} to player {currentPlayerName}");
+                        var currentPlayerName = GetPlayerName(playerId);
+                        if (!string.IsNullOrEmpty(currentPlayerName))
+                        {
+                            string itemKey = $"{itemDisplayName}_{looseItem.Id}";
+                            _itemToPlayerMapping[itemKey] = currentPlayerName;
+                            LogDebug($"[ITEM TRACKING] Mapped item {itemKey} to player {currentPlayerName}");
 
-                        // COMPREHENSIVE INVENTORY TRACKING: Track as received item (always track for processing)
-                        Core.ItemTracker.ProcessReceivedItems(new List<Item> { looseItem }, currentPlayerName);
-                        LogDebug($"[COMPREHENSIVE TRACKING] Tracked received item: {itemDisplayName} from {currentPlayerName}");
+                            // COMPREHENSIVE INVENTORY TRACKING: Track as received item (only player items)
+                            Core.ItemTracker.ProcessReceivedItems(new List<Item> { looseItem }, currentPlayerName);
+                            LogDebug($"[COMPREHENSIVE TRACKING] Tracked received item: {itemDisplayName} from {currentPlayerName}");
+                        }
+                    }
+                    else
+                    {
+                        LogDebug($"[ITEM TRACKING] 🛡️ SKIPPED tracking bot original item: {itemDisplayName}");
                     }
                 }
 
@@ -5435,6 +5547,11 @@ namespace Craftbot.Modules
                                 {
                                     LogDebug($"[TRADE PROCESSING] Using unified infrastructure with custom implant processing for bag contents");
                                     await ScanAndProcessContainerContentsWithCustomImplantProcessing(container, bagItem, playerId, playerName);
+                                }
+                                else if (isCleanTrade)
+                                {
+                                    LogDebug($"[TRADE PROCESSING] Using unified infrastructure with ImplantCleaningRecipe for bag contents");
+                                    await ScanAndProcessContainerContentsWithCleanTradeProcessing(container, bagItem, playerId, playerName);
                                 }
                                 else if (isTreatmentLibraryTrade)
                                 {
@@ -5580,10 +5697,26 @@ namespace Craftbot.Modules
 
                         foreach (var item in currentItems)
                         {
+                            // ABSOLUTE PROTECTION: Shape tools MUST NEVER EVER be given away
+                            // Item ID 162219 = Mass Relocating Robot (Shape Soft Armor)
+                            if (item.Id == 162219)
+                            {
+                                LogDebug($"[TRADE PROCESSING] 🚨 ABSOLUTE PROTECTION: {item.Name} is SHAPE TOOL - NEVER EVER GIVE AWAY - BLOCKING");
+                                continue; // Skip this item - NEVER add to return
+                            }
+
                             // CRITICAL: Check if this item was received from the player in THIS trade
                             bool wasReceivedFromPlayer = Core.ItemTracker.WasReceivedFromPlayer(item);
                             bool isBotPersonalItem = Core.ItemTracker.IsBotPersonalItem(item);
                             bool isBotTool = Core.ItemTracker.IsBotTool(item);
+
+                            // CRITICAL FIX: Check if this is a processing tool BUT allow player-provided tools to be returned
+                            // This catches BOT'S tools that ItemTracker might miss (e.g., stuck tools)
+                            if (IsProcessingTool(item) && !wasReceivedFromPlayer)
+                            {
+                                LogDebug($"[TRADE PROCESSING] 🛡️ TOOL PROTECTION: {item.Name} is bot's processing tool - NEVER give to player - BLOCKING");
+                                continue; // Skip this item - NEVER add to return
+                            }
 
                             // COMPREHENSIVE RULE: Return item if it was received from player OR if it's NOT a bot item
                             // This automatically includes ALL processed results without needing to manually track them
@@ -6109,8 +6242,7 @@ namespace Craftbot.Modules
             var itemName = item.Name?.ToLower() ?? "";
 
             // Common bot tools and items
-            return itemName.Contains("mass relocating robot") ||
-                   itemName.Contains("toolkit") ||
+            return itemName.Contains("toolkit") ||
                    itemName.Contains("screwdriver") ||
                    itemName.Contains("bio analyzing computer") ||
                    itemName.Contains("mastercomm") ||

@@ -15,6 +15,12 @@ namespace Craftbot.Recipes
     {
         public override string RecipeName => "Nano Crystal Repair";
 
+        /// <summary>
+        /// CRITICAL: Use single-item processing so each crystal gets processed individually
+        /// This ensures we find a new player-provided tool for each crystal
+        /// </summary>
+        public override bool UsesSingleItemProcessing => true;
+
         private static readonly string[] DamagedCrystalPrefixes = {
             "Badly Corroded Crystal",
             "Failed Repaired Crystal",

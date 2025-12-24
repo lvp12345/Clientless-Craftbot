@@ -199,6 +199,7 @@ namespace Craftbot.Core
 
         /// <summary>
         /// Process items received in trade - tracks them separately from bot's personal items
+        /// CRITICAL FIX: Checks if items were already in bot inventory before marking as received
         /// </summary>
         public static void ProcessReceivedItems(List<Item> items, string playerName)
         {
@@ -209,8 +210,34 @@ namespace Craftbot.Core
                 // DO NOT clear here - items are added one at a time!
                 // _currentTradeReceivedItems will be cleared when trade completes
 
+                int skippedCount = 0;
+                int trackedCount = 0;
+
                 foreach (var item in items)
                 {
+                    // CRITICAL FIX: Skip items that were already in bot's inventory before trade
+                    // This prevents bot's own items from being marked as "received from player"
+                    if (IsBotPersonalItem(item))
+                    {
+                        LogTransaction("SYSTEM", $"SKIPPED (BOT PERSONAL): {item.Name} (ID:{item.Id}) - already in bot inventory");
+                        skippedCount++;
+                        continue;
+                    }
+
+                    if (IsBotToolBag(item))
+                    {
+                        LogTransaction("SYSTEM", $"SKIPPED (BOT TOOL BAG): {item.Name} (ID:{item.Id}) - bot's tool bag");
+                        skippedCount++;
+                        continue;
+                    }
+
+                    if (IsBotTool(item))
+                    {
+                        LogTransaction("SYSTEM", $"SKIPPED (BOT TOOL): {item.Name} (ID:{item.Id}) - bot's tool");
+                        skippedCount++;
+                        continue;
+                    }
+
                     var trackedItem = new TrackedItem(item, playerName);
                     _receivedItems[trackedItem.GetKey()] = trackedItem;
 
@@ -226,9 +253,10 @@ namespace Craftbot.Core
                     _currentTradeReceivedItems[item.Id] = receivedInfo;
 
                     LogTransaction(playerName, $"RECEIVED: {item.Name} (ID:{item.Id}, QL:{item.Ql})");
+                    trackedCount++;
                 }
 
-                LogTransaction("SYSTEM", $"Processed {items.Count} received items from {playerName}");
+                LogTransaction("SYSTEM", $"Processed {trackedCount} received items from {playerName} (skipped {skippedCount} bot items)");
                 LogTransaction("SYSTEM", $"Current trade received items: {string.Join(", ", _currentTradeReceivedItems.Values.Select(i => i.ItemName))}");
 
                 // ACCIDENTAL TOOL DETECTION: Check if player provided tools that aren't required
@@ -321,13 +349,16 @@ namespace Craftbot.Core
         {
             if (!_initialized) Initialize();
 
-            // Check if this item ID was received from the player in the current trade
-            bool wasReceived = _currentTradeReceivedItems.ContainsKey(item.Id);
+            // CRITICAL FIX: Check by UNIQUE INSTANCE, not just Item ID
+            // This prevents bot's tools from being marked as "received from player" just because
+            // the player gave an item with the same Item ID
+            var key = new TrackedItem(item).GetKey();
+            bool wasReceived = _receivedItems.ContainsKey(key);
 
             if (wasReceived)
             {
-                var receivedInfo = _currentTradeReceivedItems[item.Id];
-                LogTransaction("SYSTEM", $"[PLAYER ITEM] Item {item.Name} (ID:{item.Id}) was received from player {receivedInfo.PlayerName} - SAFE TO RETURN");
+                var receivedInfo = _receivedItems[key];
+                LogTransaction("SYSTEM", $"[PLAYER ITEM] Item {item.Name} (ID:{item.Id}, Instance:{item.UniqueIdentity.Instance}) was received from player {receivedInfo.Source} - SAFE TO RETURN");
             }
 
             return wasReceived;
@@ -336,11 +367,20 @@ namespace Craftbot.Core
         /// <summary>
         /// Clear the current trade's received items tracking
         /// Call this when trade is complete and items have been returned
+        /// CRITICAL FIX: Also clears _receivedItems to prevent items from previous trades accumulating
         /// </summary>
         public static void ClearCurrentTradeItems()
         {
-            LogTransaction("SYSTEM", $"Clearing current trade received items tracking ({_currentTradeReceivedItems.Count} items)");
+            LogTransaction("SYSTEM", $"Clearing current trade received items tracking ({_currentTradeReceivedItems.Count} items, {_receivedItems.Count} received items)");
             _currentTradeReceivedItems.Clear();
+
+            // CRITICAL FIX: Also clear the _receivedItems dictionary to prevent items from previous trades
+            // from being returned to the wrong player
+            _receivedItems.Clear();
+
+            // Also clear recipe results since they should be returned with the trade
+            LogTransaction("SYSTEM", $"Clearing recipe results tracking ({_recipeResults.Count} items)");
+            _recipeResults.Clear();
         }
 
         /// <summary>
@@ -396,6 +436,7 @@ namespace Craftbot.Core
                 267751, // Ancient Engineering Device
                 95577,  // Lock Pick
                 161699, // Nano Programming Interface - CRITICAL: Was being given away to Ducksurper
+                162219, // Mass Relocating Robot (Shape Soft Armor) - CRITICAL: Was being given away - SUPER VALUABLE
             };
 
             if (knownToolIds.Contains(item.Id))

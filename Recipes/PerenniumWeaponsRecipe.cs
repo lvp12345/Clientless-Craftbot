@@ -256,10 +256,10 @@ namespace Craftbot.Recipes
                 return PerenniumStage.Step1_PerenniumParts;
 
             // Check for raw materials (need to create parts first)
+            // NOTE: Advanced Hacker Tool is NOT a raw material - it's a TOOL used in processing
             bool hasRawMaterials = items.Any(item =>
                 item.Name.Equals("Sheet of Perennium", StringComparison.OrdinalIgnoreCase) ||
                 item.Name.Contains("Spirit Tech Apparatus") ||
-                item.Name.Equals("Advanced Hacker Tool", StringComparison.OrdinalIgnoreCase) ||
                 ((item.Name.Contains("Premium Nano-Charged") ||
                   item.Name.Contains("Deluxe Nano-Charged") ||
                   item.Name.Contains("Nano-Charged")) && !item.Name.Contains("Hacked")));
